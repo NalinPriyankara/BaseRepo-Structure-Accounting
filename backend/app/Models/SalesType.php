@@ -22,4 +22,10 @@ class SalesType extends Model
         'factor' => 'decimal:1',
         'taxIncl' => 'boolean',
     ];
+
+    public function salesPricing()
+    {
+        return $this->hasMany(SalesPricing::class);
+    }
+
 }
