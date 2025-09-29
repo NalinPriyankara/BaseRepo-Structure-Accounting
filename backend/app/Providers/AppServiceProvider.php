@@ -18,6 +18,8 @@ use App\Repositories\All\FiscalYear\FiscalYearInterface;
 use App\Repositories\All\FiscalYear\FiscalYearRepository;
 use App\Repositories\All\FixedAssetsLocation\FixedAssetsLocationInterface;
 use App\Repositories\All\FixedAssetsLocation\FixedAssetsLocationRepository;
+use App\Repositories\All\ItemTaxType\ItemTaxTypeInterface;
+use App\Repositories\All\ItemTaxType\ItemTaxTypeRepository;
 use App\Repositories\All\SalesArea\SalesAreaInterface;
 use App\Repositories\All\SalesArea\SalesAreaRepository;
 use App\Repositories\All\SalesGroup\SalesGroupInterface;
@@ -62,6 +64,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(DimensionTagInterface::class, DimensionTagRepository::class);
         $this->app->bind(FixedAssetsLocationInterface::class, FixedAssetsLocationRepository::class);
         $this->app->bind(SalesPricingInterface::class, SalesPricingRepository::class);
+        $this->app->bind(ItemTaxTypeInterface::class, ItemTaxTypeRepository::class);
     }
 
     /**
