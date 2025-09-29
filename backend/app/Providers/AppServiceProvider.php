@@ -14,6 +14,8 @@ use App\Repositories\All\ExchangeRate\ExchangeRateInterface;
 use App\Repositories\All\ExchangeRate\ExchangeRateRepository;
 use App\Repositories\All\FiscalYear\FiscalYearInterface;
 use App\Repositories\All\FiscalYear\FiscalYearRepository;
+use App\Repositories\All\ItemTaxType\ItemTaxTypeInterface;
+use App\Repositories\All\ItemTaxType\ItemTaxTypeRepository;
 use App\Repositories\All\SalesArea\SalesAreaInterface;
 use App\Repositories\All\SalesArea\SalesAreaRepository;
 use App\Repositories\All\SalesGroup\SalesGroupInterface;
@@ -53,6 +55,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(CustomerInterface::class, CustomerRepository::class);
         $this->app->bind(SupplierInterface::class, SupplierRepository::class);
         $this->app->bind(SalesPersonInterface::class, SalesPersonRepository::class);
+        $this->app->bind(ItemTaxTypeInterface::class, ItemTaxTypeRepository::class);
     }
 
     /**

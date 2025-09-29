@@ -6,6 +6,7 @@ use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExchangeRateController;
 use App\Http\Controllers\FiscalYearController;
+use App\Http\Controllers\ItemTaxTypeController;
 use App\Http\Controllers\SalesAreaController;
 use App\Http\Controllers\SalesGroupController;
 use App\Http\Controllers\SalesPersonController;
@@ -40,3 +41,5 @@ Route::apiResource('exchange-rates', ExchangeRateController::class);
 
 Route::apiResource("customers", CustomerController::class);
 Route::apiResource("suppliers", SupplierController::class);
+
+Route::apiResource("item-tax-types", ItemTaxTypeController::class);
