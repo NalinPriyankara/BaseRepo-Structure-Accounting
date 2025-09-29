@@ -10,16 +10,22 @@ use App\Repositories\All\Currency\CurrencyInterface;
 use App\Repositories\All\Currency\CurrencyRepository;
 use App\Repositories\All\Customer\CustomerInterface;
 use App\Repositories\All\Customer\CustomerRepository;
+use App\Repositories\All\DimensionTag\DimensionTagInterface;
+use App\Repositories\All\DimensionTag\DimensionTagRepository;
 use App\Repositories\All\ExchangeRate\ExchangeRateInterface;
 use App\Repositories\All\ExchangeRate\ExchangeRateRepository;
 use App\Repositories\All\FiscalYear\FiscalYearInterface;
 use App\Repositories\All\FiscalYear\FiscalYearRepository;
+use App\Repositories\All\FixedAssetsLocation\FixedAssetsLocationInterface;
+use App\Repositories\All\FixedAssetsLocation\FixedAssetsLocationRepository;
 use App\Repositories\All\SalesArea\SalesAreaInterface;
 use App\Repositories\All\SalesArea\SalesAreaRepository;
 use App\Repositories\All\SalesGroup\SalesGroupInterface;
 use App\Repositories\All\SalesGroup\SalesGroupRepository;
 use App\Repositories\All\SalesPerson\SalesPersonInterface;
 use App\Repositories\All\SalesPerson\SalesPersonRepository;
+use App\Repositories\All\SalesPricing\SalesPricingInterface;
+use App\Repositories\All\SalesPricing\SalesPricingRepository;
 use App\Repositories\All\SalesType\SalesTypeInterface;
 use App\Repositories\All\SalesType\SalesTypeRepository;
 use App\Repositories\All\Supplier\SupplierInterface;
@@ -53,6 +59,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(CustomerInterface::class, CustomerRepository::class);
         $this->app->bind(SupplierInterface::class, SupplierRepository::class);
         $this->app->bind(SalesPersonInterface::class, SalesPersonRepository::class);
+        $this->app->bind(DimensionTagInterface::class, DimensionTagRepository::class);
+        $this->app->bind(FixedAssetsLocationInterface::class, FixedAssetsLocationRepository::class);
+        $this->app->bind(SalesPricingInterface::class, SalesPricingRepository::class);
     }
 
     /**

@@ -27,4 +27,9 @@ class Currency extends Model
     protected $casts = [
         'auto_exchange_rate_update' => 'boolean',
     ];
+
+    public function salesPricing()
+    {
+        return $this->hasMany(SalesPricing::class);
+    }
 }
