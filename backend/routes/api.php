@@ -2,11 +2,13 @@
 
 use App\Http\Controllers\AccountTagController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CreditStatusSetupController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExchangeRateController;
 use App\Http\Controllers\FiscalYearController;
 use App\Http\Controllers\ItemTaxTypeController;
+use App\Http\Controllers\ItemUnitController;
 use App\Http\Controllers\SalesAreaController;
 use App\Http\Controllers\SalesGroupController;
 use App\Http\Controllers\SalesPersonController;
@@ -15,6 +17,7 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\TaxGroupController;
 use App\Http\Controllers\TaxTypeController;
 use App\Http\Controllers\UserManagementController;
+use App\Http\Controllers\WorkCentreController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -43,3 +46,6 @@ Route::apiResource("customers", CustomerController::class);
 Route::apiResource("suppliers", SupplierController::class);
 
 Route::apiResource("item-tax-types", ItemTaxTypeController::class);
+Route::apiResource("work-centres", WorkCentreController::class);
+Route::apiResource("credit-status-setup", CreditStatusSetupController::class);
+Route::apiResource("item-units", ItemUnitController::class);

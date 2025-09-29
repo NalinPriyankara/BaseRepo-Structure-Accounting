@@ -6,6 +6,8 @@ use App\Repositories\All\AccountTag\AccountTagInterface;
 use App\Repositories\All\AccountTag\AccountTagRepository;
 use App\Repositories\All\Auth\AuthInterface;
 use App\Repositories\All\Auth\AuthRepository;
+use App\Repositories\All\CreditStatusSetup\CreditStatusSetupInterface;
+use App\Repositories\All\CreditStatusSetup\CreditStatusSetupRepository;
 use App\Repositories\All\Currency\CurrencyInterface;
 use App\Repositories\All\Currency\CurrencyRepository;
 use App\Repositories\All\Customer\CustomerInterface;
@@ -16,6 +18,8 @@ use App\Repositories\All\FiscalYear\FiscalYearInterface;
 use App\Repositories\All\FiscalYear\FiscalYearRepository;
 use App\Repositories\All\ItemTaxType\ItemTaxTypeInterface;
 use App\Repositories\All\ItemTaxType\ItemTaxTypeRepository;
+use App\Repositories\All\ItemUnit\ItemUnitInterface;
+use App\Repositories\All\ItemUnit\ItemUnitRepository;
 use App\Repositories\All\SalesArea\SalesAreaInterface;
 use App\Repositories\All\SalesArea\SalesAreaRepository;
 use App\Repositories\All\SalesGroup\SalesGroupInterface;
@@ -33,6 +37,8 @@ use App\Repositories\All\TaxType\TaxTypeRepository;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\All\UserManagement\UserManagementInterface;
 use App\Repositories\All\UserManagement\UserManagementRepository;
+use App\Repositories\All\WorkCentre\WorkCentreInterface;
+use App\Repositories\All\WorkCentre\WorkCentreRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -56,6 +62,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SupplierInterface::class, SupplierRepository::class);
         $this->app->bind(SalesPersonInterface::class, SalesPersonRepository::class);
         $this->app->bind(ItemTaxTypeInterface::class, ItemTaxTypeRepository::class);
+        $this->app->bind(WorkCentreInterface::class, WorkCentreRepository::class);
+        $this->app->bind(CreditStatusSetupInterface::class, CreditStatusSetupRepository::class);
+        $this->app->bind(ItemUnitInterface::class, ItemUnitRepository::class);
     }
 
     /**
