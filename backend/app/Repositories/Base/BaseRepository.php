@@ -25,7 +25,7 @@ class BaseRepository implements EloquentRepositoryInterface
         return $this->model->paginate($perPage);
     }
 
-    public function find(int $id): ?Model
+    public function find(mixed $id): ?Model
     {
         return $this->model->find($id);
     }
@@ -35,14 +35,14 @@ class BaseRepository implements EloquentRepositoryInterface
         return $this->model->create($data);
     }
 
-    public function update(int $id, array $data): bool
+    public function update(mixed $id, array $data): bool
     {
         $record = $this->find($id);
         if (! $record) return false;
         return $record->update($data);
     }
 
-    public function delete(int $id): bool
+    public function delete(mixed $id): bool
     {
         $record = $this->find($id);
         if (! $record) return false;
