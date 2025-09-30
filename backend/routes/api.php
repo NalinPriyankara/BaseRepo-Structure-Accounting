@@ -12,6 +12,7 @@ use App\Http\Controllers\DimensionTagController;
 use App\Http\Controllers\ExchangeRateController;
 use App\Http\Controllers\FiscalYearController;
 use App\Http\Controllers\FixedAssetsLocationController;
+use App\Http\Controllers\InventoryLocationController;
 use App\Http\Controllers\ItemTaxTypeController;
 use App\Http\Controllers\ItemUnitController;
 use App\Http\Controllers\SalesAreaController;
@@ -63,3 +64,6 @@ Route::apiResource('sales-pricings', SalesPricingController::class);
 Route::apiResource('chart-classes', ChartClassController::class);
 Route::apiResource('chart-types', ChartTypeController::class);
 Route::apiResource('chart-masters', ChartMasterController::class);
+
+Route::apiResource('inventory-locations', InventoryLocationController::class);
+
