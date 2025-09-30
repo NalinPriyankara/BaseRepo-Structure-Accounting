@@ -9,6 +9,7 @@ use App\Http\Controllers\DimensionTagController;
 use App\Http\Controllers\ExchangeRateController;
 use App\Http\Controllers\FiscalYearController;
 use App\Http\Controllers\FixedAssetsLocationController;
+use App\Http\Controllers\InventoryLocationController;
 use App\Http\Controllers\ItemTaxTypeController;
 use App\Http\Controllers\ItemUnitController;
 use App\Http\Controllers\SalesAreaController;
@@ -56,5 +57,7 @@ Route::apiResource("item-units", ItemUnitController::class);
 Route::apiResource('dimension-tags', DimensionTagController::class);
 Route::apiResource('fixed-assets-locations', FixedAssetsLocationController::class);
 Route::apiResource('sales-pricings', SalesPricingController::class);
+
+Route::apiResource('inventory-locations', InventoryLocationController::class);
 
 
