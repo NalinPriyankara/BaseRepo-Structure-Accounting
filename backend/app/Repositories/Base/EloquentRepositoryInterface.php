@@ -12,11 +12,11 @@ interface EloquentRepositoryInterface
 
     public function paginate(int $perPage = 15): LengthAwarePaginator;
 
-    public function find(int $id): ?Model;
+    public function find(mixed $id): ?Model;
 
     public function create(array $data): Model;
 
-    public function update(int $id, array $data): bool;
+    public function update(mixed $id, array $data): bool;
 
-    public function delete(int $id): bool;
+    public function delete(mixed $id): bool;
 }
