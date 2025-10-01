@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChartClassController;
 use App\Http\Controllers\ChartMasterController;
 use App\Http\Controllers\ChartTypeController;
+use App\Http\Controllers\CompanySetupController;
 use App\Http\Controllers\CreditStatusSetupController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CustomerController;
@@ -63,3 +64,5 @@ Route::apiResource('sales-pricings', SalesPricingController::class);
 Route::apiResource('chart-classes', ChartClassController::class);
 Route::apiResource('chart-types', ChartTypeController::class);
 Route::apiResource('chart-masters', ChartMasterController::class);
+
+Route::apiResource("company-setup", CompanySetupController::class);

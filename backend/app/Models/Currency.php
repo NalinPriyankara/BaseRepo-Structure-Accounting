@@ -32,4 +32,10 @@ class Currency extends Model
     {
         return $this->hasMany(SalesPricing::class);
     }
+
+    public function companySetup()
+    {
+        return $this->hasMany(CompanySetup::class, 'home_currency_id');
+    }
+
 }

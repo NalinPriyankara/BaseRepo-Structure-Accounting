@@ -12,4 +12,10 @@ class FiscalYear extends Model
         'fiscal_year_from',
         'fiscal_year_to',
     ];
+
+    public function companySetup()
+    {
+        return $this->hasMany(CompanySetup::class, 'fiscal_year_id');
+    }
+
 }

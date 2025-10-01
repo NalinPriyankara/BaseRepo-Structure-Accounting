@@ -18,10 +18,4 @@ class SalesPricingRepository extends BaseRepository implements SalesPricingInter
         return $this->model->with(['currency', 'salesType'])->get();
     }
 
-    public function find(int|string $id): ?SalesPricing
-    {
-        return $this->model->with(['currency', 'salesType'])->find($id);
-    }
-
-
 }
