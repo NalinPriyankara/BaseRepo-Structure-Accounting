@@ -28,6 +28,8 @@ use App\Repositories\All\FiscalYear\FiscalYearInterface;
 use App\Repositories\All\FiscalYear\FiscalYearRepository;
 use App\Repositories\All\FixedAssetsLocation\FixedAssetsLocationInterface;
 use App\Repositories\All\FixedAssetsLocation\FixedAssetsLocationRepository;
+use App\Repositories\All\InventoryLocation\InventoryLocationInterface;
+use App\Repositories\All\InventoryLocation\InventoryLocationRepository;
 use App\Repositories\All\ItemTaxType\ItemTaxTypeInterface;
 use App\Repositories\All\ItemTaxType\ItemTaxTypeRepository;
 use App\Repositories\All\ItemUnit\ItemUnitInterface;
@@ -86,6 +88,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ChartTypeInterface::class, ChartTypeRepository::class);
         $this->app->bind(ChartMasterInterface::class, ChartMasterRepository::class);
         $this->app->bind(CompanySetupInterface::class, CompanySetupRepository::class);
+        $this->app->bind(InventoryLocationInterface::class, InventoryLocationRepository::class);
     }
 
     /**
