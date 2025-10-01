@@ -12,6 +12,8 @@ use App\Repositories\All\ChartMaster\ChartMasterInterface;
 use App\Repositories\All\ChartMaster\ChartMasterRepository;
 use App\Repositories\All\ChartType\ChartTypeInterface;
 use App\Repositories\All\ChartType\ChartTypeRepository;
+use App\Repositories\All\CompanySetup\CompanySetupInterface;
+use App\Repositories\All\CompanySetup\CompanySetupRepository;
 use App\Repositories\All\CreditStatusSetup\CreditStatusSetupInterface;
 use App\Repositories\All\CreditStatusSetup\CreditStatusSetupRepository;
 use App\Repositories\All\Currency\CurrencyInterface;
@@ -85,6 +87,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ChartClassInterface::class, ChartClassRepository::class);
         $this->app->bind(ChartTypeInterface::class, ChartTypeRepository::class);
         $this->app->bind(ChartMasterInterface::class, ChartMasterRepository::class);
+        $this->app->bind(CompanySetupInterface::class, CompanySetupRepository::class);
         $this->app->bind(InventoryLocationInterface::class, InventoryLocationRepository::class);
     }
 

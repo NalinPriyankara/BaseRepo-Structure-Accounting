@@ -28,4 +28,10 @@ class SalesType extends Model
         return $this->hasMany(SalesPricing::class);
     }
 
+    public function companiesUsingAsBasePrice()
+    {
+        return $this->hasMany(CompanySetup::class, 'base_auto_price_calculation');
+    }
+
+
 }
