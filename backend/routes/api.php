@@ -16,11 +16,13 @@ use App\Http\Controllers\FixedAssetsLocationController;
 use App\Http\Controllers\InventoryLocationController;
 use App\Http\Controllers\ItemTaxTypeController;
 use App\Http\Controllers\ItemUnitController;
+use App\Http\Controllers\PaymentTermController;
 use App\Http\Controllers\SalesAreaController;
 use App\Http\Controllers\SalesGroupController;
 use App\Http\Controllers\SalesPersonController;
 use App\Http\Controllers\SalesPricingController;
 use App\Http\Controllers\SalesTypeController;
+use App\Http\Controllers\ShippingCompnayController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\TaxGroupController;
 use App\Http\Controllers\TaxTypeController;
@@ -68,3 +70,6 @@ Route::apiResource('chart-masters', ChartMasterController::class);
 
 Route::apiResource('inventory-locations', InventoryLocationController::class);
 Route::apiResource("company-setup", CompanySetupController::class);
+
+Route::apiResource('shipping-companies', ShippingCompnayController::class);
+Route::apiResource('payment-terms', PaymentTermController::class);
