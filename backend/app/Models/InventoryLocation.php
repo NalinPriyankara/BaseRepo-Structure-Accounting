@@ -19,11 +19,11 @@ class InventoryLocation extends Model
     protected $fillable = [
         'loc_code',
         'location_name',
+        'contact',
         'delivery_address',
         'phone',
         'phone2',
         'fax',
         'email',
-        'contact',
     ];
 }

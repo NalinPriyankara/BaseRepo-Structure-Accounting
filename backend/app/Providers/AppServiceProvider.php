@@ -34,6 +34,8 @@ use App\Repositories\All\ItemTaxType\ItemTaxTypeInterface;
 use App\Repositories\All\ItemTaxType\ItemTaxTypeRepository;
 use App\Repositories\All\ItemUnit\ItemUnitInterface;
 use App\Repositories\All\ItemUnit\ItemUnitRepository;
+use App\Repositories\All\PaymentTerm\PaymentTermInterface;
+use App\Repositories\All\PaymentTerm\PaymentTermRepository;
 use App\Repositories\All\SalesArea\SalesAreaInterface;
 use App\Repositories\All\SalesArea\SalesAreaRepository;
 use App\Repositories\All\SalesGroup\SalesGroupInterface;
@@ -44,6 +46,8 @@ use App\Repositories\All\SalesPricing\SalesPricingInterface;
 use App\Repositories\All\SalesPricing\SalesPricingRepository;
 use App\Repositories\All\SalesType\SalesTypeInterface;
 use App\Repositories\All\SalesType\SalesTypeRepository;
+use App\Repositories\All\ShippingCompany\ShippingCompanyInterface;
+use App\Repositories\All\ShippingCompany\ShippingCompanyRepository;
 use App\Repositories\All\Supplier\SupplierInterface;
 use App\Repositories\All\Supplier\SupplierRepository;
 use App\Repositories\All\TaxGroup\TaxGroupInterface;
@@ -89,6 +93,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ChartMasterInterface::class, ChartMasterRepository::class);
         $this->app->bind(CompanySetupInterface::class, CompanySetupRepository::class);
         $this->app->bind(InventoryLocationInterface::class, InventoryLocationRepository::class);
+        $this->app->bind(ShippingCompanyInterface::class, ShippingCompanyRepository::class);
+        $this->app->bind(PaymentTermInterface::class, PaymentTermRepository::class);
     }
 
     /**
