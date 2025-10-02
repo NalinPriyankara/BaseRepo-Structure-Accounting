@@ -22,9 +22,8 @@ class CreditStatusSetupRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'abbr' => 'required|string|max:255',
-            'name' => 'required|string|max:255',
-            'decimals' => 'required|integer',
+            'reason_description' => 'required|string|max:255',
+            'disallow_invoices' => 'required|boolean',
         ];
     }
 }
