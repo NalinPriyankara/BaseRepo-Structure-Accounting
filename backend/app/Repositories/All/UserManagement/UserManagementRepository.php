@@ -23,7 +23,7 @@ class UserManagementRepository extends BaseRepository implements UserManagementI
         ])->get();
     }
 
-    public function find(int $id): ?Model
+    public function find(mixed $id): ?Model
     {
         return $this->model->find($id);
     }
