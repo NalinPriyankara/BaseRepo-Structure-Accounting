@@ -16,10 +16,15 @@ use App\Repositories\All\CompanySetup\CompanySetupInterface;
 use App\Repositories\All\CompanySetup\CompanySetupRepository;
 use App\Repositories\All\CreditStatusSetup\CreditStatusSetupInterface;
 use App\Repositories\All\CreditStatusSetup\CreditStatusSetupRepository;
+use App\Repositories\All\CrmPersons\CrmPersonsInterface;
+use App\Repositories\All\CrmPersons\CrmPersonsRepository;
 use App\Repositories\All\Currency\CurrencyInterface;
 use App\Repositories\All\Currency\CurrencyRepository;
 use App\Repositories\All\Customer\CustomerInterface;
 use App\Repositories\All\Customer\CustomerRepository;
+use App\Repositories\All\DebtorMaster\DebtorMasterInterface;
+use App\Repositories\All\DebtorsMaster\DebtorsMasterInterface;
+use App\Repositories\All\DebtorsMaster\DebtorsMasterRepository;
 use App\Repositories\All\DimensionTag\DimensionTagInterface;
 use App\Repositories\All\DimensionTag\DimensionTagRepository;
 use App\Repositories\All\ExchangeRate\ExchangeRateInterface;
@@ -95,6 +100,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(InventoryLocationInterface::class, InventoryLocationRepository::class);
         $this->app->bind(ShippingCompanyInterface::class, ShippingCompanyRepository::class);
         $this->app->bind(PaymentTermInterface::class, PaymentTermRepository::class);
+        $this->app->bind(DebtorsMasterInterface::class, DebtorsMasterRepository::class);
+        $this->app->bind(CrmPersonsInterface::class, CrmPersonsRepository::class);
     }
 
     /**

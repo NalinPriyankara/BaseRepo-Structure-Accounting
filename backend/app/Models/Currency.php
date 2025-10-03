@@ -38,4 +38,9 @@ class Currency extends Model
         return $this->hasMany(CompanySetup::class, 'home_currency_id');
     }
 
+    public function debtors()
+    {
+        return $this->hasMany(DebtorsMaster::class, 'curr_code', 'currency_abbreviation');
+    }
+
 }

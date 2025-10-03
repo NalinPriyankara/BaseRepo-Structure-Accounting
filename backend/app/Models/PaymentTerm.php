@@ -24,4 +24,10 @@ class PaymentTerm extends Model
     protected $casts = [
         'inactive' => 'boolean',
     ];
+
+    public function debtors()
+    {
+        return $this->hasMany(DebtorsMaster::class, 'payment_terms', 'terms_indicator');
+    }
+
 }

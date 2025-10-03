@@ -7,8 +7,10 @@ use App\Http\Controllers\ChartMasterController;
 use App\Http\Controllers\ChartTypeController;
 use App\Http\Controllers\CompanySetupController;
 use App\Http\Controllers\CreditStatusSetupController;
+use App\Http\Controllers\CrmPersonsController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DebtorsMasterController;
 use App\Http\Controllers\DimensionTagController;
 use App\Http\Controllers\ExchangeRateController;
 use App\Http\Controllers\FiscalYearController;
@@ -73,3 +75,6 @@ Route::apiResource("company-setup", CompanySetupController::class);
 
 Route::apiResource('shipping-companies', ShippingCompnayController::class);
 Route::apiResource('payment-terms', PaymentTermController::class);
+
+Route::apiResource('debtors-master', DebtorsMasterController::class);
+Route::apiResource('crm-persons', CrmPersonsController::class);

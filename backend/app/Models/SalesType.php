@@ -33,5 +33,10 @@ class SalesType extends Model
         return $this->hasMany(CompanySetup::class, 'base_auto_price_calculation');
     }
 
+    public function debtors()
+    {
+        return $this->hasMany(DebtorsMaster::class, 'sales_type', 'id');
+    }
+
 
 }

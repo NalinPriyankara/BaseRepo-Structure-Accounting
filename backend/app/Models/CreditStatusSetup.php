@@ -15,4 +15,10 @@ class CreditStatusSetup extends Model
         'disallow_invoices',
         'inactive',
     ];
+
+    public function debtors()
+    {
+        return $this->hasMany(DebtorsMaster::class, 'credit_status', 'id');
+    }
+
 }
