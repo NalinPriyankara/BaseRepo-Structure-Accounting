@@ -22,6 +22,8 @@ use App\Repositories\All\Currency\CurrencyInterface;
 use App\Repositories\All\Currency\CurrencyRepository;
 use App\Repositories\All\Customer\CustomerInterface;
 use App\Repositories\All\Customer\CustomerRepository;
+use App\Repositories\All\CustomerBranch\CustomerBranchInterface;
+use App\Repositories\All\CustomerBranch\CustomerBranchRepository;
 use App\Repositories\All\DebtorMaster\DebtorMasterInterface;
 use App\Repositories\All\DebtorsMaster\DebtorsMasterInterface;
 use App\Repositories\All\DebtorsMaster\DebtorsMasterRepository;
@@ -102,6 +104,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(PaymentTermInterface::class, PaymentTermRepository::class);
         $this->app->bind(DebtorsMasterInterface::class, DebtorsMasterRepository::class);
         $this->app->bind(CrmPersonsInterface::class, CrmPersonsRepository::class);
+        $this->app->bind(CustomerBranchInterface::class, CustomerBranchRepository::class);
     }
 
     /**

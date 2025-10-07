@@ -20,4 +20,9 @@ class ShippingCompany extends Model
         'address',
         'inactive',
     ];
+
+    public function branches()
+    {
+        return $this->hasMany(CustomerBranch::class, 'shipping_company', 'shipper_id');
+    }
 }
