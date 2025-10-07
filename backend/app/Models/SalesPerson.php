@@ -17,4 +17,9 @@ class SalesPerson extends Model
         'turnover_break_point',
         'provision2',
     ];
+
+    public function branches()
+    {
+        return $this->hasMany(CustomerBranch::class, 'sales_person', 'id');
+    }
 }

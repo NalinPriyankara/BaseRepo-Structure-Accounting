@@ -14,4 +14,9 @@ class TaxGroup extends Model
         'tax',
         'shipping_tax',
     ];
+
+    public function branches()
+    {
+        return $this->hasMany(CustomerBranch::class, 'tax_group', 'id');
+    }
 }

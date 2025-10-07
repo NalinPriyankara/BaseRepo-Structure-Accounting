@@ -26,4 +26,9 @@ class InventoryLocation extends Model
         'fax',
         'email',
     ];
+
+    public function branches()
+    {
+        return $this->hasMany(CustomerBranch::class, 'inventory_location', 'loc_code');
+    }
 }

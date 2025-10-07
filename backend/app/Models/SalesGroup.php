@@ -14,4 +14,9 @@ class SalesGroup extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function branches()
+    {
+        return $this->hasMany(CustomerBranch::class, 'sales_group', 'id');
+    }
 }

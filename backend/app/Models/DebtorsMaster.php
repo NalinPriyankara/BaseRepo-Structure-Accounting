@@ -58,4 +58,9 @@ class DebtorsMaster extends Model
     {
         return $this->belongsTo(PaymentTerm::class, 'payment_terms', 'terms_indicator');
     }
+
+    public function branches()
+    {
+        return $this->hasMany(CustomerBranch::class, 'debtor_no', 'debtor_no');
+    }
 }
