@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class FiscalYearRequest extends FormRequest
 {
@@ -21,11 +22,20 @@ class FiscalYearRequest extends FormRequest
      */
     public function rules(): array
     {
-        $id = $this->route('fiscalyear');
-        
+        $id = $this->route('id');
+
         return [
-            'fiscal_year_from' => 'required|string|max:255|unique:fiscal_years,fiscal_year_from,' . $id,
-            'fiscal_year_to'   => 'required|string|max:255',
+            'fiscal_year_from' => [
+                'required',
+                'date',
+                Rule::unique('fiscal_years', 'fiscal_year_from')->ignore($id, 'id'),
+            ],
+            'fiscal_year_to' => [
+                'required',
+                'date',
+                'after_or_equal:fiscal_year_from',
+                Rule::unique('fiscal_years', 'fiscal_year_to')->ignore($id, 'id'),
+            ],
         ];
     }
 }
