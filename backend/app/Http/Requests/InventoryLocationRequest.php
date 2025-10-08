@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class InventoryLocationRequest extends FormRequest
 {
@@ -21,8 +22,15 @@ class InventoryLocationRequest extends FormRequest
      */
     public function rules(): array
     {
+        $id = $this->route('inventory_location') ?? $this->id;
+
         return [
-            'loc_code'        => 'required|string|max:255|unique:inventory_locations,loc_code',
+            'loc_code'        => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('inventory_locations', 'loc_code')->ignore($id),
+            ],
             'location_name'   => 'required|string|max:255',
             'delivery_address'=> 'required|string',
             'phone'           => 'required|string|max:50',

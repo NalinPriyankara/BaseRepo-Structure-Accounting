@@ -30,7 +30,7 @@ class DebtorsMasterRequest extends FormRequest
             'sales_type' => 'required|exists:sales_types,id',
             'dimension_id' => 'nullable|integer|min:0',
             'dimension2_id' => 'nullable|integer|min:0',
-            'credit_status' => 'required|exists:credit_status_setups,id',
+            'credit_status' => 'nullable|exists:credit_status_setups,id',
             'payment_terms' => 'nullable|exists:payment_terms,terms_indicator',
             'discount' => 'nullable|numeric|min:0',
             'pymt_discount' => 'nullable|numeric|min:0',
