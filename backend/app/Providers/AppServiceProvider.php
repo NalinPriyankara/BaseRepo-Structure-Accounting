@@ -10,6 +10,8 @@ use App\Repositories\All\CompanySetup\CompanySetupInterface;
 use App\Repositories\All\CompanySetup\CompanySetupRepository;
 use App\Repositories\All\CreditStatusSetup\CreditStatusSetupInterface;
 use App\Repositories\All\CreditStatusSetup\CreditStatusSetupRepository;
+use App\Repositories\All\CrmCategory\CrmCategoryInterface;
+use App\Repositories\All\CrmCategory\CrmCategoryRepository;
 use App\Repositories\All\CrmPersons\CrmPersonsInterface;
 use App\Repositories\All\CrmPersons\CrmPersonsRepository;
 use App\Repositories\All\Currency\CurrencyInterface;
@@ -95,6 +97,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(DebtorsMasterInterface::class, DebtorsMasterRepository::class);
         $this->app->bind(CrmPersonsInterface::class, CrmPersonsRepository::class);
         $this->app->bind(CustomerBranchInterface::class, CustomerBranchRepository::class);
+        $this->app->bind(CrmCategoryInterface::class, CrmCategoryRepository::class);
     }
 
     /**
