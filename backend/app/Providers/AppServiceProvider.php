@@ -6,6 +6,14 @@ use App\Repositories\All\AccountTag\AccountTagInterface;
 use App\Repositories\All\AccountTag\AccountTagRepository;
 use App\Repositories\All\Auth\AuthInterface;
 use App\Repositories\All\Auth\AuthRepository;
+use App\Repositories\All\ChartClass\ChartClassInterface;
+use App\Repositories\All\ChartClass\ChartClassRepository;
+use App\Repositories\All\ChartMaster\ChartMasterInterface;
+use App\Repositories\All\ChartMaster\ChartMasterRepository;
+use App\Repositories\All\ChartType\ChartTypeInterface;
+use App\Repositories\All\ChartType\ChartTypeRepository;
+use App\Repositories\All\ClassType\ClassTypeInterface;
+use App\Repositories\All\ClassType\ClassTypeRepository;
 use App\Repositories\All\CompanySetup\CompanySetupInterface;
 use App\Repositories\All\CompanySetup\CompanySetupRepository;
 use App\Repositories\All\CreditStatusSetup\CreditStatusSetupInterface;
@@ -98,6 +106,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(CrmPersonsInterface::class, CrmPersonsRepository::class);
         $this->app->bind(CustomerBranchInterface::class, CustomerBranchRepository::class);
         $this->app->bind(CrmCategoryInterface::class, CrmCategoryRepository::class);
+        $this->app->bind(ChartClassInterface::class, ChartClassRepository::class);
+        $this->app->bind(ChartTypeInterface::class, ChartTypeRepository::class);
+        $this->app->bind(ChartMasterInterface::class, ChartMasterRepository::class);
+        $this->app->bind(ClassTypeInterface::class, ClassTypeRepository::class);
     }
 
     /**
