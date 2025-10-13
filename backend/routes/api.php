@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\AccountTagController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChartClassController;
+use App\Http\Controllers\ChartMasterController;
+use App\Http\Controllers\ChartTypeController;
+use App\Http\Controllers\ClassTypeController;
 use App\Http\Controllers\CompanySetupController;
 use App\Http\Controllers\CreditStatusSetupController;
 use App\Http\Controllers\CrmCategoryController;
@@ -75,3 +79,8 @@ Route::apiResource('debtors-master', DebtorsMasterController::class);
 Route::apiResource('crm-persons', CrmPersonsController::class);
 Route::apiResource('customer-branch', CustomerBranchController::class);
 Route::apiResource('crm-categories', CrmCategoryController::class);
+
+Route::apiResource('chart-classes', ChartClassController::class);
+Route::apiResource('chart-types', ChartTypeController::class);
+Route::apiResource('chart-masters', ChartMasterController::class);
+Route::apiResource('class-types', ClassTypeController::class);
