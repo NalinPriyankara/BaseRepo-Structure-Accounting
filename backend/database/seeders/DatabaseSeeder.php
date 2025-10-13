@@ -21,9 +21,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
          $this->call([
+            ClassTypesSeeder::class,
             ChartClassSeeder::class, 
             ChartTypesSeeder::class,
-            ChartMasterSeeder::class,
+            ChartMasterSeeder::class, 
         ]);
     }
 }
