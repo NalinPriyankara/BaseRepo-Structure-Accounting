@@ -20,4 +20,14 @@ class ChartMaster extends Model
     {
         return $this->belongsTo(ChartType::class, 'account_type', 'id');
     }
+
+    public function bankAccounts()
+    {
+        return $this->hasMany(BankAccount::class, 'account_gl_code', 'account_code');
+    }
+
+    public function bankChargeAccounts()
+    {
+        return $this->hasMany(BankAccount::class, 'bank_charges_act', 'account_code');
+    }
 }

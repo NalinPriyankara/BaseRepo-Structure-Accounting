@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AccountTagController;
+use App\Http\Controllers\AccountTypeController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BankAccountController;
 use App\Http\Controllers\ChartClassController;
 use App\Http\Controllers\ChartMasterController;
 use App\Http\Controllers\ChartTypeController;
@@ -84,3 +86,5 @@ Route::apiResource('chart-classes', ChartClassController::class);
 Route::apiResource('chart-types', ChartTypeController::class);
 Route::apiResource('chart-masters', ChartMasterController::class);
 Route::apiResource('class-types', ClassTypeController::class);
+Route::apiResource('account-types', AccountTypeController::class);
+Route::apiResource('bank-accounts', BankAccountController::class);
