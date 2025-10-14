@@ -21,12 +21,18 @@ class ChartTypeRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'id'       => 'required|string|max:10|unique:chart_types,id,' . $this->route('id'),
-            'name'     => 'required|string|max:60',
-            'class_id' => 'required|string|exists:chart_class,cid',
-            'parent'   => 'nullable|string|max:10',
-            'inactive' => 'boolean',
+        $rules = [
+        'name'     => 'required|string|max:60',
+        'class_id' => 'required|string|exists:chart_class,cid',
+        'parent'   => 'nullable|string|max:10',
+        'inactive' => 'boolean',
         ];
+
+        // Only validate 'id' for CREATE (POST), not UPDATE (PUT/PATCH)
+        if ($this->method() !== 'PUT' && $this->method() !== 'PATCH') {
+            $rules['id'] = 'required|string|max:10|unique:chart_types,id';
+        }
+
+        return $rules;
+        }
     }
-}
