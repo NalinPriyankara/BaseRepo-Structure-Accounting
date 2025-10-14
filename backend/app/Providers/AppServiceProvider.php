@@ -4,8 +4,12 @@ namespace App\Providers;
 
 use App\Repositories\All\AccountTag\AccountTagInterface;
 use App\Repositories\All\AccountTag\AccountTagRepository;
+use App\Repositories\All\AccountType\AccountTypeInterface;
+use App\Repositories\All\AccountType\AccountTypeRepository;
 use App\Repositories\All\Auth\AuthInterface;
 use App\Repositories\All\Auth\AuthRepository;
+use App\Repositories\All\BankAccount\BankAccountInterface;
+use App\Repositories\All\BankAccount\BankAccountRepository as BankAccountBankAccountRepository;
 use App\Repositories\All\ChartClass\ChartClassInterface;
 use App\Repositories\All\ChartClass\ChartClassRepository;
 use App\Repositories\All\ChartMaster\ChartMasterInterface;
@@ -110,6 +114,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ChartTypeInterface::class, ChartTypeRepository::class);
         $this->app->bind(ChartMasterInterface::class, ChartMasterRepository::class);
         $this->app->bind(ClassTypeInterface::class, ClassTypeRepository::class);
+        $this->app->bind(AccountTypeInterface::class, AccountTypeRepository::class);
+        $this->app->bind(BankAccountInterface::class, BankAccountBankAccountRepository::class);
     }
 
     /**
