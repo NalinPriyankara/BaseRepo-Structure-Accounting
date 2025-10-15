@@ -11,4 +11,9 @@ class TaxTypeRepository extends BaseRepository implements TaxTypeInterface
     {
         parent::__construct($model);
     }
+
+    public function allWithRelations()
+    {
+        return $this->model->with(['salesGlAccount', 'purchasingGlAccount'])->get();
+    }
 }

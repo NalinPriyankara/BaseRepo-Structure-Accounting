@@ -21,10 +21,10 @@ return new class extends Migration
             $table->unsignedBigInteger('sales_person')->nullable();
             $table->string('inventory_location', 15)->default('');
             $table->unsignedBigInteger('tax_group')->nullable();
-            $table->string('sales_account', 15)->default('');
-            $table->string('sales_discount_account', 15)->default('');
-            $table->string('receivables_account', 15)->default('');
-            $table->string('payment_discount_account', 15)->default('');
+            $table->string('sales_account', 15)->nullable();
+            $table->string('sales_discount_account', 15)->nullable();
+            $table->string('receivables_account', 15)->nullable();
+            $table->string('payment_discount_account', 15)->nullable();
             $table->unsignedBigInteger('shipping_company')->nullable();
             $table->tinyText('br_post_address')->nullable();
             $table->unsignedBigInteger('sales_group')->nullable();
@@ -40,6 +40,10 @@ return new class extends Migration
             $table->foreign('tax_group')->references('id')->on('tax_groups')->nullOnDelete();
             $table->foreign('shipping_company')->references('shipper_id')->on('shipping_companies')->cascadeOnDelete();
             $table->foreign('sales_group')->references('id')->on('sales_groups')->nullOnDelete();
+            $table->foreign('sales_account')->references('account_code')->on('chart_master')->onDelete('cascade');
+            $table->foreign('sales_discount_account')->references('account_code')->on('chart_master')->onDelete('cascade');
+            $table->foreign('receivables_account')->references('account_code')->on('chart_master')->onDelete('cascade');
+            $table->foreign('payment_discount_account')->references('account_code')->on('chart_master')->onDelete('cascade');
         });
     }
 

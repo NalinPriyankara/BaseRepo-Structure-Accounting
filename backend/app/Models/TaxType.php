@@ -15,4 +15,14 @@ class TaxType extends Model
         'sales_gl_account',
         'purchasing_gl_account',
     ];
+
+    public function salesGlAccount()
+    {
+        return $this->belongsTo(ChartMaster::class, 'sales_gl_account', 'account_code');
+    }
+
+    public function purchasingGlAccount()
+    {
+        return $this->belongsTo(ChartMaster::class, 'purchasing_gl_account', 'account_code');
+    }
 }

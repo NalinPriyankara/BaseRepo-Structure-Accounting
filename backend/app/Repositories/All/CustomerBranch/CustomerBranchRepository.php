@@ -14,6 +14,6 @@ class CustomerBranchRepository extends BaseRepository implements CustomerBranchI
 
     public function allWithRelations()
     {
-        return $this->model->with(['debtor', 'salesArea', 'salesPerson', 'inventoryLocation', 'taxGroup', 'shippingCompany', 'salesGroup'])->get();
+        return $this->model->with(['debtor', 'salesArea', 'salesPerson', 'inventoryLocation', 'taxGroup', 'shippingCompany', 'salesGroup', 'salesAccount', 'salesDiscountAccount', 'receivablesAccount', 'paymentDiscountAccount'])->get();
     }
 }

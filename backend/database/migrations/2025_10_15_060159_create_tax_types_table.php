@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('sales_gl_account');
             $table->string('purchasing_gl_account');
             $table->timestamps();
+
+            $table->foreign('sales_gl_account')->references('account_code')->on('chart_master')->onDelete('cascade');
+            $table->foreign('purchasing_gl_account')->references('account_code')->on('chart_master')->onDelete('cascade');
         });
     }
 

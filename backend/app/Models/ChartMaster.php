@@ -30,4 +30,34 @@ class ChartMaster extends Model
     {
         return $this->hasMany(BankAccount::class, 'bank_charges_act', 'account_code');
     }
+
+    public function SalesAccount()
+    {
+        return $this->hasMany(CustomerBranch::class, 'sales_account', 'account_code');
+    }
+
+    public function SalesDiscountAccount()
+    {
+        return $this->hasMany(CustomerBranch::class, 'sales_discount_account', 'account_code');
+    }
+
+    public function ReceivablesAccount()
+    {
+        return $this->hasMany(CustomerBranch::class, 'receivables_account', 'account_code');
+    }
+
+    public function PaymentDiscountAccount()
+    {
+        return $this->hasMany(CustomerBranch::class, 'payment_discount_account', 'account_code');
+    }
+
+    public function TaxTypesAsSalesAccount()
+    {
+        return $this->hasMany(TaxType::class, 'sales_gl_account', 'account_code');
+    }
+
+    public function TaxTypesAsPurchasingAccount()
+    {
+        return $this->hasMany(TaxType::class, 'purchasing_gl_account', 'account_code');
+    }
 }
