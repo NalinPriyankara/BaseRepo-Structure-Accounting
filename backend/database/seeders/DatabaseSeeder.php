@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             ChartClassSeeder::class, 
             ChartTypesSeeder::class,
             ChartMasterSeeder::class, 
+            AccountTypeSeeder::class,
         ]);
     }
 }
