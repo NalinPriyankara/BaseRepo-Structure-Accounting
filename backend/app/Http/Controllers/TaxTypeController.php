@@ -16,7 +16,7 @@ class TaxTypeController extends Controller
 
     public function index()
     {
-        return response()->json($this->taxTypeRepo->all());
+        return response()->json($this->taxTypeRepo->allWithRelations());
     }
 
     public function store(TaxTypeRequest $request)

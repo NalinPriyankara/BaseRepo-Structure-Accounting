@@ -71,4 +71,24 @@ class CustomerBranch extends Model
     {
         return $this->belongsTo(SalesGroup::class, 'sales_group', 'id');
     }
+
+    public function salesAccount()
+    {
+        return $this->belongsTo(ChartMaster::class, 'sales_account', 'account_code');
+    }
+
+    public function salesDiscountAccount()
+    {
+        return $this->belongsTo(ChartMaster::class, 'sales_discount_account', 'account_code');
+    }
+
+    public function receivablesAccount()
+    {
+        return $this->belongsTo(ChartMaster::class, 'receivables_account', 'account_code');
+    }
+    
+    public function paymentDiscountAccount()
+    {
+        return $this->belongsTo(ChartMaster::class, 'payment_discount_account', 'account_code');
+    }
 }
