@@ -22,7 +22,8 @@ class SupplierContactRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'ref' => 'required|string|max:30',
+            'supplier_id' => 'required|exists:suppliers,supplier_id',
+            'short_name' => 'required|string|max:30',
             'name' => 'required|string|max:60',
             'name2' => 'nullable|string|max:60',
             'address' => 'nullable|string',
