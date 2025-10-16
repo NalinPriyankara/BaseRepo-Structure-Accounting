@@ -12,7 +12,8 @@ class SupplierContact extends Model
     protected $table = 'supplier_contacts';
 
     protected $fillable = [
-        'ref',
+        'supplier_id',
+        'short_name',
         'name',
         'name2',
         'address',
@@ -28,4 +29,9 @@ class SupplierContact extends Model
     protected $casts = [
         'inactive' => 'boolean',
     ];
+
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class, 'supplier_id', 'supplier_id');
+    }
 }

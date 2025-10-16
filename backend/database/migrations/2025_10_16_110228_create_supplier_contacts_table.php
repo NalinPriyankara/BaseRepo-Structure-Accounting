@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('supplier_contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('ref', 30);
+            $table->unsignedBigInteger('supplier_id');
+            $table->string('short_name', 30);
             $table->string('name', 60);
             $table->string('name2', 60)->nullable();
             $table->text('address')->nullable();
@@ -25,6 +26,8 @@ return new class extends Migration
             $table->text('notes')->nullable();
             $table->boolean('inactive')->default(0);
             $table->timestamps();
+
+            $table->foreign('supplier_id')->references('supplier_id')->on('suppliers')->onDelete('cascade');
         });
     }
 
