@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             ChartTypesSeeder::class,
             ChartMasterSeeder::class, 
             AccountTypeSeeder::class,
+            PaymentTypeSeeder::class,
         ]);
     }
 }
