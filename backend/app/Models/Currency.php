@@ -47,4 +47,9 @@ class Currency extends Model
     {
         return $this->hasMany(BankAccount::class, 'bank_curr_code', 'currency_abbreviation');
     }
+
+    public function suppliers()
+    {
+        return $this->hasMany(Supplier::class, 'curr_code', 'currency_abbreviation');
+    }
 }

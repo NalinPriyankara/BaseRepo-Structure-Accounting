@@ -30,6 +30,7 @@ use App\Http\Controllers\SalesPersonController;
 use App\Http\Controllers\SalesPricingController;
 use App\Http\Controllers\SalesTypeController;
 use App\Http\Controllers\ShippingCompnayController;
+use App\Http\Controllers\SupplierContactController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\TaxGroupController;
 use App\Http\Controllers\TaxTypeController;
@@ -92,3 +93,4 @@ Route::apiResource('account-types', AccountTypeController::class);
 Route::apiResource('bank-accounts', BankAccountController::class);
 
 Route::apiResource('user-profiles', UserProfileController::class);
+Route::apiResource('supplier-contacts', SupplierContactController::class);
