@@ -16,6 +16,7 @@ class PaymentTerm extends Model
 
     protected $fillable = [
         'description',
+        'payment_type',
         'days_before_due',
         'day_in_following_month',
         'inactive',
@@ -24,6 +25,11 @@ class PaymentTerm extends Model
     protected $casts = [
         'inactive' => 'boolean',
     ];
+
+    public function paymentType()
+    {
+        return $this->belongsTo(PaymentType::class, 'payment_type', 'id');
+    }
 
     public function debtors()
     {
