@@ -2,36 +2,74 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Supplier extends Model
 {
+    use HasFactory;
+
     protected $table = 'suppliers';
+    protected $primaryKey = 'supplier_id';
+    public $incrementing = true;
+    protected $keyType = 'int';
 
     protected $fillable = [
-        'supplier_name',
-        'supplier_short_name',
-        'gst_number',
+        'supp_name',
+        'supp_short_name',
+        'gst_no',
         'website',
-        'supplier_currency',
+        'curr_code',
         'tax_group',
-        'our_customer_no',
+        'supp_account_no',
         'bank_account',
-        'bank_name',
         'credit_limit',
         'payment_terms',
-        'prices_include_tax',
-        'accounts_payable',
+        'tax_included',
+        'payable_account',
         'purchase_account',
-        'purchase_discount_account',
-        'contact_person',
-        'phone',
-        'secondary_phone',
-        'fax',
-        'email',
-        'document_language',
-        'mailing_address',
-        'physical_address',
-        'general_notes',
+        'payment_discount_account',
+        'contact',
+        'dimension_id',
+        'dimension2_id',
+        'mail_address',
+        'bill_address',
+        'notes',
+        'inactive',
     ];
+
+    protected $casts = [
+        'tax_included' => 'boolean',
+        'inactive' => 'boolean',
+    ];
+
+    public function currency()
+    {
+        return $this->belongsTo(Currency::class, 'curr_code', 'currency_abbreviation');
+    }
+
+    public function taxGroup()
+    {
+        return $this->belongsTo(TaxGroup::class, 'tax_group', 'id');
+    }
+
+    public function paymentTerm()
+    {
+        return $this->belongsTo(PaymentTerm::class, 'payment_terms', 'terms_indicator');
+    }
+
+    public function payableAccount()
+    {
+        return $this->belongsTo(ChartMaster::class, 'payable_account', 'account_code');
+    }
+
+    public function purchaseAccount()
+    {
+        return $this->belongsTo(ChartMaster::class, 'purchase_account', 'account_code');
+    }
+
+    public function paymentDiscountAccount()
+    {
+        return $this->belongsTo(ChartMaster::class, 'payment_discount_account', 'account_code');
+    }
 }

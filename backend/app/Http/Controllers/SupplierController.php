@@ -16,7 +16,7 @@ class SupplierController extends Controller
 
     public function index()
     {
-        return response()->json($this->supplierRepo->all());
+        return response()->json($this->supplierRepo->allWithRelations());
     }
 
     public function store(SupplierRequest $request)

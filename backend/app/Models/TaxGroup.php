@@ -19,4 +19,9 @@ class TaxGroup extends Model
     {
         return $this->hasMany(CustomerBranch::class, 'tax_group', 'id');
     }
+
+    public function suppliers()
+    {
+        return $this->hasMany(Supplier::class, 'tax_group', 'id');
+    }
 }

@@ -60,4 +60,19 @@ class ChartMaster extends Model
     {
         return $this->hasMany(TaxType::class, 'purchasing_gl_account', 'account_code');
     }
+
+    public function PayableAccountSuppliers()
+    {
+        return $this->hasMany(Supplier::class, 'payable_account', 'account_code');
+    }
+
+    public function PurchaseAccountSuppliers()
+    {
+        return $this->hasMany(Supplier::class, 'purchase_account', 'account_code');
+    }
+
+    public function PaymentDiscountAccountSuppliers()
+    {
+        return $this->hasMany(Supplier::class, 'payment_discount_account', 'account_code');
+    }
 }

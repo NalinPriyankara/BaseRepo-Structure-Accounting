@@ -11,4 +11,16 @@ class SupplierRepository extends BaseRepository implements SupplierInterface
     {
         parent::__construct($model);
     }
+
+    public function allWithRelations()
+    {
+        return $this->model->with([
+            'currency',
+            'taxGroup',
+            'paymentTerm',
+            'payableAccount',
+            'purchaseAccount',
+            'paymentDiscountAccount'
+        ])->get();
+    }
 }
