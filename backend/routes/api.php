@@ -34,7 +34,9 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\TaxGroupController;
 use App\Http\Controllers\TaxTypeController;
 use App\Http\Controllers\UserManagementController;
+use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\WorkCentreController;
+use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -88,3 +90,5 @@ Route::apiResource('chart-masters', ChartMasterController::class);
 Route::apiResource('class-types', ClassTypeController::class);
 Route::apiResource('account-types', AccountTypeController::class);
 Route::apiResource('bank-accounts', BankAccountController::class);
+
+Route::apiResource('user-profiles', UserProfileController::class);

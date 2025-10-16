@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\UserProfile;
 use App\Repositories\All\AccountTag\AccountTagInterface;
 use App\Repositories\All\AccountTag\AccountTagRepository;
 use App\Repositories\All\AccountType\AccountTypeInterface;
@@ -73,6 +74,8 @@ use App\Repositories\All\UserManagement\UserManagementInterface;
 use App\Repositories\All\UserManagement\UserManagementRepository;
 use App\Repositories\All\WorkCentre\WorkCentreInterface;
 use App\Repositories\All\WorkCentre\WorkCentreRepository;
+use App\Repositories\All\UserProfile\UserProfileInterface;
+use App\Repositories\All\UserProfile\UserProfileRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -116,6 +119,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ClassTypeInterface::class, ClassTypeRepository::class);
         $this->app->bind(AccountTypeInterface::class, AccountTypeRepository::class);
         $this->app->bind(BankAccountInterface::class, BankAccountBankAccountRepository::class);
+       $this->app->bind(UserProfileInterface::class, UserProfileRepository::class);
     }
 
     /**
