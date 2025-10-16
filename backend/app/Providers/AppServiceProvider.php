@@ -64,6 +64,8 @@ use App\Repositories\All\ShippingCompany\ShippingCompanyInterface;
 use App\Repositories\All\ShippingCompany\ShippingCompanyRepository;
 use App\Repositories\All\Supplier\SupplierInterface;
 use App\Repositories\All\Supplier\SupplierRepository;
+use App\Repositories\All\SupplierContact\SupplierContactInterface;
+use App\Repositories\All\SupplierContact\SupplierContactRepository;
 use App\Repositories\All\TaxGroup\TaxGroupInterface;
 use App\Repositories\All\TaxGroup\TaxGroupRepository;
 use App\Repositories\All\TaxType\TaxTypeInterface;
@@ -116,6 +118,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ClassTypeInterface::class, ClassTypeRepository::class);
         $this->app->bind(AccountTypeInterface::class, AccountTypeRepository::class);
         $this->app->bind(BankAccountInterface::class, BankAccountBankAccountRepository::class);
+        $this->app->bind(SupplierContactInterface::class, SupplierContactRepository::class);
     }
 
     /**

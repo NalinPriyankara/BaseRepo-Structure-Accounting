@@ -30,4 +30,8 @@ class PaymentTerm extends Model
         return $this->hasMany(DebtorsMaster::class, 'payment_terms', 'terms_indicator');
     }
 
+    public function suppliers()
+    {
+        return $this->hasMany(Supplier::class, 'payment_terms', 'terms_indicator');
+    }
 }

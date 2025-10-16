@@ -24,7 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('sales_type')->default(1);
             $table->foreign('sales_type')->references('id')->on('sales_types');
 
-            $table->unsignedBigInteger('dimension_id')->default(0); // optional, you can create a dimensions table later
+            $table->unsignedBigInteger('dimension_id')->default(0);
             $table->unsignedBigInteger('dimension2_id')->default(0);
 
             $table->unsignedBigInteger('credit_status')->default(0);

@@ -6,6 +6,7 @@ namespace App\Repositories\All\BankAccount;
 use App\Models\BankAccount;
 use App\Repositories\All\BankAccount\BankAccountInterface;
 use App\Repositories\Base\BaseRepository;
+use Illuminate\Database\Eloquent\Collection;
 
 class BankAccountRepository extends BaseRepository implements BankAccountInterface
 {
@@ -14,7 +15,7 @@ class BankAccountRepository extends BaseRepository implements BankAccountInterfa
         parent::__construct($model);
     }
 
-    public function all(): \Illuminate\Database\Eloquent\Collection
+    public function all(): Collection
     {
         return $this->model->with([
             'accountType',
