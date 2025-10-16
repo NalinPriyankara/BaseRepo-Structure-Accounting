@@ -24,6 +24,7 @@ use App\Http\Controllers\InventoryLocationController;
 use App\Http\Controllers\ItemTaxTypeController;
 use App\Http\Controllers\ItemUnitController;
 use App\Http\Controllers\PaymentTermController;
+use App\Http\Controllers\PaymentTypeController;
 use App\Http\Controllers\SalesAreaController;
 use App\Http\Controllers\SalesGroupController;
 use App\Http\Controllers\SalesPersonController;
@@ -79,6 +80,7 @@ Route::apiResource("company-setup", CompanySetupController::class);
 
 Route::apiResource('shipping-companies', ShippingCompnayController::class);
 Route::apiResource('payment-terms', PaymentTermController::class);
+Route::apiResource('payment-types', PaymentTypeController::class);
 
 Route::apiResource('debtors-master', DebtorsMasterController::class);
 Route::apiResource('crm-persons', CrmPersonsController::class);

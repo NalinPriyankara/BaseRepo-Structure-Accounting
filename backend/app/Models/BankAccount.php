@@ -34,7 +34,7 @@ class BankAccount extends Model
 
     public function accountType()
     {
-        return $this->belongsTo(AccountType::class, 'account_type');
+        return $this->belongsTo(AccountType::class, 'account_type', 'id');
     }
 
     public function currency()

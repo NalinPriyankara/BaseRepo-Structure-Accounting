@@ -51,6 +51,8 @@ use App\Repositories\All\ItemUnit\ItemUnitInterface;
 use App\Repositories\All\ItemUnit\ItemUnitRepository;
 use App\Repositories\All\PaymentTerm\PaymentTermInterface;
 use App\Repositories\All\PaymentTerm\PaymentTermRepository;
+use App\Repositories\All\PaymentType\PaymentTypeInterface;
+use App\Repositories\All\PaymentType\PaymentTypeRepository;
 use App\Repositories\All\SalesArea\SalesAreaInterface;
 use App\Repositories\All\SalesArea\SalesAreaRepository;
 use App\Repositories\All\SalesGroup\SalesGroupInterface;
@@ -121,8 +123,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ClassTypeInterface::class, ClassTypeRepository::class);
         $this->app->bind(AccountTypeInterface::class, AccountTypeRepository::class);
         $this->app->bind(BankAccountInterface::class, BankAccountBankAccountRepository::class);
-       $this->app->bind(UserProfileInterface::class, UserProfileRepository::class);
+        $this->app->bind(UserProfileInterface::class, UserProfileRepository::class);
         $this->app->bind(SupplierContactInterface::class, SupplierContactRepository::class);
+        $this->app->bind(PaymentTypeInterface::class, PaymentTypeRepository::class);
     }
 
     /**

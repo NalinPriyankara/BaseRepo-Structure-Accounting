@@ -14,10 +14,13 @@ return new class extends Migration
         Schema::create('payment_terms', function (Blueprint $table) {
             $table->id('terms_indicator');
             $table->string('description', 80);
+            $table->unsignedBigInteger('payment_type');
             $table->smallInteger('days_before_due')->default(0);
             $table->smallInteger('day_in_following_month')->default(0);
             $table->boolean('inactive')->default(false);
             $table->timestamps();
+
+            $table->foreign('payment_type')->references('id')->on('payment_types');
         });
     }
 

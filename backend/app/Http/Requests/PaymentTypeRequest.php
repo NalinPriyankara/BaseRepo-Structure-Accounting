@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PaymentTermRequest extends FormRequest
+class PaymentTypeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +22,7 @@ class PaymentTermRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'description' => 'required|string|max:80',
-            'payment_type' => 'required|exists:payment_types,id',
-            'days_before_due' => 'required|integer|min:0',
-            'day_in_following_month' => 'required|integer|min:0',
-            'inactive' => 'required|boolean',
+            'name' => 'required|string|max:255',
         ];
     }
 }
