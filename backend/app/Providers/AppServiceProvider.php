@@ -53,6 +53,8 @@ use App\Repositories\All\PaymentTerm\PaymentTermInterface;
 use App\Repositories\All\PaymentTerm\PaymentTermRepository;
 use App\Repositories\All\PaymentType\PaymentTypeInterface;
 use App\Repositories\All\PaymentType\PaymentTypeRepository;
+use App\Repositories\All\RevaluateCurrency\RevaluateCurrencyInterface;
+use App\Repositories\All\RevaluateCurrency\RevaluateCurrencyRepository;
 use App\Repositories\All\SalesArea\SalesAreaInterface;
 use App\Repositories\All\SalesArea\SalesAreaRepository;
 use App\Repositories\All\SalesGroup\SalesGroupInterface;
@@ -67,8 +69,6 @@ use App\Repositories\All\ShippingCompany\ShippingCompanyInterface;
 use App\Repositories\All\ShippingCompany\ShippingCompanyRepository;
 use App\Repositories\All\Supplier\SupplierInterface;
 use App\Repositories\All\Supplier\SupplierRepository;
-use App\Repositories\All\SupplierContact\SupplierContactInterface;
-use App\Repositories\All\SupplierContact\SupplierContactRepository;
 use App\Repositories\All\TaxGroup\TaxGroupInterface;
 use App\Repositories\All\TaxGroup\TaxGroupRepository;
 use App\Repositories\All\TaxType\TaxTypeInterface;
@@ -124,8 +124,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(AccountTypeInterface::class, AccountTypeRepository::class);
         $this->app->bind(BankAccountInterface::class, BankAccountBankAccountRepository::class);
         $this->app->bind(UserProfileInterface::class, UserProfileRepository::class);
-        $this->app->bind(SupplierContactInterface::class, SupplierContactRepository::class);
         $this->app->bind(PaymentTypeInterface::class, PaymentTypeRepository::class);
+        $this->app->bind(RevaluateCurrencyInterface::class, RevaluateCurrencyRepository::class);
     }
 
     /**
