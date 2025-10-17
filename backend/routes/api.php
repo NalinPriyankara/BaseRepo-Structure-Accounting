@@ -25,6 +25,7 @@ use App\Http\Controllers\ItemTaxTypeController;
 use App\Http\Controllers\ItemUnitController;
 use App\Http\Controllers\PaymentTermController;
 use App\Http\Controllers\PaymentTypeController;
+use App\Http\Controllers\RevaluateCurrencyController;
 use App\Http\Controllers\SalesAreaController;
 use App\Http\Controllers\SalesGroupController;
 use App\Http\Controllers\SalesPersonController;
@@ -95,4 +96,5 @@ Route::apiResource('account-types', AccountTypeController::class);
 Route::apiResource('bank-accounts', BankAccountController::class);
 
 Route::apiResource('user-profiles', UserProfileController::class);
-Route::apiResource('supplier-contacts', SupplierContactController::class);
+
+Route::apiResource('revaluate-currencies', RevaluateCurrencyController::class);
