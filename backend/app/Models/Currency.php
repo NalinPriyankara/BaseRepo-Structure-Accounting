@@ -52,4 +52,10 @@ class Currency extends Model
     {
         return $this->hasMany(Supplier::class, 'curr_code', 'currency_abbreviation');
     }
+
+    public function exchangeRates()
+    {
+        return $this->hasMany(ExchangeRate::class, 'curr_code', 'currency_abbreviation');
+    }
+
 }

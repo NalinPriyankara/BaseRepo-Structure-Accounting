@@ -21,24 +21,11 @@ class ExchangeRateRequest extends FormRequest
      */
     public function rules(): array
     {
-        if ($this->isMethod('post')) {
-            return [
-                'curr_code' => 'required|string|size:3',
-                'rate_buy' => 'required|numeric',
-                'rate_sell' => 'required|numeric',
-                'date' => 'required|date',
-            ];
-        }
-
-        if ($this->isMethod('put') || $this->isMethod('patch')) {
-            return [
-                'curr_code' => 'sometimes|string|size:3',
-                'rate_buy' => 'sometimes|numeric',
-                'rate_sell' => 'sometimes|numeric',
-                'date' => 'sometimes|date',
-            ];
-        }
-
-        return [];
+        return [
+            'curr_code' => 'required|exists:currencies,currency_abbreviation',
+            'rate_buy' => 'required|numeric|min:0',
+            'rate_sell' => 'required|numeric|min:0',
+            'date' => 'required|date',
+        ];
     }
 }

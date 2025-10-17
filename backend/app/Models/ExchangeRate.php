@@ -17,4 +17,15 @@ class ExchangeRate extends Model
         'rate_sell',
         'date',
     ];
+
+    protected $casts = [
+        'rate_buy' => 'float',
+        'rate_sell' => 'float',
+        'date' => 'date',
+    ];
+
+    public function currency()
+    {
+        return $this->belongsTo(Currency::class, 'curr_code', 'currency_abbreviation');
+    }
 }
