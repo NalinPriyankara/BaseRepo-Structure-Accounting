@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('exchange_rates', function (Blueprint $table) {
             $table->id();
-            $table->char('curr_code', 3)->default('');
+            $table->char('curr_code', 3);
             $table->double('rate_buy')->default(0);
             $table->double('rate_sell')->default(0);
             $table->date('date')->useCurrent();
             $table->timestamps();
+
+            $table->foreign('curr_code')->references('currency_abbreviation')->on('currencies')->onDelete('cascade');
         });
     }
 

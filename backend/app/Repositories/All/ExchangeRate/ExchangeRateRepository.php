@@ -4,6 +4,7 @@ namespace App\Repositories\All\ExchangeRate;
 
 use App\Models\ExchangeRate;
 use App\Repositories\Base\BaseRepository;
+use Illuminate\Database\Eloquent\Collection;
 
 class ExchangeRateRepository extends BaseRepository implements ExchangeRateInterface
 {
@@ -11,6 +12,11 @@ class ExchangeRateRepository extends BaseRepository implements ExchangeRateInter
     {
         parent::__construct($model);
     }
-
-    // You can add custom methods for ExchangeRate here if required
+    
+    public function all(): Collection
+    {
+        return $this->model->with([
+            'currency'
+        ])->get();
+    }
 }
