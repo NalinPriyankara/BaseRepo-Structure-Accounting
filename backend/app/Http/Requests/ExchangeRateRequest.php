@@ -22,9 +22,9 @@ class ExchangeRateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'curr_code' => 'required|exists:currencies,currency_abbreviation',
-            'rate_buy' => 'required|numeric|min:0',
-            'rate_sell' => 'required|numeric|min:0',
+            'curr_code' => 'exists:currencies,currency_abbreviation',
+            'rate_buy' => 'numeric|min:0',
+            'rate_sell' => 'numeric|min:0',
             'date' => 'required|date',
         ];
     }
