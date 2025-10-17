@@ -21,13 +21,15 @@ class DatabaseSeeder extends Seeder
         ]);
 
          $this->call([
+            SalesTypeSeeder::class,
+            CurrencySeeder::class,
             ClassTypesSeeder::class,
             ChartClassSeeder::class, 
             ChartTypesSeeder::class,
             ChartMasterSeeder::class, 
             AccountTypeSeeder::class,
             PaymentTypeSeeder::class,
-            CrmCategoriesSeeder::class
+            CrmCategoriesSeeder::class,
         ]);
     }
 }
