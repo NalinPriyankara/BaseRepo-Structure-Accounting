@@ -28,4 +28,10 @@ class CrmPersons extends Model
     protected $casts = [
         'inactive' => 'boolean',
     ];
+
+    public function contacts()
+    {
+        return $this->hasMany(CrmContact::class, 'person_id', 'id');
+    }
+
 }
