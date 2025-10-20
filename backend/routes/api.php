@@ -11,6 +11,7 @@ use App\Http\Controllers\ClassTypeController;
 use App\Http\Controllers\CompanySetupController;
 use App\Http\Controllers\CreditStatusSetupController;
 use App\Http\Controllers\CrmCategoryController;
+use App\Http\Controllers\CrmContactsController;
 use App\Http\Controllers\CrmPersonsController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CustomerBranchController;
@@ -98,3 +99,4 @@ Route::apiResource('bank-accounts', BankAccountController::class);
 Route::apiResource('user-profiles', UserProfileController::class);
 
 Route::apiResource('revaluate-currencies', RevaluateCurrencyController::class);
+Route::apiResource('crm-contacts', CrmContactsController::class);

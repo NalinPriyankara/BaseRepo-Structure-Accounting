@@ -27,4 +27,10 @@ class CrmCategory extends Model
         'systm' => 'boolean',
         'inactive' => 'boolean',
     ];
+
+    public function contacts()
+    {
+        return $this->hasMany(CrmContact::class, 'type', 'id');
+    }
+
 }
