@@ -25,6 +25,13 @@ class UserManagementController extends Controller
         $data = $request->validated();
         $data['password'] = bcrypt($data['password']);
 
+         if ($request->hasFile('image')) {
+            // store under storage/app/public/profile_images
+            $path = $request->file('image')->store('profile_images', 'public');
+            $data['image'] = $path; // e.g. "profile_images/nilupul.jpg"
+        }
+
+
         $user = $this->userRepo->create($data);
         return response()->json($user, 201);
     }
@@ -35,6 +42,11 @@ class UserManagementController extends Controller
         if (! $user) {
             return response()->json(['message' => 'User not found'], 404);
         }
+
+        if ($user->image) {
+            $user->image_url = asset('storage/' . $user->image);
+        }
+        
         return response()->json($user);
     }
 

@@ -34,6 +34,7 @@ class UserManagementRequest extends FormRequest
             'password'   => $this->isMethod('post') ? 'required|string|min:6' : 'sometimes|string|min:6',
             'role'       => 'required',
             'status'     => 'required',
+            'image'      => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
 }

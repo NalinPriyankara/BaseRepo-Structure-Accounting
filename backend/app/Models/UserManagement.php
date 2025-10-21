@@ -23,6 +23,7 @@ class UserManagement extends Authenticatable
         'email', 
         'password',
         'role',
+        'image',
         'status'
     ];
 
