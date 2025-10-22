@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             AccountTypeSeeder::class,
             PaymentTypeSeeder::class,
             CrmCategoriesSeeder::class,
+            UserManagementSeeder::class,
         ]);
     }
 }

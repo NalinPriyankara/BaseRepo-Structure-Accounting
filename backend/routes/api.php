@@ -45,12 +45,25 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/user', function (Request $request) {
-    return $request->user();
+    $user = $request->user();
+
+    if (!$user) {
+        return response()->json(null, 204);
+    }
+
+    // Return minimal user info the frontend needs to determine access
+    return response()->json([
+        'id' => $user->id ?? null,
+        'email' => $user->email ?? null,
+        'role' => $user->role ?? null,
+        'status' => $user->status ?? null,
+        'first_name' => $user->first_name ?? ($user->firstName ?? null),
+        'last_name' => $user->last_name ?? ($user->lastName ?? null),
+    ]);
 })->middleware('auth:sanctum');
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
-
 Route::resource("user-managements", UserManagementController::class);
 Route::resource("currencies", CurrencyController::class);
 Route::resource("fiscal-years", FiscalYearController::class);
@@ -78,7 +91,7 @@ Route::apiResource('fixed-assets-locations', FixedAssetsLocationController::clas
 Route::apiResource('sales-pricings', SalesPricingController::class);
 
 Route::apiResource('inventory-locations', InventoryLocationController::class);
-Route::apiResource("company-setup", CompanySetupController::class);
+Route::apiResource("company-setup", CompanySetupController::class)->middleware(['auth:sanctum','admin']);
 
 Route::apiResource('shipping-companies', ShippingCompnayController::class);
 Route::apiResource('payment-terms', PaymentTermController::class);
