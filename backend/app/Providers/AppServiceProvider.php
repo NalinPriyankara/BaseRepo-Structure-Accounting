@@ -67,6 +67,8 @@ use App\Repositories\All\SalesPricing\SalesPricingInterface;
 use App\Repositories\All\SalesPricing\SalesPricingRepository;
 use App\Repositories\All\SalesType\SalesTypeInterface;
 use App\Repositories\All\SalesType\SalesTypeRepository;
+use App\Repositories\All\SecurityRoles\SecurityRolesInterface;
+use App\Repositories\All\SecurityRoles\SecurityRolesRepository;
 use App\Repositories\All\ShippingCompany\ShippingCompanyInterface;
 use App\Repositories\All\ShippingCompany\ShippingCompanyRepository;
 use App\Repositories\All\Supplier\SupplierInterface;
@@ -129,6 +131,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(PaymentTypeInterface::class, PaymentTypeRepository::class);
         $this->app->bind(RevaluateCurrencyInterface::class, RevaluateCurrencyRepository::class);
         $this->app->bind(CrmContactsInterface::class, CrmContactsRepository::class);
+        $this->app->bind(SecurityRolesInterface::class, SecurityRolesRepository::class);
     }
 
     /**

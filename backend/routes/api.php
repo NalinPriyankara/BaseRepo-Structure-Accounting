@@ -32,8 +32,8 @@ use App\Http\Controllers\SalesGroupController;
 use App\Http\Controllers\SalesPersonController;
 use App\Http\Controllers\SalesPricingController;
 use App\Http\Controllers\SalesTypeController;
+use App\Http\Controllers\SecurityRolesController;
 use App\Http\Controllers\ShippingCompnayController;
-use App\Http\Controllers\SupplierContactController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\TaxGroupController;
 use App\Http\Controllers\TaxTypeController;
@@ -113,3 +113,5 @@ Route::apiResource('user-profiles', UserProfileController::class);
 
 Route::apiResource('revaluate-currencies', RevaluateCurrencyController::class);
 Route::apiResource('crm-contacts', CrmContactsController::class);
+
+Route::apiResource('security-roles', SecurityRolesController::class);
