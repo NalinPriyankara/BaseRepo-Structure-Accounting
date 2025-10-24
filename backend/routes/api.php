@@ -32,8 +32,8 @@ use App\Http\Controllers\SalesGroupController;
 use App\Http\Controllers\SalesPersonController;
 use App\Http\Controllers\SalesPricingController;
 use App\Http\Controllers\SalesTypeController;
+use App\Http\Controllers\SecurityRolesController;
 use App\Http\Controllers\ShippingCompnayController;
-use App\Http\Controllers\SupplierContactController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\TaxGroupController;
 use App\Http\Controllers\TaxGroupItemController;
@@ -44,6 +44,7 @@ use App\Http\Controllers\WorkCentreController;
 use App\Http\Controllers\ItemTaxTypeExceptionController;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/user', function (Request $request) {
@@ -53,11 +54,28 @@ Route::get('/user', function (Request $request) {
         return response()->json(null, 204);
     }
 
-    // Return minimal user info the frontend needs to determine access
+    // fetch role row from security_roles by role name (the user_profiles.role column)
+    $roleRow = DB::table('security_roles')->where('role', $user->role)->first();
+
+    $sections = [];
+    $areas = [];
+
+    if ($roleRow) {
+        if (!empty($roleRow->sections)) {
+            $sections = array_values(array_filter(explode(';', $roleRow->sections)));
+        }
+        if (!empty($roleRow->areas)) {
+            $areas = array_values(array_filter(explode(';', $roleRow->areas)));
+        }
+    }
+
     return response()->json([
         'id' => $user->id ?? null,
         'email' => $user->email ?? null,
         'role' => $user->role ?? null,
+        'role_id' => $roleRow->id ?? null,
+        'sections' => $sections,
+        'areas' => $areas,
         'status' => $user->status ?? null,
         'first_name' => $user->first_name ?? ($user->firstName ?? null),
         'last_name' => $user->last_name ?? ($user->lastName ?? null),
@@ -122,3 +140,5 @@ Route::apiResource('user-profiles', UserProfileController::class);
 
 Route::apiResource('revaluate-currencies', RevaluateCurrencyController::class);
 Route::apiResource('crm-contacts', CrmContactsController::class);
+
+Route::apiResource('security-roles', SecurityRolesController::class);

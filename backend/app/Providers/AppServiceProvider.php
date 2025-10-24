@@ -70,6 +70,8 @@ use App\Repositories\All\SalesPricing\SalesPricingInterface;
 use App\Repositories\All\SalesPricing\SalesPricingRepository;
 use App\Repositories\All\SalesType\SalesTypeInterface;
 use App\Repositories\All\SalesType\SalesTypeRepository;
+use App\Repositories\All\SecurityRoles\SecurityRolesInterface;
+use App\Repositories\All\SecurityRoles\SecurityRolesRepository;
 use App\Repositories\All\ShippingCompany\ShippingCompanyInterface;
 use App\Repositories\All\ShippingCompany\ShippingCompanyRepository;
 use App\Repositories\All\Supplier\SupplierInterface;
@@ -136,6 +138,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(CrmContactsInterface::class, CrmContactsRepository::class);
         $this->app->bind(TaxGroupItemInterface::class, TaxGroupItemRepository::class);
         $this->app->bind(ItemTaxTypeExceptionInterface::class, ItemTaxTypeExceptionRepository::class);
+        $this->app->bind(SecurityRolesInterface::class, SecurityRolesRepository::class);
     }
 
     /**
@@ -143,13 +146,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Register admin middleware alias
         $router = $this->app->make(\Illuminate\Routing\Router::class);
+
         if (method_exists($router, 'aliasMiddleware')) {
-            $router->aliasMiddleware('admin', \App\Http\Middleware\EnsureAdmin::class);
+            $router->aliasMiddleware('permission', \App\Http\Middleware\CheckPermission::class);
         } else {
-            // Fallback for older Laravel versions
-            $router->middleware('admin', \App\Http\Middleware\EnsureAdmin::class);
+            $router->middleware('permission', \App\Http\Middleware\CheckPermission::class);
         }
     }
 }

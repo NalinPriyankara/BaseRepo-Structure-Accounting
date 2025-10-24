@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             PaymentTypeSeeder::class,
             CrmCategoriesSeeder::class,
             UserManagementSeeder::class,
+            SecurityRolesSeeder::class,
         ]);
     }
 }

@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('status');
             $table->string('image')->nullable();
             $table->timestamps();
+
+            $table->foreign('role')->references('role')->on('security_roles')->onDelete('restrict');
         });
     }
 

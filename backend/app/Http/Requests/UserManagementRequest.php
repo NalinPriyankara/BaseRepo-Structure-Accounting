@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UserManagementRequest extends FormRequest
 {
@@ -21,7 +22,12 @@ class UserManagementRequest extends FormRequest
      */
     public function rules(): array
     {
-        $id = $this->route('user-management'); // for update
+        // try several common route parameter names and handle model instance
+        $userParam = $this->route('user-management') ?? $this->route('user_management') ?? $this->route('user') ?? $this->route('user-managements');
+        $id = null;
+        if ($userParam) {
+            $id = $userParam instanceof \Illuminate\Database\Eloquent\Model ? $userParam->getKey() : $userParam;
+        }
 
         return [
             'first_name' => 'required|string|max:255',
@@ -30,7 +36,12 @@ class UserManagementRequest extends FormRequest
             'epf'        => 'required|string|max:50',
             'telephone'  => 'nullable|string|max:15',
             'address'    => 'nullable|string|max:255',
-            'email'      => 'required|email|max:255|unique:user_managements,email,' . $id,
+            'email'      => [
+                'required',
+                'email',
+                'max:255',
+                Rule::unique('user_managements', 'email')->ignore($id),
+            ],
             'password'   => $this->isMethod('post') ? 'required|string|min:6' : 'sometimes|string|min:6',
             'role'       => 'required',
             'status'     => 'required',
