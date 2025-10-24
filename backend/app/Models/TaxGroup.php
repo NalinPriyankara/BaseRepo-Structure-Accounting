@@ -12,7 +12,6 @@ class TaxGroup extends Model
     protected $fillable = [
         'description',
         'tax',
-        'shipping_tax',
     ];
 
     public function branches()
@@ -23,5 +22,10 @@ class TaxGroup extends Model
     public function suppliers()
     {
         return $this->hasMany(Supplier::class, 'tax_group', 'id');
+    }
+
+    public function items()
+    {
+        return $this->hasMany(TaxGroupItem::class, 'tax_group_id');
     }
 }

@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class TaxGroupRequest extends FormRequest
+class ItemTaxTypeExceptionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,10 +22,18 @@ class TaxGroupRequest extends FormRequest
      */
     public function rules(): array
     {
-        $id = $this->route('tax_group');
-
         return [
-            'description' => 'required|string|max:255',
+            'item_tax_type_id' => [
+                'required',
+                'integer',
+                'exists:item_tax_types,id',
+            ],
+            'tax_type_id' => [
+                'required',
+                'integer',
+                'exists:tax_types,id',
+            ],
         ];
+
     }
 }

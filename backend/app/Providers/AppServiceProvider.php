@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\TaxGroupItem;
 use App\Models\UserProfile;
 use App\Repositories\All\AccountTag\AccountTagInterface;
 use App\Repositories\All\AccountTag\AccountTagRepository;
@@ -49,6 +50,8 @@ use App\Repositories\All\InventoryLocation\InventoryLocationInterface;
 use App\Repositories\All\InventoryLocation\InventoryLocationRepository;
 use App\Repositories\All\ItemTaxType\ItemTaxTypeInterface;
 use App\Repositories\All\ItemTaxType\ItemTaxTypeRepository;
+use App\Repositories\All\ItemTaxTypeException\ItemTaxTypeExceptionInterface;
+use App\Repositories\All\ItemTaxTypeException\ItemTaxTypeExceptionRepository;
 use App\Repositories\All\ItemUnit\ItemUnitInterface;
 use App\Repositories\All\ItemUnit\ItemUnitRepository;
 use App\Repositories\All\PaymentTerm\PaymentTermInterface;
@@ -75,6 +78,8 @@ use App\Repositories\All\Supplier\SupplierInterface;
 use App\Repositories\All\Supplier\SupplierRepository;
 use App\Repositories\All\TaxGroup\TaxGroupInterface;
 use App\Repositories\All\TaxGroup\TaxGroupRepository;
+use App\Repositories\All\TaxGroupItem\TaxGroupItemInterface;
+use App\Repositories\All\TaxGroupItem\TaxGroupItemRepository;
 use App\Repositories\All\TaxType\TaxTypeInterface;
 use App\Repositories\All\TaxType\TaxTypeRepository;
 use Illuminate\Support\ServiceProvider;
@@ -131,6 +136,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(PaymentTypeInterface::class, PaymentTypeRepository::class);
         $this->app->bind(RevaluateCurrencyInterface::class, RevaluateCurrencyRepository::class);
         $this->app->bind(CrmContactsInterface::class, CrmContactsRepository::class);
+        $this->app->bind(TaxGroupItemInterface::class, TaxGroupItemRepository::class);
+        $this->app->bind(ItemTaxTypeExceptionInterface::class, ItemTaxTypeExceptionRepository::class);
         $this->app->bind(SecurityRolesInterface::class, SecurityRolesRepository::class);
     }
 

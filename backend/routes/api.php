@@ -36,10 +36,12 @@ use App\Http\Controllers\SecurityRolesController;
 use App\Http\Controllers\ShippingCompnayController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\TaxGroupController;
+use App\Http\Controllers\TaxGroupItemController;
 use App\Http\Controllers\TaxTypeController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\WorkCentreController;
+use App\Http\Controllers\ItemTaxTypeExceptionController;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -87,6 +89,10 @@ Route::resource("currencies", CurrencyController::class);
 Route::resource("fiscal-years", FiscalYearController::class);
 Route::apiResource('tax-types', TaxTypeController::class);
 Route::apiResource('tax-groups', TaxGroupController::class);
+Route::delete('tax-group-items/{tax_group_id}/{tax_type_id}', [TaxGroupItemController::class, 'destroy']);
+Route::apiResource('tax-group-items', TaxGroupItemController::class)->except(['destroy']);
+Route::put('tax-group-items/{taxGroupId}/{taxTypeId}', [TaxGroupItemController::class, 'update']);
+
 
 Route::resource("sales-groups", SalesGroupController::class);
 Route::resource("sales-areas", SalesAreaController::class);
@@ -100,6 +106,9 @@ Route::apiResource("customers", CustomerController::class);
 Route::apiResource("suppliers", SupplierController::class);
 
 Route::apiResource("item-tax-types", ItemTaxTypeController::class);
+Route::delete('item-tax-type-exceptions/{item_id}/{tax_type_id}',[ItemTaxTypeExceptionController::class, 'destroy']);
+Route::apiResource("item-tax-type-exceptions", ItemTaxTypeExceptionController::class);
+
 Route::apiResource("work-centres", WorkCentreController::class);
 Route::apiResource("credit-status-setup", CreditStatusSetupController::class);
 Route::apiResource("item-units", ItemUnitController::class);
