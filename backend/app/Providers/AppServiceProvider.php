@@ -139,13 +139,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Register admin middleware alias
         $router = $this->app->make(\Illuminate\Routing\Router::class);
+
         if (method_exists($router, 'aliasMiddleware')) {
-            $router->aliasMiddleware('admin', \App\Http\Middleware\EnsureAdmin::class);
+            $router->aliasMiddleware('permission', \App\Http\Middleware\CheckPermission::class);
         } else {
-            // Fallback for older Laravel versions
-            $router->middleware('admin', \App\Http\Middleware\EnsureAdmin::class);
+            $router->middleware('permission', \App\Http\Middleware\CheckPermission::class);
         }
     }
 }
