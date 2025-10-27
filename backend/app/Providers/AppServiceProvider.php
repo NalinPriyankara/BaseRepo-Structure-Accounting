@@ -48,10 +48,14 @@ use App\Repositories\All\FixedAssetsLocation\FixedAssetsLocationInterface;
 use App\Repositories\All\FixedAssetsLocation\FixedAssetsLocationRepository;
 use App\Repositories\All\InventoryLocation\InventoryLocationInterface;
 use App\Repositories\All\InventoryLocation\InventoryLocationRepository;
+use App\Repositories\All\ItemCategory\ItemCategoryInterface;
+use App\Repositories\All\ItemCategory\ItemCategoryRepository;
 use App\Repositories\All\ItemTaxType\ItemTaxTypeInterface;
 use App\Repositories\All\ItemTaxType\ItemTaxTypeRepository;
 use App\Repositories\All\ItemTaxTypeException\ItemTaxTypeExceptionInterface;
 use App\Repositories\All\ItemTaxTypeException\ItemTaxTypeExceptionRepository;
+use App\Repositories\All\ItemType\ItemTypeInterface;
+use App\Repositories\All\ItemType\ItemTypeRepository;
 use App\Repositories\All\ItemUnit\ItemUnitInterface;
 use App\Repositories\All\ItemUnit\ItemUnitRepository;
 use App\Repositories\All\PaymentTerm\PaymentTermInterface;
@@ -139,6 +143,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(TaxGroupItemInterface::class, TaxGroupItemRepository::class);
         $this->app->bind(ItemTaxTypeExceptionInterface::class, ItemTaxTypeExceptionRepository::class);
         $this->app->bind(SecurityRolesInterface::class, SecurityRolesRepository::class);
+        $this->app->bind(ItemCategoryInterface::class, ItemCategoryRepository::class);
+        $this->app->bind(ItemTypeInterface::class, ItemTypeRepository::class);
     }
 
     /**
