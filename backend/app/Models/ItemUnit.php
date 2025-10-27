@@ -15,5 +15,6 @@ class ItemUnit extends Model
         'abbr',
         'name',
         'decimals',
+        'inactive',
     ];
 }

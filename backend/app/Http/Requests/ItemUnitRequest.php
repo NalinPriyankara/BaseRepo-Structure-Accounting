@@ -25,6 +25,7 @@ class ItemUnitRequest extends FormRequest
             'abbr' => 'required|string|max:255',
             'name' => 'required|string|max:255',
             'decimals' => 'required|integer',
+            'inactive' => 'boolean',
         ];
     }
 }
