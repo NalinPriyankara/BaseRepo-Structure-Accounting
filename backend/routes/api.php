@@ -22,6 +22,7 @@ use App\Http\Controllers\ExchangeRateController;
 use App\Http\Controllers\FiscalYearController;
 use App\Http\Controllers\FixedAssetsLocationController;
 use App\Http\Controllers\InventoryLocationController;
+use App\Http\Controllers\ItemCategoryController;
 use App\Http\Controllers\ItemTaxTypeController;
 use App\Http\Controllers\ItemUnitController;
 use App\Http\Controllers\PaymentTermController;
@@ -42,6 +43,7 @@ use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\WorkCentreController;
 use App\Http\Controllers\ItemTaxTypeExceptionController;
+use App\Http\Controllers\ItemTypeController;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -142,3 +144,7 @@ Route::apiResource('revaluate-currencies', RevaluateCurrencyController::class);
 Route::apiResource('crm-contacts', CrmContactsController::class);
 
 Route::apiResource('security-roles', SecurityRolesController::class);
+
+Route::apiResource('item-categories', ItemCategoryController::class);
+Route::apiResource('item-types', ItemTypeController::class);
+
