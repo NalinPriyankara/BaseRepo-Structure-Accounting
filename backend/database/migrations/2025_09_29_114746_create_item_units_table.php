@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('abbr');
             $table->string('name');
             $table->tinyInteger('decimals')->nullable()->default(0);
+            $table->boolean('inactive')->default(false);
             $table->timestamps();
         });
     }
