@@ -72,6 +72,7 @@ Route::get('/user', function (Request $request) {
     return response()->json([
         'id' => $user->id ?? null,
         'email' => $user->email ?? null,
+        'telephone' => $user->telephone ?? null,
         'role' => $user->role ?? null,
         'role_id' => $roleRow->id ?? null,
         'sections' => $sections,
