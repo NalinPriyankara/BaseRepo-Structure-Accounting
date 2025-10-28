@@ -34,7 +34,7 @@ class CompanySetupRequest extends FormRequest
             'home_currency_id' => 'required|exists:currencies,id',
             'fiscal_year_id' => 'required|exists:fiscal_years,id',
             'base_auto_price_calculation' => 'nullable|exists:sales_types,id',
-            'new_company_logo' => 'nullable|string|max:255',
+            'new_company_logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'delete_company_logo' => 'boolean',
             'timezone_on_reports' => 'boolean',
             'company_logo_on_reports' => 'boolean',

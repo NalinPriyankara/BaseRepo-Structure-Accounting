@@ -4,6 +4,7 @@ namespace App\Repositories\All\Auth;
 
 use App\Models\UserManagement;
 use App\Repositories\Base\BaseRepository;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
@@ -34,8 +35,34 @@ class AuthRepository extends BaseRepository implements AuthInterface
 
         $token = $user->createToken('auth-token')->plainTextToken;
 
+        // fetch role row from security_roles by role name (the user_managements.role column)
+        $roleRow = DB::table('security_roles')->where('role', $user->role)->first();
+
+        $sections = [];
+        $areas = [];
+
+        if ($roleRow) {
+            if (!empty($roleRow->sections)) {
+                $sections = array_values(array_filter(explode(';', $roleRow->sections)));
+            }
+            if (!empty($roleRow->areas)) {
+                $areas = array_values(array_filter(explode(';', $roleRow->areas)));
+            }
+        }
+
         return [
-            'user' => $user,
+            'user' => [
+                'id' => $user->id,
+                'email' => $user->email,
+                'telephone' => $user->telephone,
+                'role' => $user->role,
+                'role_id' => $roleRow->id ?? null,
+                'sections' => $sections,
+                'areas' => $areas,
+                'status' => $user->status,
+                'first_name' => $user->first_name,
+                'last_name' => $user->last_name,
+            ],
             'token' => $token
         ];
     }
