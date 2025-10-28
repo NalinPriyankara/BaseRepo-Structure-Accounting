@@ -121,7 +121,7 @@ Route::apiResource('fixed-assets-locations', FixedAssetsLocationController::clas
 Route::apiResource('sales-pricings', SalesPricingController::class);
 
 Route::apiResource('inventory-locations', InventoryLocationController::class);
-Route::apiResource("company-setup", CompanySetupController::class)->middleware(['auth:sanctum','admin']);
+Route::apiResource("company-setup", CompanySetupController::class);
 
 Route::apiResource('shipping-companies', ShippingCompnayController::class);
 Route::apiResource('payment-terms', PaymentTermController::class);

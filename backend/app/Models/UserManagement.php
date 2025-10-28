@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\SecurityRole;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -48,5 +49,13 @@ class UserManagement extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Relationship to security role.
+     */
+    public function securityRole()
+    {
+        return $this->belongsTo(SecurityRole::class, 'role', 'role');
     }
 }

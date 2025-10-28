@@ -30,7 +30,15 @@ class CompanySetupController extends Controller
      */
     public function store(CompanySetupRequest $request)
     {
-        $company = $this->companyRepo->create($request->validated());
+        $data = $request->validated();
+
+        // Handle logo upload
+        if ($request->hasFile('new_company_logo')) {
+            $path = $request->file('new_company_logo')->store('company_logos', 'public');
+            $data['new_company_logo'] = $path;
+        }
+
+        $company = $this->companyRepo->create($data);
         return response()->json($company, 201);
     }
 
@@ -53,7 +61,15 @@ class CompanySetupController extends Controller
      */
     public function update(CompanySetupRequest $request, string $id)
     {
-        $updated = $this->companyRepo->update($id, $request->validated());
+        $data = $request->validated();
+
+        // Handle logo upload
+        if ($request->hasFile('new_company_logo')) {
+            $path = $request->file('new_company_logo')->store('company_logos', 'public');
+            $data['new_company_logo'] = $path;
+        }
+
+        $updated = $this->companyRepo->update($id, $data);
 
         if (!$updated) {
             return response()->json(['message' => 'Record not found'], 404);
