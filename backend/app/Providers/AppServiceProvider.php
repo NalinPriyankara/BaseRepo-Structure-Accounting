@@ -78,6 +78,10 @@ use App\Repositories\All\SecurityRoles\SecurityRolesInterface;
 use App\Repositories\All\SecurityRoles\SecurityRolesRepository;
 use App\Repositories\All\ShippingCompany\ShippingCompanyInterface;
 use App\Repositories\All\ShippingCompany\ShippingCompanyRepository;
+use App\Repositories\All\StockFaClass\StockFaClassInterface;
+use App\Repositories\All\StockFaClass\StockFaClassRepository;
+use App\Repositories\All\StockMaster\StockMasterInterface;
+use App\Repositories\All\StockMaster\StockMasterRepository;
 use App\Repositories\All\Supplier\SupplierInterface;
 use App\Repositories\All\Supplier\SupplierRepository;
 use App\Repositories\All\TaxGroup\TaxGroupInterface;
@@ -145,6 +149,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SecurityRolesInterface::class, SecurityRolesRepository::class);
         $this->app->bind(ItemCategoryInterface::class, ItemCategoryRepository::class);
         $this->app->bind(ItemTypeInterface::class, ItemTypeRepository::class);
+        $this->app->bind(StockFaClassInterface::class, StockFaClassRepository::class);
+        $this->app->bind(StockMasterInterface::class, StockMasterRepository::class);
     }
 
     /**

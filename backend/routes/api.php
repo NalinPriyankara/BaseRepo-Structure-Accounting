@@ -44,6 +44,8 @@ use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\WorkCentreController;
 use App\Http\Controllers\ItemTaxTypeExceptionController;
 use App\Http\Controllers\ItemTypeController;
+use App\Http\Controllers\StockFaClassController;
+use App\Http\Controllers\StockMasterController;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -148,4 +150,7 @@ Route::apiResource('security-roles', SecurityRolesController::class);
 
 Route::apiResource('item-categories', ItemCategoryController::class);
 Route::apiResource('item-types', ItemTypeController::class);
+
+Route::apiResource('stock-fa-classes', StockFaClassController::class);
+Route::apiResource('stock-masters', StockMasterController::class);
 
