@@ -78,6 +78,7 @@ Route::get('/user', function (Request $request) {
         'id' => $user->id ?? null,
         'email' => $user->email ?? null,
         'telephone' => $user->telephone ?? null,
+        'image' => $user->image ?? null,
         'role' => $user->role ?? null,
         'role_id' => $roleRow->id ?? null,
         'sections' => $sections,
