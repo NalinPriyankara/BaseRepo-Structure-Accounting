@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class SalesPricingRequest extends FormRequest
+class PurchasingPricingRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +23,13 @@ class SalesPricingRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'currency_id' => 'required|exists:currencies,id',
+            'supplier_id' => 'required|exists:suppliers,supplier_id',
             'stock_id' => 'required|exists:stock_master,stock_id',
-            'sales_type_id' => 'required|exists:sales_types,id',
             'price' => 'required|numeric|min:0',
+            'suppliers_uom' => 'required|string|max:50',
+            'conversion_factor' => 'required|numeric|min:0',
+            'supplier_description' => 'nullable|string|max:255',
         ];
+
     }
 }

@@ -34,12 +34,12 @@ return new class extends Migration
             $table->boolean('no_sale')->default(0);
             $table->boolean('no_purchase')->default(0);
             $table->boolean('editable')->default(1);
-            $table->char('depreciation_method', 1);
+            $table->char('depreciation_method', 1)->nullable();
             $table->double('depreciation_rate');
             $table->double('depreciation_factor');
             $table->date('depreciation_start');
             $table->date('depreciation_date');
-            $table->string('fa_class_id');
+            $table->string('fa_class_id')->nullable();
 
             // Optional timestamps (remove if not needed)
             $table->timestamps();

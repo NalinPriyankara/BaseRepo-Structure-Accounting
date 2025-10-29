@@ -13,6 +13,7 @@ class SalesPricing extends Model
 
     protected $fillable = [
         'currency_id',
+        'stock_id',
         'sales_type_id',
         'price',
     ];
@@ -26,5 +27,11 @@ class SalesPricing extends Model
     public function salesType()
     {
         return $this->belongsTo(SalesType::class);
+    }
+
+    public function stock()
+    {
+        // stock_id references stock_master.stock_id
+        return $this->belongsTo(StockMaster::class, 'stock_id', 'stock_id');
     }
 }
