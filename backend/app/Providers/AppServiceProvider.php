@@ -40,6 +40,8 @@ use App\Repositories\All\DebtorsMaster\DebtorsMasterInterface;
 use App\Repositories\All\DebtorsMaster\DebtorsMasterRepository;
 use App\Repositories\All\DimensionTag\DimensionTagInterface;
 use App\Repositories\All\DimensionTag\DimensionTagRepository;
+use App\Repositories\All\EntryType\EntryTypeInterface;
+use App\Repositories\All\EntryType\EntryTypeRepository;
 use App\Repositories\All\ExchangeRate\ExchangeRateInterface;
 use App\Repositories\All\ExchangeRate\ExchangeRateRepository;
 use App\Repositories\All\FiscalYear\FiscalYearInterface;
@@ -62,6 +64,8 @@ use App\Repositories\All\PaymentTerm\PaymentTermInterface;
 use App\Repositories\All\PaymentTerm\PaymentTermRepository;
 use App\Repositories\All\PaymentType\PaymentTypeInterface;
 use App\Repositories\All\PaymentType\PaymentTypeRepository;
+use App\Repositories\All\PurchasingPricing\PurchasingPricingInterface;
+use App\Repositories\All\PurchasingPricing\PurchasingPricingRepository;
 use App\Repositories\All\RevaluateCurrency\RevaluateCurrencyInterface;
 use App\Repositories\All\RevaluateCurrency\RevaluateCurrencyRepository;
 use App\Repositories\All\SalesArea\SalesAreaInterface;
@@ -151,6 +155,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ItemTypeInterface::class, ItemTypeRepository::class);
         $this->app->bind(StockFaClassInterface::class, StockFaClassRepository::class);
         $this->app->bind(StockMasterInterface::class, StockMasterRepository::class);
+        $this->app->bind(PurchasingPricingInterface::class, PurchasingPricingRepository::class);
+       
     }
 
     /**

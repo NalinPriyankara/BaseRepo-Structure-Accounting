@@ -54,12 +54,12 @@ class StockMasterRequest extends FormRequest
             'no_purchase' => 'boolean',
             'editable' => 'boolean',
 
-            'depreciation_method' => 'required|string|size:1',
+            'depreciation_method' => 'nullable|string|size:1',
             'depreciation_rate' => 'required|numeric|min:0',
             'depreciation_factor' => 'required|numeric|min:0',
             'depreciation_start' => 'required|date',
             'depreciation_date' => 'required|date|after_or_equal:depreciation_start',
-            'fa_class_id' => 'string|exists:stock_fa_class,fa_class_id',
+            'fa_class_id' => 'nullable|exists:stock_fa_class,fa_class_id',
         ];
     }
 }

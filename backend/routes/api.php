@@ -44,6 +44,7 @@ use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\WorkCentreController;
 use App\Http\Controllers\ItemTaxTypeExceptionController;
 use App\Http\Controllers\ItemTypeController;
+use App\Http\Controllers\PurchasingPricingController;
 use App\Http\Controllers\StockFaClassController;
 use App\Http\Controllers\StockMasterController;
 use App\Models\UserProfile;
@@ -153,4 +154,10 @@ Route::apiResource('item-types', ItemTypeController::class);
 
 Route::apiResource('stock-fa-classes', StockFaClassController::class);
 Route::apiResource('stock-masters', StockMasterController::class);
+
+Route::apiResource('purchasing-pricings', PurchasingPricingController::class);
+Route::get('purchasing-pricings/{supplier_id}/{stock_id}', [PurchasingPricingController::class, 'showToUpdate']);
+Route::put('purchasing-pricings/{supplier_id}/{stock_id}', [PurchasingPricingController::class, 'update']);
+Route::delete('purchasing-pricings/{supplier_id}/{stock_id}', [PurchasingPricingController::class, 'destroy']);
+
 
