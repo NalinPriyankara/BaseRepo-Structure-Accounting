@@ -45,6 +45,7 @@ use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\WorkCentreController;
 use App\Http\Controllers\ItemTaxTypeExceptionController;
 use App\Http\Controllers\ItemTypeController;
+use App\Http\Controllers\LocStockController;
 use App\Http\Controllers\PurchasingPricingController;
 use App\Http\Controllers\StockFaClassController;
 use App\Http\Controllers\StockMasterController;
@@ -163,4 +164,7 @@ Route::get('purchasing-pricings/{supplier_id}/{stock_id}', [PurchasingPricingCon
 Route::put('purchasing-pricings/{supplier_id}/{stock_id}', [PurchasingPricingController::class, 'update']);
 Route::delete('purchasing-pricings/{supplier_id}/{stock_id}', [PurchasingPricingController::class, 'destroy']);
 
+Route::apiResource('loc-stocks', LocStockController::class);
+Route::get('loc-stocks/{loc_code}/{stock_id}', [LocStockController::class, 'show']);
+Route::put('loc-stocks/{loc_code}/{stock_id}', [LocStockController::class, 'update']);
 Route::apiResource('item-codes', ItemCodesController::class);
