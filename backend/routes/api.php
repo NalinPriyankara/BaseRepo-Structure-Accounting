@@ -23,6 +23,7 @@ use App\Http\Controllers\FiscalYearController;
 use App\Http\Controllers\FixedAssetsLocationController;
 use App\Http\Controllers\InventoryLocationController;
 use App\Http\Controllers\ItemCategoryController;
+use App\Http\Controllers\ItemCodesController;
 use App\Http\Controllers\ItemTaxTypeController;
 use App\Http\Controllers\ItemUnitController;
 use App\Http\Controllers\PaymentTermController;
@@ -47,6 +48,7 @@ use App\Http\Controllers\ItemTypeController;
 use App\Http\Controllers\PurchasingPricingController;
 use App\Http\Controllers\StockFaClassController;
 use App\Http\Controllers\StockMasterController;
+use App\Models\ItemCode;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -161,4 +163,4 @@ Route::get('purchasing-pricings/{supplier_id}/{stock_id}', [PurchasingPricingCon
 Route::put('purchasing-pricings/{supplier_id}/{stock_id}', [PurchasingPricingController::class, 'update']);
 Route::delete('purchasing-pricings/{supplier_id}/{stock_id}', [PurchasingPricingController::class, 'destroy']);
 
-
+Route::apiResource('item-codes', ItemCodesController::class);
