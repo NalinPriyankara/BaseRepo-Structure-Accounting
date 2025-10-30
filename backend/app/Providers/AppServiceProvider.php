@@ -60,6 +60,8 @@ use App\Repositories\All\ItemType\ItemTypeInterface;
 use App\Repositories\All\ItemType\ItemTypeRepository;
 use App\Repositories\All\ItemUnit\ItemUnitInterface;
 use App\Repositories\All\ItemUnit\ItemUnitRepository;
+use App\Repositories\All\LocStock\LocStockInterface;
+use App\Repositories\All\LocStock\LocStockRepository;
 use App\Repositories\All\PaymentTerm\PaymentTermInterface;
 use App\Repositories\All\PaymentTerm\PaymentTermRepository;
 use App\Repositories\All\PaymentType\PaymentTypeInterface;
@@ -156,6 +158,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(StockFaClassInterface::class, StockFaClassRepository::class);
         $this->app->bind(StockMasterInterface::class, StockMasterRepository::class);
         $this->app->bind(PurchasingPricingInterface::class, PurchasingPricingRepository::class);
+        $this->app->bind(LocStockInterface::class, LocStockRepository::class);
        
     }
 

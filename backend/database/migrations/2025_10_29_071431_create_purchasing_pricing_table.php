@@ -24,7 +24,7 @@ return new class extends Migration
 
             // Foreign keys
             $table->foreign('supplier_id')->references('supplier_id')->on('suppliers')->onUpdate('cascade')->onDelete('restrict');
-            $table->foreign('stock_id')->references('stock_id')->on('stock_master')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('stock_id')->references('stock_id')->on('stock_master')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
