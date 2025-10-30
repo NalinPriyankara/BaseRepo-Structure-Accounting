@@ -36,4 +36,9 @@ class ItemCategory extends Model
     {
         return $this->belongsTo(ItemUnit::class, 'dflt_units');
     }
+
+    public function itemCodes()
+    {
+        return $this->hasMany(ItemCode::class, 'category_id', 'category_id');
+    }
 }

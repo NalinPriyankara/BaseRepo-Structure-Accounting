@@ -52,6 +52,8 @@ use App\Repositories\All\InventoryLocation\InventoryLocationInterface;
 use App\Repositories\All\InventoryLocation\InventoryLocationRepository;
 use App\Repositories\All\ItemCategory\ItemCategoryInterface;
 use App\Repositories\All\ItemCategory\ItemCategoryRepository;
+use App\Repositories\All\ItemCodes\ItemCodesInterface;
+use App\Repositories\All\ItemCodes\ItemCodesRepository;
 use App\Repositories\All\ItemTaxType\ItemTaxTypeInterface;
 use App\Repositories\All\ItemTaxType\ItemTaxTypeRepository;
 use App\Repositories\All\ItemTaxTypeException\ItemTaxTypeExceptionInterface;
@@ -159,6 +161,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(StockMasterInterface::class, StockMasterRepository::class);
         $this->app->bind(PurchasingPricingInterface::class, PurchasingPricingRepository::class);
         $this->app->bind(LocStockInterface::class, LocStockRepository::class);
+        $this->app->bind(ItemCodesInterface::class, ItemCodesRepository::class);
        
     }
 
