@@ -100,4 +100,10 @@ class StockMaster extends Model
     {
         return $this->belongsTo(ChartMaster::class, 'wip_account', 'account_code');
     }
+
+    public function itemCodes()
+    {
+        return $this->hasMany(ItemCode::class, 'stock_id', 'stock_id');
+    }
+
 }
