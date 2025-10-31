@@ -39,6 +39,7 @@ return new class extends Migration
             $table->double('depreciation_factor');
             $table->date('depreciation_start');
             $table->date('depreciation_date');
+            $table->string('image')->nullable();
             $table->string('fa_class_id')->nullable();
 
             // Optional timestamps (remove if not needed)

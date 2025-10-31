@@ -21,11 +21,20 @@ class StockMasterController extends Controller
 
     public function store(StockMasterRequest $request)
     {
-        $stockMaster = $this->stockMasterRepo->create($request->validated());
+        $data = $request->validated();
+
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('stock_images', 'public');
+            $data['image'] = $path;
+        }
+
+        $stockMaster = $this->stockMasterRepo->create($data);
+
         return response()->json($stockMaster, 201);
     }
 
-    public function show(int $id)
+    public function show(string $id)
     {
         $stockMaster = $this->stockMasterRepo->find($id);
         if (!$stockMaster) {
@@ -34,7 +43,7 @@ class StockMasterController extends Controller
         return response()->json($stockMaster);
     }
 
-    public function update(StockMasterRequest $request, int $id)
+    public function update(StockMasterRequest $request, string $id)
     {
         $updated = $this->stockMasterRepo->update($id, $request->validated());
         if (!$updated) {
@@ -43,7 +52,7 @@ class StockMasterController extends Controller
         return response()->json($this->stockMasterRepo->find($id));
     }
 
-    public function destroy(int $id)
+    public function destroy(string $id)
     {
         $deleted = $this->stockMasterRepo->delete($id);
         if (!$deleted) {

@@ -59,6 +59,7 @@ class StockMasterRequest extends FormRequest
             'depreciation_factor' => 'required|numeric|min:0',
             'depreciation_start' => 'required|date',
             'depreciation_date' => 'required|date|after_or_equal:depreciation_start',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'fa_class_id' => 'nullable|exists:stock_fa_class,fa_class_id',
         ];
     }
