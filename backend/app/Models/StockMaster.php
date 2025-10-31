@@ -43,6 +43,7 @@ class StockMaster extends Model
         'depreciation_start',
         'depreciation_date',
         'fa_class_id',
+        'image',
     ];
 
     // Each stock belongs to a category
