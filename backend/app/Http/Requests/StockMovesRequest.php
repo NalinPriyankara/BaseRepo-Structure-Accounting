@@ -22,9 +22,9 @@ class StockMovesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'trans_no' => 'required|integer',
+            'trans_no' => 'nullable|integer',
             'stock_id' => 'required|exists:stock_master,stock_id',
-            'type' => 'required|integer',
+            'type' => 'nullable|integer',
             'loc_code' => 'required|exists:inventory_locations,loc_code',
             'tran_date' => 'required|date',
             'price' => 'required|numeric',
