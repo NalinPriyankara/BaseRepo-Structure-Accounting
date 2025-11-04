@@ -31,4 +31,9 @@ class InventoryLocation extends Model
     {
         return $this->hasMany(CustomerBranch::class, 'inventory_location', 'loc_code');
     }
+
+    public function stockMoves()
+    {
+        return $this->hasMany(StockMove::class, 'loc_code', 'loc_code');
+    }
 }

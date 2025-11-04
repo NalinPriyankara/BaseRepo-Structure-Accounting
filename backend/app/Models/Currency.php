@@ -58,4 +58,8 @@ class Currency extends Model
         return $this->hasMany(ExchangeRate::class, 'curr_code', 'currency_abbreviation');
     }
 
+    public function journals()
+    {
+        return $this->hasMany(Journal::class, 'currency', 'currency_abbreviation');
+    }
 }
