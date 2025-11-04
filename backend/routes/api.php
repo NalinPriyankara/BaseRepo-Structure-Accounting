@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountTagController;
 use App\Http\Controllers\AccountTypeController;
+use App\Http\Controllers\AuditTrailController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BankAccountController;
 use App\Http\Controllers\ChartClassController;
@@ -45,10 +46,13 @@ use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\WorkCentreController;
 use App\Http\Controllers\ItemTaxTypeExceptionController;
 use App\Http\Controllers\ItemTypeController;
+use App\Http\Controllers\JournalController;
 use App\Http\Controllers\LocStockController;
 use App\Http\Controllers\PurchasingPricingController;
+use App\Http\Controllers\RefsController;
 use App\Http\Controllers\StockFaClassController;
 use App\Http\Controllers\StockMasterController;
+use App\Http\Controllers\StockMovesController;
 use App\Models\ItemCode;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
@@ -168,3 +172,8 @@ Route::apiResource('loc-stocks', LocStockController::class);
 Route::get('loc-stocks/{loc_code}/{stock_id}', [LocStockController::class, 'show']);
 Route::put('loc-stocks/{loc_code}/{stock_id}', [LocStockController::class, 'update']);
 Route::apiResource('item-codes', ItemCodesController::class);
+
+Route::apiResource('journals', JournalController::class);
+Route::apiResource('refs', RefsController::class);
+Route::apiResource('audit-trails', AuditTrailController::class);
+Route::apiResource('stock-moves', StockMovesController::class);

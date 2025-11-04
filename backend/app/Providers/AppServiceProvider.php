@@ -8,6 +8,8 @@ use App\Repositories\All\AccountTag\AccountTagInterface;
 use App\Repositories\All\AccountTag\AccountTagRepository;
 use App\Repositories\All\AccountType\AccountTypeInterface;
 use App\Repositories\All\AccountType\AccountTypeRepository;
+use App\Repositories\All\AuditTrail\AuditTrailInterface;
+use App\Repositories\All\AuditTrail\AuditTrailRepository;
 use App\Repositories\All\Auth\AuthInterface;
 use App\Repositories\All\Auth\AuthRepository;
 use App\Repositories\All\BankAccount\BankAccountInterface;
@@ -62,6 +64,8 @@ use App\Repositories\All\ItemType\ItemTypeInterface;
 use App\Repositories\All\ItemType\ItemTypeRepository;
 use App\Repositories\All\ItemUnit\ItemUnitInterface;
 use App\Repositories\All\ItemUnit\ItemUnitRepository;
+use App\Repositories\All\Journal\JournalInterface;
+use App\Repositories\All\Journal\JournalRepository;
 use App\Repositories\All\LocStock\LocStockInterface;
 use App\Repositories\All\LocStock\LocStockRepository;
 use App\Repositories\All\PaymentTerm\PaymentTermInterface;
@@ -70,6 +74,8 @@ use App\Repositories\All\PaymentType\PaymentTypeInterface;
 use App\Repositories\All\PaymentType\PaymentTypeRepository;
 use App\Repositories\All\PurchasingPricing\PurchasingPricingInterface;
 use App\Repositories\All\PurchasingPricing\PurchasingPricingRepository;
+use App\Repositories\All\Refs\RefsInterface;
+use App\Repositories\All\Refs\RefsRepository;
 use App\Repositories\All\RevaluateCurrency\RevaluateCurrencyInterface;
 use App\Repositories\All\RevaluateCurrency\RevaluateCurrencyRepository;
 use App\Repositories\All\SalesArea\SalesAreaInterface;
@@ -90,6 +96,8 @@ use App\Repositories\All\StockFaClass\StockFaClassInterface;
 use App\Repositories\All\StockFaClass\StockFaClassRepository;
 use App\Repositories\All\StockMaster\StockMasterInterface;
 use App\Repositories\All\StockMaster\StockMasterRepository;
+use App\Repositories\All\StockMoves\StockMovesInterface;
+use App\Repositories\All\StockMoves\StockMovesRepository;
 use App\Repositories\All\Supplier\SupplierInterface;
 use App\Repositories\All\Supplier\SupplierRepository;
 use App\Repositories\All\TaxGroup\TaxGroupInterface;
@@ -162,7 +170,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(PurchasingPricingInterface::class, PurchasingPricingRepository::class);
         $this->app->bind(LocStockInterface::class, LocStockRepository::class);
         $this->app->bind(ItemCodesInterface::class, ItemCodesRepository::class);
-       
+        $this->app->bind(JournalInterface::class, JournalRepository::class);
+        $this->app->bind(RefsInterface::class, RefsRepository::class);
+        $this->app->bind(AuditTrailInterface::class, AuditTrailRepository::class);
+        $this->app->bind(StockMovesInterface::class, StockMovesRepository::class);
     }
 
     /**

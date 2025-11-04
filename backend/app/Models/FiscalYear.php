@@ -18,4 +18,8 @@ class FiscalYear extends Model
         return $this->hasMany(CompanySetup::class, 'fiscal_year_id');
     }
 
+    public function auditTrails()
+    {
+        return $this->hasMany(AuditTrail::class, 'fiscal_year', 'id');
+    }
 }
