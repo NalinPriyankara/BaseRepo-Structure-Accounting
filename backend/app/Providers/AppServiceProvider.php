@@ -22,6 +22,8 @@ use App\Repositories\All\ChartType\ChartTypeInterface;
 use App\Repositories\All\ChartType\ChartTypeRepository;
 use App\Repositories\All\ClassType\ClassTypeInterface;
 use App\Repositories\All\ClassType\ClassTypeRepository;
+use App\Repositories\All\Comments\CommentsInterface;
+use App\Repositories\All\Comments\CommentsRepository;
 use App\Repositories\All\CompanySetup\CompanySetupInterface;
 use App\Repositories\All\CompanySetup\CompanySetupRepository;
 use App\Repositories\All\CreditStatusSetup\CreditStatusSetupInterface;
@@ -174,6 +176,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(RefsInterface::class, RefsRepository::class);
         $this->app->bind(AuditTrailInterface::class, AuditTrailRepository::class);
         $this->app->bind(StockMovesInterface::class, StockMovesRepository::class);
+        $this->app->bind(CommentsInterface::class, CommentsRepository::class);
     }
 
     /**

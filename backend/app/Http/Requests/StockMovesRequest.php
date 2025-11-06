@@ -27,7 +27,7 @@ class StockMovesRequest extends FormRequest
             'type' => 'nullable|integer',
             'loc_code' => 'required|exists:inventory_locations,loc_code',
             'tran_date' => 'required|date',
-            'price' => 'required|numeric',
+            'price' => 'nullable|numeric',
             'reference' => 'nullable|string|max:40',
             'qty' => 'required|numeric',
             'standard_cost' => 'required|numeric',
