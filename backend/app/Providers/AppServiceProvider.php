@@ -76,6 +76,8 @@ use App\Repositories\All\PaymentType\PaymentTypeInterface;
 use App\Repositories\All\PaymentType\PaymentTypeRepository;
 use App\Repositories\All\PurchasingPricing\PurchasingPricingInterface;
 use App\Repositories\All\PurchasingPricing\PurchasingPricingRepository;
+use App\Repositories\All\Reflines\ReflinesInterface;
+use App\Repositories\All\Reflines\ReflinesRepository;
 use App\Repositories\All\Refs\RefsInterface;
 use App\Repositories\All\Refs\RefsRepository;
 use App\Repositories\All\RevaluateCurrency\RevaluateCurrencyInterface;
@@ -177,6 +179,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(AuditTrailInterface::class, AuditTrailRepository::class);
         $this->app->bind(StockMovesInterface::class, StockMovesRepository::class);
         $this->app->bind(CommentsInterface::class, CommentsRepository::class);
+        $this->app->bind(ReflinesInterface::class, ReflinesRepository::class);
     }
 
     /**
