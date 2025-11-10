@@ -24,18 +24,28 @@ class FiscalYearRequest extends FormRequest
     {
         $id = $this->route('id');
 
+        // Check if it's an update request (PUT or PATCH)
+        if (in_array($this->method(), ['PUT', 'PATCH'])) {
+            // ✅ Updating only 'closed'
+            return [
+                'closed' => ['required', 'boolean'],
+            ];
+        }
+
+        // ✅ Adding a new fiscal year (POST)
         return [
             'fiscal_year_from' => [
                 'required',
                 'date',
-                Rule::unique('fiscal_years', 'fiscal_year_from')->ignore($id, 'id'),
+                Rule::unique('fiscal_years', 'fiscal_year_from'),
             ],
             'fiscal_year_to' => [
                 'required',
                 'date',
                 'after_or_equal:fiscal_year_from',
-                Rule::unique('fiscal_years', 'fiscal_year_to')->ignore($id, 'id'),
+                Rule::unique('fiscal_years', 'fiscal_year_to'),
             ],
+            'closed' => ['boolean'],
         ];
     }
 }

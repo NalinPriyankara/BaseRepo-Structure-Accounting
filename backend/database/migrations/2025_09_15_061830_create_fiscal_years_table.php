@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('fiscal_year_from');
             $table->string('fiscal_year_to');
+            $table->boolean('closed')->default(0);
             $table->timestamps();
         });
     }

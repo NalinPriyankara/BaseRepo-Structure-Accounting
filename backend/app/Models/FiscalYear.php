@@ -11,6 +11,7 @@ class FiscalYear extends Model
     protected $fillable = [
         'fiscal_year_from',
         'fiscal_year_to',
+        'closed',
     ];
 
     public function companySetup()

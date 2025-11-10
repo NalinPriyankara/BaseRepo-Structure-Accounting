@@ -50,6 +50,7 @@ use App\Http\Controllers\ItemTypeController;
 use App\Http\Controllers\JournalController;
 use App\Http\Controllers\LocStockController;
 use App\Http\Controllers\PurchasingPricingController;
+use App\Http\Controllers\RefLinesController;
 use App\Http\Controllers\RefsController;
 use App\Http\Controllers\StockFaClassController;
 use App\Http\Controllers\StockMasterController;
@@ -179,3 +180,5 @@ Route::apiResource('refs', RefsController::class);
 Route::apiResource('audit-trails', AuditTrailController::class);
 Route::apiResource('stock-moves', StockMovesController::class);
 Route::apiResource('comments', CommentsController::class);
+
+Route::apiResource('ref-lines', RefLinesController::class);
