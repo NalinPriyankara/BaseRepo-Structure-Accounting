@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('fax');                   // NOT NULL
             $table->string('email');                 // NOT NULL
             $table->string('contact'); 
+            $table->boolean('inactive')->default(0);
             $table->timestamps();
         });
     }

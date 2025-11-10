@@ -25,6 +25,7 @@ class InventoryLocation extends Model
         'phone2',
         'fax',
         'email',
+        'inactive',
     ];
 
     public function branches()

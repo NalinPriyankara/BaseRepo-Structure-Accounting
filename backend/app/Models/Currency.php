@@ -21,6 +21,7 @@ class Currency extends Model
         'hundredths_name',
         'country',
         'auto_exchange_rate_update',
+        'inactive',
     ];
 
 

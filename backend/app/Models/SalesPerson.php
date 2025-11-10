@@ -16,6 +16,7 @@ class SalesPerson extends Model
         'provision',
         'turnover_break_point',
         'provision2',
+        'inactive',
     ];
 
     public function branches()

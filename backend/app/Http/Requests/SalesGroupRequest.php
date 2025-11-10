@@ -7,30 +7,33 @@ use Illuminate\Validation\Rule;
 
 class SalesGroupRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
-        $salesGroupId = $this->route('id');
+        if ($this->isMethod('post')) {
+            return [
+                'name' => 'required|string|max:255|unique:sales_groups,name',
+                'inactive' => 'boolean',
+            ];
+        }
 
-        return [
-            'name' => [
-                'required',
-                'string',
-                'max:255',
-                Rule::unique('sales_groups')->ignore($salesGroupId)
-            ]
-        ];
+        if ($this->isMethod('put') || $this->isMethod('patch')) {
+            return [
+                'name' => [
+                    'sometimes',
+                    'required',
+                    'string',
+                    'max:255',
+                    Rule::unique('sales_groups')->ignore($this->route('id')), // make sure route param matches
+                ],
+                'inactive' => 'sometimes|boolean',
+            ];
+        }
+
+        return [];
     }
 }

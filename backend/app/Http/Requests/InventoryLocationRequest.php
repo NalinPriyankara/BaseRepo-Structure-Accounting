@@ -32,12 +32,13 @@ class InventoryLocationRequest extends FormRequest
                 Rule::unique('inventory_locations', 'loc_code')->ignore($id),
             ],
             'location_name'   => 'required|string|max:255',
-            'delivery_address'=> 'required|string',
+            'delivery_address' => 'required|string',
             'phone'           => 'required|string|max:50',
             'phone2'          => 'required|string|max:50',
             'fax'             => 'required|string|max:50',
             'email'           => 'required|email|max:255',
             'contact'         => 'required|string|max:255',
+            'inactive' => 'boolean',
         ];
     }
 }

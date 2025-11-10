@@ -12,7 +12,8 @@ class SalesArea extends Model
     protected $table = 'sales_areas';
 
     protected $fillable = [
-        'name'
+        'name',
+        'inactive',
     ];
 
     public function branches()

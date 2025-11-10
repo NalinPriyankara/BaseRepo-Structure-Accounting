@@ -12,7 +12,8 @@ class SalesGroup extends Model
     protected $table = 'sales_groups';
 
     protected $fillable = [
-        'name'
+        'name',
+        'inactive',
     ];
 
     public function branches()

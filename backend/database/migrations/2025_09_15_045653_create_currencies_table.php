@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('hundredths_name')->nullable();         
             $table->string('country');                            
             $table->boolean('auto_exchange_rate_update')->default(false);
+            $table->boolean('inactive')->default(0);
             $table->timestamps();
         });
     }
