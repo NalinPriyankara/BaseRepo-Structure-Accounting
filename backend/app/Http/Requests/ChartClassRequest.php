@@ -25,7 +25,7 @@ class ChartClassRequest extends FormRequest
             'cid' => 'required|string|max:3',
             'class_name' => 'required|string|max:60',
             'ctype' => 'required|integer|min:0|max:10',
-            'inactive' => 'required|boolean',
+            'inactive' => 'boolean',
         ];
     }
 }

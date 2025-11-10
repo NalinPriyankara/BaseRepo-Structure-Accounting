@@ -29,6 +29,7 @@ class SalesPersonRequest extends FormRequest
             'provision' => 'nullable|numeric',
             'turnover_break_point' => 'nullable|numeric',
             'provision2' => 'nullable|numeric',
+            'inactive' => 'boolean',
         ];
     }
 }

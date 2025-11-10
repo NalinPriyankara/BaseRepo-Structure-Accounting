@@ -30,6 +30,7 @@ class CurrencyRequest extends FormRequest
             'hundredths_name' => 'nullable|string|max:255',
             'country' => 'required|string|max:255',
             'auto_exchange_rate_update' => 'sometimes|boolean',
+            'inactive' => 'boolean',
         ];
     }
 }

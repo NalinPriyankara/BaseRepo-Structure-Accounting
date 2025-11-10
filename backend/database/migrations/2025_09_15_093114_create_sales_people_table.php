@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('provision', 8, 2)->default(0);
             $table->decimal('turnover_break_point', 15, 2)->default(0);
             $table->decimal('provision2', 8, 2)->default(0);
+            $table->boolean('inactive')->default(0);
             $table->timestamps();
         });
     }

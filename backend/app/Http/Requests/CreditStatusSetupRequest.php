@@ -24,6 +24,7 @@ class CreditStatusSetupRequest extends FormRequest
         return [
             'reason_description' => 'required|string|max:255',
             'disallow_invoices' => 'required|boolean',
+            'inactive' => 'boolean',
         ];
     }
 }

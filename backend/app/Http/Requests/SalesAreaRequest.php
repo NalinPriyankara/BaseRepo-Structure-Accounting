@@ -21,8 +21,21 @@ class SalesAreaRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'name' => 'required|string|max:255'
-        ];
+         if ($this->isMethod('post')) {
+            return [
+                'name' => 'required|string|max:255|unique:sales_areas,name',
+                'inactive' => 'boolean',
+            ];
+        }
+
+        // For updating (PATCH or PUT)
+        if ($this->isMethod('put') || $this->isMethod('patch')) {
+            return [
+                'name' => 'sometimes|required|string|max:255|unique:sales_areas,name,' . $this->route('sales_area'),
+                'inactive' => 'sometimes|boolean',
+            ];
+        }
+
+        return [];
     }
 }

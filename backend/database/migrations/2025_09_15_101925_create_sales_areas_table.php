@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('sales_areas', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->boolean('inactive')->default(0);
             $table->timestamps();
         });
     }

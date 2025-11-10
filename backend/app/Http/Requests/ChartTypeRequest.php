@@ -3,36 +3,39 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ChartTypeRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
-        $rules = [
-        'name'     => 'required|string|max:60',
-        'class_id' => 'required|string|exists:chart_class,cid',
-        'parent'   => 'nullable|string|max:10',
-        'inactive' => 'boolean',
-        ];
-
-        // Only validate 'id' for CREATE (POST), not UPDATE (PUT/PATCH)
-        if ($this->method() !== 'PUT' && $this->method() !== 'PATCH') {
-            $rules['id'] = 'required|string|max:10|unique:chart_types,id';
+        // For CREATE (POST)
+        if ($this->isMethod('post')) {
+            return [
+                'id'        => 'required|string|max:10|unique:chart_types,id',
+                'name'      => 'required|string|max:60',
+                'class_id'  => 'required|string|exists:chart_class,cid',
+                'parent'    => 'nullable|string|max:10',
+                'inactive'  => 'boolean',
+            ];
         }
 
-        return $rules;
+        // For UPDATE (PUT/PATCH)
+        if ($this->isMethod('put') || $this->isMethod('patch')) {
+            return [
+                'id'        => 'sometimes|string|max:10', // only if passed
+                'name'      => 'sometimes|required|string|max:60',
+                'class_id'  => 'sometimes|required|string|exists:chart_class,cid',
+                'parent'    => 'nullable|string|max:10',
+                'inactive'  => 'sometimes|boolean',
+            ];
         }
+
+        return [];
     }
+}
