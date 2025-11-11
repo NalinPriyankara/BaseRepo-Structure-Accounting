@@ -24,6 +24,7 @@ class ItemTaxTypeRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'exempt' => 'required|boolean',
+            'inactive' => 'boolean',
         ];
     }
 }

@@ -14,6 +14,7 @@ class TaxType extends Model
         'default_rate',
         'sales_gl_account',
         'purchasing_gl_account',
+        'inactive',
     ];
 
     public function salesGlAccount()
