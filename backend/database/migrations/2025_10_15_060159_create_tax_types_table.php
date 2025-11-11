@@ -17,6 +17,7 @@ return new class extends Migration
             $table->decimal('default_rate', 5, 2)->default(0);
             $table->string('sales_gl_account');
             $table->string('purchasing_gl_account');
+            $table->boolean('inactive')->default(0);
             $table->timestamps();
 
             $table->foreign('sales_gl_account')->references('account_code')->on('chart_master')->onDelete('cascade');

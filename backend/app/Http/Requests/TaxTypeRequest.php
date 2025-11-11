@@ -28,6 +28,7 @@ class TaxTypeRequest extends FormRequest
             'default_rate' => 'required|numeric|min:0',
             'sales_gl_account' => 'required|string|max:255',
             'purchasing_gl_account' => 'required|string|max:255',
+            'inactive' => 'boolean',
         ];
     }
 }

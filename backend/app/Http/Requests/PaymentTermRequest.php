@@ -26,7 +26,7 @@ class PaymentTermRequest extends FormRequest
             'payment_type' => 'required|exists:payment_types,id',
             'days_before_due' => 'required|integer|min:0',
             'day_in_following_month' => 'required|integer|min:0',
-            'inactive' => 'required|boolean',
+            'inactive' => 'boolean',
         ];
     }
 }
