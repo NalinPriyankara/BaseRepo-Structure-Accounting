@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             UserManagementSeeder::class,
             SecurityRolesSeeder::class,
             ItemTypeSeeder::class,
+            ReflinesSeeder::class,
         ]);
     }
 }
