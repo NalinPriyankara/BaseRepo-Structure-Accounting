@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('trans_id');
             $table->integer('trans_no')->default(0);
             $table->string('stock_id', 20);
-            $table->smallInteger('type')->default(0);
+            $table->Integer('type')->default(0);
             $table->string('loc_code', 5);
             $table->date('tran_date')->nullable();
             $table->double('price')->default(0);
@@ -26,6 +26,7 @@ return new class extends Migration
 
             $table->foreign('stock_id')->references('stock_id')->on('stock_master')->onDelete('cascade');
             $table->foreign('loc_code')->references('loc_code')->on('inventory_locations')->onDelete('cascade');
+            $table->foreign('type')->references('trans_type')->on('reflines')->onDelete('cascade');
         });
     }
 

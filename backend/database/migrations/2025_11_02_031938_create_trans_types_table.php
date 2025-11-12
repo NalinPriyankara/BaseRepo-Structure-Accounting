@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('refs', function (Blueprint $table) {
+        Schema::create('trans_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('type')->default(0);
-            $table->string('reference', 100)->default('');
+            $table->integer('trans_type');
+            $table->string('description', 50)->default('');
             $table->timestamps();
-
-            $table->foreign('type')->references('trans_type')->on('reflines')->onDelete('cascade');
         });
     }
 
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('refs');
+        Schema::dropIfExists('trans_types');
     }
 };

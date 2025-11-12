@@ -33,4 +33,9 @@ class StockMove extends Model
     {
         return $this->belongsTo(InventoryLocation::class, 'loc_code', 'loc_code');
     }
+
+    public function refLine()
+    {
+        return $this->belongsTo(RefLine::class, 'type', 'trans_type');
+    }
 }

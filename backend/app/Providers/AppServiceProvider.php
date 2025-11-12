@@ -110,6 +110,8 @@ use App\Repositories\All\TaxGroupItem\TaxGroupItemInterface;
 use App\Repositories\All\TaxGroupItem\TaxGroupItemRepository;
 use App\Repositories\All\TaxType\TaxTypeInterface;
 use App\Repositories\All\TaxType\TaxTypeRepository;
+use App\Repositories\All\TransTypes\TransTypesInterface;
+use App\Repositories\All\TransTypes\TransTypesRepository;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\All\UserManagement\UserManagementInterface;
 use App\Repositories\All\UserManagement\UserManagementRepository;
@@ -180,6 +182,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(StockMovesInterface::class, StockMovesRepository::class);
         $this->app->bind(CommentsInterface::class, CommentsRepository::class);
         $this->app->bind(ReflinesInterface::class, ReflinesRepository::class);
+        $this->app->bind(TransTypesInterface::class, TransTypesRepository::class);
     }
 
     /**

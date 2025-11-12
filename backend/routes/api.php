@@ -55,6 +55,7 @@ use App\Http\Controllers\RefsController;
 use App\Http\Controllers\StockFaClassController;
 use App\Http\Controllers\StockMasterController;
 use App\Http\Controllers\StockMovesController;
+use App\Http\Controllers\TransTypesController;
 use App\Models\ItemCode;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
@@ -181,4 +182,5 @@ Route::apiResource('audit-trails', AuditTrailController::class);
 Route::apiResource('stock-moves', StockMovesController::class);
 Route::apiResource('comments', CommentsController::class);
 
+Route::apiResource('trans-types', TransTypesController::class);
 Route::apiResource('ref-lines', RefLinesController::class);
