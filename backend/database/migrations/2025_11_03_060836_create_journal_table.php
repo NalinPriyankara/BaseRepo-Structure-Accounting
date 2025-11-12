@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('journal', function (Blueprint $table) {
-            $table->smallInteger('type')->default(0);
+            $table->Integer('type')->default(0);
             $table->integer('trans_no')->default(0);
             $table->date('tran_date')->nullable();
             $table->string('reference', 60)->default('');
@@ -24,9 +24,7 @@ return new class extends Migration
             $table->double('rate')->default(1);
             $table->timestamps();
 
-            $table->primary(['type', 'trans_no']);
-
-            $table->foreign('currency')->references('currency_abbreviation')->on('currencies')->onDelete('cascade');
+            $table->foreign('type')->references('trans_type')->on('reflines')->onDelete('cascade');
         });
     }
 

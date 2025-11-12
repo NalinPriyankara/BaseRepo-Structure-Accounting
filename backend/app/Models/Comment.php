@@ -21,4 +21,9 @@ class Comment extends Model
         'date_',
         'memo_',
     ];
+
+    public function refLine()
+    {
+        return $this->belongsTo(RefLine::class, 'type', 'trans_type');
+    }
 }

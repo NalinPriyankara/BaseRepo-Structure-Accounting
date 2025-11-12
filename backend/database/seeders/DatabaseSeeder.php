@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
             SecurityRolesSeeder::class,
             ItemTypeSeeder::class,
             ReflinesSeeder::class,
+            TransTypesSeeder::class,
         ]);
     }
 }

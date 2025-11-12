@@ -17,6 +17,8 @@ return new class extends Migration
             $table->date('date_')->nullable();
             $table->tinyText('memo_')->nullable();
             $table->timestamps();
+
+            $table->foreign('type')->references('trans_type')->on('reflines')->onDelete('cascade');
         });
     }
 

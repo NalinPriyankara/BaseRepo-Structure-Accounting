@@ -15,7 +15,7 @@ class RefLine extends Model
         'trans_type',
         'prefix',
         'pattern',
-        'description',
+        'memo',
         'default',
         'inactive',
     ];
@@ -24,4 +24,29 @@ class RefLine extends Model
         'default' => 'boolean',
         'inactive' => 'boolean',
     ];
+
+    public function journals()
+    {
+        return $this->hasMany(Journal::class, 'type', 'trans_type');
+    }
+
+    public function refs()
+    {
+        return $this->hasMany(Ref::class, 'type', 'trans_type');
+    }
+
+    public function auditTrails()
+    {
+        return $this->hasMany(AuditTrail::class, 'type', 'trans_type');
+    }
+
+    public function stockMoves()
+    {
+        return $this->hasMany(StockMove::class, 'type', 'trans_type');
+    }
+
+    public function Comments()
+    {
+        return $this->hasMany(Comment::class, 'type', 'trans_type');
+    }
 }

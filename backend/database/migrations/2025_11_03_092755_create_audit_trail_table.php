@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('audit_trail', function (Blueprint $table) {
             $table->id();
-            $table->unsignedSmallInteger('type')->default(0);
-            $table->unsignedInteger('trans_no')->default(0);
+            $table->Integer('type')->default(0);
+            $table->Integer('trans_no')->default(0);
             $table->unsignedSmallInteger('user')->default(0);
             $table->timestamp('stamp')->useCurrent()->useCurrentOnUpdate();
             $table->string('description', 60)->nullable();
@@ -24,6 +24,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('fiscal_year')->references('id')->on('fiscal_years')->onDelete('cascade');
+            $table->foreign('type')->references('trans_type')->on('reflines')->onDelete('cascade');
         });
     }
 

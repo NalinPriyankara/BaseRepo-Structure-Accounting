@@ -18,4 +18,9 @@ class Ref extends Model
         'type',
         'reference',
     ];
+
+    public function refLine()
+    {
+        return $this->belongsTo(RefLine::class, 'type', 'trans_type');
+    }
 }

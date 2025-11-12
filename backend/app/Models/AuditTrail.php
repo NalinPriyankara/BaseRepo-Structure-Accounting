@@ -26,4 +26,9 @@ class AuditTrail extends Model
     {
         return $this->belongsTo(FiscalYear::class, 'fiscal_year', 'id');
     }
+
+    public function refLine()
+    {
+        return $this->belongsTo(RefLine::class, 'type', 'trans_type');
+    }
 }

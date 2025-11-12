@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('reflines', function (Blueprint $table) {
             $table->id();
-            $table->integer('trans_type')->notNull();
+            $table->integer('trans_type')->notNull()->index();
             $table->char('prefix', 5)->default('');
             $table->string('pattern', 35)->default('1');
-            $table->string('description', 60)->default('');
+            $table->string('memo', 60)->default('');
             $table->boolean('default')->default(0);
             $table->boolean('inactive')->default(0);
             $table->timestamps();
