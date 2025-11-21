@@ -25,4 +25,9 @@ class ShippingCompany extends Model
     {
         return $this->hasMany(CustomerBranch::class, 'shipping_company', 'shipper_id');
     }
+
+    public function salesOrders()
+    {
+        return $this->hasMany(SalesOrder::class, 'ship_via', 'shipper_id');
+    }
 }

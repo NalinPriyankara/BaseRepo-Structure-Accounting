@@ -15,4 +15,14 @@ class TransType extends Model
         'trans_type',
         'description',
     ];
+
+    function salesOrders()
+    {
+        return $this->hasMany(SalesOrder::class, 'trans_type', 'trans_type');
+    }
+
+    public function salesOrderDetails()
+    {
+        return $this->hasMany(SalesOrderDetail::class, 'trans_type', 'trans_type');
+    }
 }

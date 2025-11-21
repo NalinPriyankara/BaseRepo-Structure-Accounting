@@ -63,4 +63,9 @@ class DebtorsMaster extends Model
     {
         return $this->hasMany(CustomerBranch::class, 'debtor_no', 'debtor_no');
     }
+
+    public function salesOrders()
+    {
+        return $this->hasMany(SalesOrder::class, 'debtor_no', 'debtor_no');
+    }
 }

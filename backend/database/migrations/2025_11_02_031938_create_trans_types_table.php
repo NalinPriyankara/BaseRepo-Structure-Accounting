@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('trans_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('trans_type');
+            $table->integer('trans_type')->index();
             $table->string('description', 50)->default('');
             $table->timestamps();
         });
