@@ -91,4 +91,9 @@ class CustomerBranch extends Model
     {
         return $this->belongsTo(ChartMaster::class, 'payment_discount_account', 'account_code');
     }
+
+    public function salesOrders()
+    {
+        return $this->hasMany(SalesOrder::class, 'branch_code', 'branch_code');
+    }
 }

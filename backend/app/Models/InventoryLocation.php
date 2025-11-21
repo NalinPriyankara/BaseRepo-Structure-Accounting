@@ -37,4 +37,9 @@ class InventoryLocation extends Model
     {
         return $this->hasMany(StockMove::class, 'loc_code', 'loc_code');
     }
+
+    public function salesOrders()
+    {
+        return $this->hasMany(SalesOrder::class, 'from_stk_loc', 'loc_code');
+    }
 }

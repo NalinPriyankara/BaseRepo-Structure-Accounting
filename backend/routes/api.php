@@ -52,6 +52,8 @@ use App\Http\Controllers\LocStockController;
 use App\Http\Controllers\PurchasingPricingController;
 use App\Http\Controllers\RefLinesController;
 use App\Http\Controllers\RefsController;
+use App\Http\Controllers\SalesOrderDetailsController;
+use App\Http\Controllers\SalesOrdersController;
 use App\Http\Controllers\StockFaClassController;
 use App\Http\Controllers\StockMasterController;
 use App\Http\Controllers\StockMovesController;
@@ -184,3 +186,6 @@ Route::apiResource('comments', CommentsController::class);
 
 Route::apiResource('trans-types', TransTypesController::class);
 Route::apiResource('ref-lines', RefLinesController::class);
+
+Route::apiResource('sales-orders', SalesOrdersController::class);
+Route::apiResource('sales-order-details', SalesOrderDetailsController::class);

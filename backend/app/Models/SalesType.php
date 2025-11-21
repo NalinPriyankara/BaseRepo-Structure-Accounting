@@ -38,5 +38,8 @@ class SalesType extends Model
         return $this->hasMany(DebtorsMaster::class, 'sales_type', 'id');
     }
 
-
+    public function salesOrders()
+    {
+        return $this->hasMany(SalesOrder::class, 'order_type', 'id');
+    }
 }

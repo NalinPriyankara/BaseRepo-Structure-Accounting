@@ -40,4 +40,9 @@ class PaymentTerm extends Model
     {
         return $this->hasMany(Supplier::class, 'payment_terms', 'terms_indicator');
     }
+
+    public function salesOrders()
+    {
+        return $this->hasMany(SalesOrder::class, 'payment_terms', 'terms_indicator');
+    }
 }

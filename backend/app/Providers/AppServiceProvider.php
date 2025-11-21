@@ -42,6 +42,8 @@ use App\Repositories\All\CustomerBranch\CustomerBranchInterface;
 use App\Repositories\All\CustomerBranch\CustomerBranchRepository;
 use App\Repositories\All\DebtorsMaster\DebtorsMasterInterface;
 use App\Repositories\All\DebtorsMaster\DebtorsMasterRepository;
+use App\Repositories\All\DebtorTrans\DebtorTransInterface;
+use App\Repositories\All\DebtorTrans\DebtorTransRepository;
 use App\Repositories\All\DimensionTag\DimensionTagInterface;
 use App\Repositories\All\DimensionTag\DimensionTagRepository;
 use App\Repositories\All\EntryType\EntryTypeInterface;
@@ -86,6 +88,10 @@ use App\Repositories\All\SalesArea\SalesAreaInterface;
 use App\Repositories\All\SalesArea\SalesAreaRepository;
 use App\Repositories\All\SalesGroup\SalesGroupInterface;
 use App\Repositories\All\SalesGroup\SalesGroupRepository;
+use App\Repositories\All\SalesOrderDetails\SalesOrderDetailsInterface;
+use App\Repositories\All\SalesOrderDetails\SalesOrderDetailsRepository;
+use App\Repositories\All\SalesOrders\SalesOrdersInterface;
+use App\Repositories\All\SalesOrders\SalesOrdersRepository;
 use App\Repositories\All\SalesPerson\SalesPersonInterface;
 use App\Repositories\All\SalesPerson\SalesPersonRepository;
 use App\Repositories\All\SalesPricing\SalesPricingInterface;
@@ -183,6 +189,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(CommentsInterface::class, CommentsRepository::class);
         $this->app->bind(ReflinesInterface::class, ReflinesRepository::class);
         $this->app->bind(TransTypesInterface::class, TransTypesRepository::class);
+        $this->app->bind(SalesOrdersInterface::class, SalesOrdersRepository::class);
+        $this->app->bind(SalesOrderDetailsInterface::class, SalesOrderDetailsRepository::class);
+        $this->app->bind(DebtorTransInterface::class, DebtorTransRepository::class);
     }
 
     /**
