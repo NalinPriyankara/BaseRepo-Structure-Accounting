@@ -44,6 +44,8 @@ use App\Repositories\All\DebtorsMaster\DebtorsMasterInterface;
 use App\Repositories\All\DebtorsMaster\DebtorsMasterRepository;
 use App\Repositories\All\DebtorTrans\DebtorTransInterface;
 use App\Repositories\All\DebtorTrans\DebtorTransRepository;
+use App\Repositories\All\DebtorTransDetails\DebtorTransDetailsInterface;
+use App\Repositories\All\DebtorTransDetails\DebtorTransDetailsRepository;
 use App\Repositories\All\DimensionTag\DimensionTagInterface;
 use App\Repositories\All\DimensionTag\DimensionTagRepository;
 use App\Repositories\All\EntryType\EntryTypeInterface;
@@ -192,6 +194,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SalesOrdersInterface::class, SalesOrdersRepository::class);
         $this->app->bind(SalesOrderDetailsInterface::class, SalesOrderDetailsRepository::class);
         $this->app->bind(DebtorTransInterface::class, DebtorTransRepository::class);
+        $this->app->bind(DebtorTransDetailsInterface::class, DebtorTransDetailsRepository::class);
     }
 
     /**
