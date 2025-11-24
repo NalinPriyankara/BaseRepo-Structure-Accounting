@@ -19,6 +19,7 @@ use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CustomerBranchController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DebtorsMasterController;
+use App\Http\Controllers\DebtorTransController;
 use App\Http\Controllers\DimensionTagController;
 use App\Http\Controllers\ExchangeRateController;
 use App\Http\Controllers\FiscalYearController;
@@ -189,3 +190,4 @@ Route::apiResource('ref-lines', RefLinesController::class);
 
 Route::apiResource('sales-orders', SalesOrdersController::class);
 Route::apiResource('sales-order-details', SalesOrderDetailsController::class);
+Route::apiResource('debtor-trans', DebtorTransController::class);
