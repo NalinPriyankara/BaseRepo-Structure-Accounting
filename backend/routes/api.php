@@ -56,6 +56,7 @@ use App\Http\Controllers\RefLinesController;
 use App\Http\Controllers\RefsController;
 use App\Http\Controllers\SalesOrderDetailsController;
 use App\Http\Controllers\SalesOrdersController;
+use App\Http\Controllers\SalesPosController;
 use App\Http\Controllers\StockFaClassController;
 use App\Http\Controllers\StockMasterController;
 use App\Http\Controllers\StockMovesController;
@@ -193,3 +194,5 @@ Route::apiResource('sales-orders', SalesOrdersController::class);
 Route::apiResource('sales-order-details', SalesOrderDetailsController::class);
 Route::apiResource('debtor-trans', DebtorTransController::class);
 Route::apiResource('debtor-trans-details', DebtorTransDetailsController::class);
+
+Route::apiResource('sales-points', SalesPosController::class);

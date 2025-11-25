@@ -30,7 +30,7 @@ class SalesOrdersRequest extends FormRequest
             'branch_code' => 'required|integer',
             'reference' => 'required|string|max:100',
             'comments' => 'nullable|string',
-            'customer_ref' => 'required|string',
+            'customer_ref' => 'nullable|string',
             'ord_date' => 'nullable|date',
             'order_type' => 'required|integer',
             'ship_via' => 'required|integer',
