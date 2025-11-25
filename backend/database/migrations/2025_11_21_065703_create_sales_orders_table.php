@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('debtor_no')->default(0);
             $table->unsignedBigInteger('branch_code')->default(0);
             $table->string('reference', 100)->default('');
-            $table->tinyText('customer_ref');
+            $table->tinyText('customer_ref')->nullable();
             $table->tinyText('comments')->nullable();
             $table->date('ord_date')->nullable();
             $table->unsignedBigInteger('order_type')->default(0);

@@ -86,6 +86,8 @@ use App\Repositories\All\Refs\RefsInterface;
 use App\Repositories\All\Refs\RefsRepository;
 use App\Repositories\All\RevaluateCurrency\RevaluateCurrencyInterface;
 use App\Repositories\All\RevaluateCurrency\RevaluateCurrencyRepository;
+use App\Repositories\All\SalesPos\SalesPosInterface;
+use App\Repositories\All\SalesPos\SalesPosRepository;
 use App\Repositories\All\SalesArea\SalesAreaInterface;
 use App\Repositories\All\SalesArea\SalesAreaRepository;
 use App\Repositories\All\SalesGroup\SalesGroupInterface;
@@ -195,6 +197,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SalesOrderDetailsInterface::class, SalesOrderDetailsRepository::class);
         $this->app->bind(DebtorTransInterface::class, DebtorTransRepository::class);
         $this->app->bind(DebtorTransDetailsInterface::class, DebtorTransDetailsRepository::class);
+        $this->app->bind(SalesPosInterface::class, SalesPosRepository::class);
     }
 
     /**
