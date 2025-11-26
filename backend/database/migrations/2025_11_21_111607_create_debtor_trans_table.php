@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('debtor_trans', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->unsignedInteger('trans_no')->index();
             $table->integer('trans_type')->default(0);
             $table->unsignedTinyInteger('version')->default(0);
