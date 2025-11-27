@@ -35,6 +35,9 @@ class DatabaseSeeder extends Seeder
             ItemTypeSeeder::class,
             ReflinesSeeder::class,
             TransTypesSeeder::class,
+            ItemTaxTypeSeeder::class,
+            ItemUnitSeeder::class,
+            ItemCategorySeeder::class,
         ]);
     }
 }
