@@ -38,10 +38,12 @@ return new class extends Migration
             $table->boolean('tax_included')->default(0);
             $table->timestamps();
 
+            $table->index(['trans_no', 'trans_type'], 'debtor_trans_no_type_index');
+
             $table->foreign('trans_type')->references('trans_type')->on('trans_types');
             $table->foreign('debtor_no')->references('debtor_no')->on('debtors_master');
             $table->foreign('branch_code')->references('branch_code')->on('cust_branch');
-            $table->foreign('order_no')->references('order_no')->on('sales_orders');
+         //   $table->foreign('order_no')->references('order_no')->on('sales_orders');
             $table->foreign('ship_via')->references('shipper_id')->on('shipping_companies');
             $table->foreign('payment_terms')->references('terms_indicator')->on('payment_terms');
         });

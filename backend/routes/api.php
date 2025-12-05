@@ -5,6 +5,7 @@ use App\Http\Controllers\AccountTypeController;
 use App\Http\Controllers\AuditTrailController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BankAccountController;
+use App\Http\Controllers\BankTransController;
 use App\Http\Controllers\ChartClassController;
 use App\Http\Controllers\ChartMasterController;
 use App\Http\Controllers\ChartTypeController;
@@ -202,6 +203,7 @@ Route::apiResource('debtor-trans-details', DebtorTransDetailsController::class);
 
 Route::apiResource('sales-points', SalesPosController::class);
 
+Route::apiResource('bank-trans', BankTransController::class);
 Route::apiResource('purch-orders', PurchOrdersController::class);
 Route::apiResource('purch-order-details', PurchOrderDetailsController::class);
 Route::apiResource('supp-trans', SuppTransController::class);

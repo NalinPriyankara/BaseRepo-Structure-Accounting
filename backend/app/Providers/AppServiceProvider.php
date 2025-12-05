@@ -14,6 +14,8 @@ use App\Repositories\All\Auth\AuthInterface;
 use App\Repositories\All\Auth\AuthRepository;
 use App\Repositories\All\BankAccount\BankAccountInterface;
 use App\Repositories\All\BankAccount\BankAccountRepository as BankAccountBankAccountRepository;
+use App\Repositories\All\BankTrans\BankTransInterface;
+use App\Repositories\All\BankTrans\BankTransRepository;
 use App\Repositories\All\ChartClass\ChartClassInterface;
 use App\Repositories\All\ChartClass\ChartClassRepository;
 use App\Repositories\All\ChartMaster\ChartMasterInterface;
@@ -208,6 +210,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(DebtorTransInterface::class, DebtorTransRepository::class);
         $this->app->bind(DebtorTransDetailsInterface::class, DebtorTransDetailsRepository::class);
         $this->app->bind(SalesPosInterface::class, SalesPosRepository::class);
+        $this->app->bind(BankTransInterface::class, BankTransRepository::class);
         $this->app->bind(PurchOrdersInterface::class, PurchOrdersRepository::class);
         $this->app->bind(PurchOrderDetailsInterface::class, PurchOrderDetailsRepository::class);
         $this->app->bind(SuppTransInterface::class, SuppTransRepository::class);
