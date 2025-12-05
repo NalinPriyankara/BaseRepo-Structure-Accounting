@@ -42,4 +42,14 @@ class InventoryLocation extends Model
     {
         return $this->hasMany(SalesOrder::class, 'from_stk_loc', 'loc_code');
     }
+
+    public function purchaseOrders()
+    {
+        return $this->hasMany(PurchOrder::class, 'into_stock_location','loc_code');
+    }
+
+    public function grnBatches()
+    {
+        return $this->hasMany(GrnBatch::class, 'loc_code', 'loc_code');
+    }
 }
