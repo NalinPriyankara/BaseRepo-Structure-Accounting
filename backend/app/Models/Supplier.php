@@ -72,4 +72,14 @@ class Supplier extends Model
     {
         return $this->belongsTo(ChartMaster::class, 'payment_discount_account', 'account_code');
     }
+
+    public function purchaseOrders()
+    {
+        return $this->hasMany(PurchOrder::class,'supplier_id','supplier_id');
+    }
+
+    public function grnBatches()
+    {
+        return $this->hasMany(GrnBatch::class, 'supplier_id', 'supplier_id');
+    }
 }

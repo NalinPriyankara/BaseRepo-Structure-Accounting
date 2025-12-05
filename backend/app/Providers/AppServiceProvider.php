@@ -58,6 +58,10 @@ use App\Repositories\All\FiscalYear\FiscalYearInterface;
 use App\Repositories\All\FiscalYear\FiscalYearRepository;
 use App\Repositories\All\FixedAssetsLocation\FixedAssetsLocationInterface;
 use App\Repositories\All\FixedAssetsLocation\FixedAssetsLocationRepository;
+use App\Repositories\All\GrnBatch\GrnBatchInterface;
+use App\Repositories\All\GrnBatch\GrnBatchRepository;
+use App\Repositories\All\GrnItems\GrnItemsInterface;
+use App\Repositories\All\GrnItems\GrnItemsRepository;
 use App\Repositories\All\InventoryLocation\InventoryLocationInterface;
 use App\Repositories\All\InventoryLocation\InventoryLocationRepository;
 use App\Repositories\All\ItemCategory\ItemCategoryInterface;
@@ -82,6 +86,10 @@ use App\Repositories\All\PaymentType\PaymentTypeInterface;
 use App\Repositories\All\PaymentType\PaymentTypeRepository;
 use App\Repositories\All\PurchasingPricing\PurchasingPricingInterface;
 use App\Repositories\All\PurchasingPricing\PurchasingPricingRepository;
+use App\Repositories\All\PurchOrderDetails\PurchOrderDetailsInterface;
+use App\Repositories\All\PurchOrderDetails\PurchOrderDetailsRepository;
+use App\Repositories\All\PurchOrders\PurchOrdersInterface;
+use App\Repositories\All\PurchOrders\PurchOrdersRepository;
 use App\Repositories\All\Reflines\ReflinesInterface;
 use App\Repositories\All\Reflines\ReflinesRepository;
 use App\Repositories\All\Refs\RefsInterface;
@@ -116,6 +124,8 @@ use App\Repositories\All\StockMoves\StockMovesInterface;
 use App\Repositories\All\StockMoves\StockMovesRepository;
 use App\Repositories\All\Supplier\SupplierInterface;
 use App\Repositories\All\Supplier\SupplierRepository;
+use App\Repositories\All\SuppTrans\SuppTransInterface;
+use App\Repositories\All\SuppTrans\SuppTransRepository;
 use App\Repositories\All\TaxGroup\TaxGroupInterface;
 use App\Repositories\All\TaxGroup\TaxGroupRepository;
 use App\Repositories\All\TaxGroupItem\TaxGroupItemInterface;
@@ -201,6 +211,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(DebtorTransDetailsInterface::class, DebtorTransDetailsRepository::class);
         $this->app->bind(SalesPosInterface::class, SalesPosRepository::class);
         $this->app->bind(BankTransInterface::class, BankTransRepository::class);
+        $this->app->bind(PurchOrdersInterface::class, PurchOrdersRepository::class);
+        $this->app->bind(PurchOrderDetailsInterface::class, PurchOrderDetailsRepository::class);
+        $this->app->bind(SuppTransInterface::class, SuppTransRepository::class);
+        $this->app->bind(GrnBatchInterface::class, GrnBatchRepository::class);
+        $this->app->bind(GrnItemsInterface::class, GrnItemsRepository::class);
     }
 
     /**

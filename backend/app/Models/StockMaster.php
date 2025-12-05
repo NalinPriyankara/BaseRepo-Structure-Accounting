@@ -116,4 +116,14 @@ class StockMaster extends Model
     {
         return $this->hasMany(SalesOrderDetail::class, 'stk_code', 'stock_id');
     }
+
+    public function purchOrderDetails()
+    {
+        return $this->hasMany(PurchOrderDetail::class, 'item_code', 'stock_id');
+    }
+
+    public function grnItems()
+    {
+        return $this->hasMany(GrnItem::class, 'item_code', 'stock_id');
+    }
 }
