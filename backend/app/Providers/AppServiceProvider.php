@@ -48,6 +48,8 @@ use App\Repositories\All\DebtorTrans\DebtorTransInterface;
 use App\Repositories\All\DebtorTrans\DebtorTransRepository;
 use App\Repositories\All\DebtorTransDetails\DebtorTransDetailsInterface;
 use App\Repositories\All\DebtorTransDetails\DebtorTransDetailsRepository;
+use App\Repositories\All\DepreciationPeriod\DepreciationPeriodInterface;
+use App\Repositories\All\DepreciationPeriod\DepreciationPeriodRepository;
 use App\Repositories\All\DimensionTag\DimensionTagInterface;
 use App\Repositories\All\DimensionTag\DimensionTagRepository;
 use App\Repositories\All\EntryType\EntryTypeInterface;
@@ -58,12 +60,16 @@ use App\Repositories\All\FiscalYear\FiscalYearInterface;
 use App\Repositories\All\FiscalYear\FiscalYearRepository;
 use App\Repositories\All\FixedAssetsLocation\FixedAssetsLocationInterface;
 use App\Repositories\All\FixedAssetsLocation\FixedAssetsLocationRepository;
+use App\Repositories\All\GlType\GlTypeInterface;
+use App\Repositories\All\GlType\GlTypeRepository;
 use App\Repositories\All\GrnBatch\GrnBatchInterface;
 use App\Repositories\All\GrnBatch\GrnBatchRepository;
 use App\Repositories\All\GrnItems\GrnItemsInterface;
 use App\Repositories\All\GrnItems\GrnItemsRepository;
 use App\Repositories\All\InventoryLocation\InventoryLocationInterface;
 use App\Repositories\All\InventoryLocation\InventoryLocationRepository;
+use App\Repositories\All\InvoiceIdentification\InvoiceIdentificationInterface;
+use App\Repositories\All\InvoiceIdentification\InvoiceIdentificationRepository;
 use App\Repositories\All\ItemCategory\ItemCategoryInterface;
 use App\Repositories\All\ItemCategory\ItemCategoryRepository;
 use App\Repositories\All\ItemCodes\ItemCodesInterface;
@@ -126,6 +132,10 @@ use App\Repositories\All\Supplier\SupplierInterface;
 use App\Repositories\All\Supplier\SupplierRepository;
 use App\Repositories\All\SuppTrans\SuppTransInterface;
 use App\Repositories\All\SuppTrans\SuppTransRepository;
+use App\Repositories\All\SysPrefs\SysPrefsInterface;
+use App\Repositories\All\SysPrefs\SysPrefsRepository;
+use App\Repositories\All\TaxAlgorithm\TaxAlgorithmInterface;
+use App\Repositories\All\TaxAlgorithm\TaxAlgorithmRepository;
 use App\Repositories\All\TaxGroup\TaxGroupInterface;
 use App\Repositories\All\TaxGroup\TaxGroupRepository;
 use App\Repositories\All\TaxGroupItem\TaxGroupItemInterface;
@@ -216,6 +226,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SuppTransInterface::class, SuppTransRepository::class);
         $this->app->bind(GrnBatchInterface::class, GrnBatchRepository::class);
         $this->app->bind(GrnItemsInterface::class, GrnItemsRepository::class);
+        $this->app->bind(InvoiceIdentificationInterface::class, InvoiceIdentificationRepository::class);
+        $this->app->bind(GlTypeInterface::class, GlTypeRepository::class);
+        $this->app->bind(TaxAlgorithmInterface::class, TaxAlgorithmRepository::class);
+        $this->app->bind(DepreciationPeriodInterface::class, DepreciationPeriodRepository::class);
+        $this->app->bind(SysPrefsInterface::class, SysPrefsRepository::class);
     }
 
     /**
