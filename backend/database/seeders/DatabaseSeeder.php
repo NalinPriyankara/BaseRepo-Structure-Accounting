@@ -38,6 +38,11 @@ class DatabaseSeeder extends Seeder
             ItemTaxTypeSeeder::class,
             ItemUnitSeeder::class,
             ItemCategorySeeder::class,
+            GlTypesSeeder::class,
+            TaxAlgorithmsSeeder::class,
+            InvoiceIdentificationsSeeder::class,
+            DepreciationPeriodsSeeder::class,
+            SysPrefsSeeder::class,
         ]);
     }
 }
