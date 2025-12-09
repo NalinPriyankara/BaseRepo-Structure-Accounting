@@ -55,6 +55,7 @@ use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\WorkCentreController;
 use App\Http\Controllers\ItemTaxTypeExceptionController;
 use App\Http\Controllers\ItemTypeController;
+use App\Http\Controllers\BackupController;
 use App\Http\Controllers\JournalController;
 use App\Http\Controllers\LocStockController;
 use App\Http\Controllers\PurchasingPricingController;
@@ -71,6 +72,7 @@ use App\Http\Controllers\StockMovesController;
 use App\Http\Controllers\SuppTransController;
 use App\Http\Controllers\TaxAlgorithmController;
 use App\Http\Controllers\TransTypesController;
+use App\Models\Backup;
 use App\Models\ItemCode;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
@@ -214,6 +216,47 @@ Route::apiResource('supp-trans', SuppTransController::class);
 Route::apiResource('grn-batch', GrnBatchController::class);
 Route::apiResource('grn-items', GrnItemsController::class);
 
+Route::prefix('backups')->group(function () {
+    // List all backups
+    Route::get('/', [BackupController::class, 'index']);
+    
+    // Create new backup
+    Route::post('/', [BackupController::class, 'create']);
+    
+    // Upload backup file
+    Route::post('/upload', [BackupController::class, 'upload']);
+    
+    // Backup actions (view, download, restore, delete)
+    Route::post('/action', [BackupController::class, 'action']);
+    
+    // Get backup statistics
+    Route::get('/stats', [BackupController::class, 'stats']);
+    
+    // Test backup functionality
+    Route::get('/test', [BackupController::class, 'test']);
+    
+    // Direct download endpoint (optional)
+    Route::get('/{id}/download', function ($id) {
+        $backup = Backup::findOrFail($id);
+        
+        if (!file_exists($backup->file_path)) {
+            abort(404, 'Backup file not found');
+        }
+        
+        $content = file_get_contents($backup->file_path);
+        $extension = match($backup->compression) {
+            'none' => 'sql',
+            'gzip' => 'sql.gz',
+            'zip' => 'sql.zip',
+            default => 'sql'
+        };
+        
+        return response($content, 200, [
+            'Content-Type' => 'application/octet-stream',
+            'Content-Disposition' => 'attachment; filename="' . $backup->display_name . '.' . $extension . '"',
+        ]);
+    });
+});
 Route::apiResource('gl-types', GlTypeController::class);
 Route::apiResource('tax-algorithms', TaxAlgorithmController::class);
 Route::apiResource('invoice-identifications', InvoiceIdentificationController::class);
