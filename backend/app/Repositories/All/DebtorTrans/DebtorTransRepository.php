@@ -11,4 +11,5 @@ class DebtorTransRepository extends BaseRepository implements DebtorTransInterfa
     {
         parent::__construct($model);
     }
+    
 }

@@ -66,4 +66,10 @@ class DebtorTrans extends Model
     {
         return $this->belongsTo(PaymentTerm::class, 'payment_terms', 'terms_indicator');
     }
+
+    public function bankTransactions()
+    {
+        return $this->hasMany(BankTrans::class, 'trans_no', 'trans_no')
+                    ->whereColumn('bank_trans.type', 'debtor_trans.trans_type');
+    }
 }
