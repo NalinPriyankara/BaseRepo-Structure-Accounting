@@ -126,4 +126,9 @@ class StockMaster extends Model
     {
         return $this->hasMany(GrnItem::class, 'item_code', 'stock_id');
     }
+
+    public function suppInvoiceItems()
+    {
+        return $this->hasMany(SuppInvoiceItem::class, 'stock_id', 'stock_id');
+    }
 }

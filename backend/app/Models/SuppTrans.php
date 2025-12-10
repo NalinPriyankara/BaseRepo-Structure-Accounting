@@ -36,4 +36,9 @@ class SuppTrans extends Model
     {
         return $this->belongsTo(Supplier::class, 'supplier_id', 'supplier_id');
     }
+
+    public function suppInvoiceItems()
+    {
+        return $this->hasMany(SuppInvoiceItem::class, 'supp_trans_no', 'trans_no');
+    }
 }
