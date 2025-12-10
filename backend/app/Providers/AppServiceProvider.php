@@ -128,6 +128,8 @@ use App\Repositories\All\StockMaster\StockMasterInterface;
 use App\Repositories\All\StockMaster\StockMasterRepository;
 use App\Repositories\All\StockMoves\StockMovesInterface;
 use App\Repositories\All\StockMoves\StockMovesRepository;
+use App\Repositories\All\SuppInvoiceItems\SuppInvoiceItemsInterface;
+use App\Repositories\All\SuppInvoiceItems\SuppInvoiceItemsRepository;
 use App\Repositories\All\Supplier\SupplierInterface;
 use App\Repositories\All\Supplier\SupplierRepository;
 use App\Repositories\All\SuppTrans\SuppTransInterface;
@@ -231,6 +233,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(TaxAlgorithmInterface::class, TaxAlgorithmRepository::class);
         $this->app->bind(DepreciationPeriodInterface::class, DepreciationPeriodRepository::class);
         $this->app->bind(SysPrefsInterface::class, SysPrefsRepository::class);
+        $this->app->bind(SuppInvoiceItemsInterface::class, SuppInvoiceItemsRepository::class);
     }
 
     /**

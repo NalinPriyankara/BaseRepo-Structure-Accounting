@@ -38,4 +38,9 @@ class GrnItem extends Model
     {
         return $this->belongsTo(StockMaster::class, 'item_code', 'stock_id');
     }
+
+    public function suppInvoiceItems()
+    {
+        return $this->hasMany(SuppInvoiceItem::class, 'grn_item_id');
+    }
 }

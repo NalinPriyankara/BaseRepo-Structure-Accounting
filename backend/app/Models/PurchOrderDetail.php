@@ -41,4 +41,9 @@ class PurchOrderDetail extends Model
     {
         return $this->hasMany(GrnItem::class, 'po_detail_item', 'po_detail_item');
     }
+
+    public function suppInvoiceItems()
+    {
+        return $this->hasMany(SuppInvoiceItem::class, 'po_detail_item_id', 'po_detail_item');
+    }
 }
