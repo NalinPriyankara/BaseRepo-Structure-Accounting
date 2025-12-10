@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
             TaxAlgorithmsSeeder::class,
             InvoiceIdentificationsSeeder::class,
             DepreciationPeriodsSeeder::class,
-            SysPrefsSeeder::class,
+          //  SysPrefsSeeder::class,
         ]);
     }
 }
