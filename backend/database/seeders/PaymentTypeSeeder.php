@@ -15,7 +15,7 @@ class PaymentTypeSeeder extends Seeder
     {
          DB::table('payment_types')->insert([
             [
-                'name' => 'Payment',
+                'name' => 'Prepayment',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
