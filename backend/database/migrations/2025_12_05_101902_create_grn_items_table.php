@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('grn_items', function (Blueprint $table) {
             $table->id('id');
             $table->unsignedBigInteger('grn_batch_id')->nullable();
-            $table->integer('po_detail_item')->default(0);
+            $table->unsignedBigInteger('po_detail_item')->default(0);
             $table->string('item_code', 20)->default('');
             $table->tinyText('description')->nullable();
             $table->double('qty_recd')->default(0);

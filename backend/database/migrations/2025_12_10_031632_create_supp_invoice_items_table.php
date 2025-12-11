@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('supp_trans_type')->nullable();
             $table->string('gl_code', 15)->default('');
             $table->unsignedBigInteger('grn_item_id')->nullable();
-            $table->integer('po_detail_item_id')->nullable();
+            $table->unsignedBigInteger('po_detail_item_id')->nullable();
             $table->string('stock_id', 20)->default('');
             $table->tinyText('description')->nullable();
             $table->double('quantity')->default(0);

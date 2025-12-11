@@ -11,10 +11,10 @@ class PurchOrderDetail extends Model
 
     protected $table = 'purch_order_details';
     protected $primaryKey = 'po_detail_item';
-    public $incrementing = false;
+    public $incrementing = true;
+    protected $keyType = 'int';
 
     protected $fillable = [
-        'po_detail_item',
         'order_no',
         'item_code',
         'description',
