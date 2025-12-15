@@ -34,7 +34,7 @@ class StockFaClassController extends Controller
         return response()->json($stockFaClass);
     }
 
-    public function update(StockFaClassRequest $request, int $id)
+    public function update(StockFaClassRequest $request, string $id)
     {
         $updated = $this->stockFaClassRepo->update($id, $request->validated());
         if (!$updated) {
@@ -43,7 +43,7 @@ class StockFaClassController extends Controller
         return response()->json($this->stockFaClassRepo->find($id));
     }
 
-    public function destroy(int $id)
+    public function destroy(string $id)
     {
         $deleted = $this->stockFaClassRepo->delete($id);
         if (!$deleted) {

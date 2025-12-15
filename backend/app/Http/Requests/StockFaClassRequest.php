@@ -8,18 +8,34 @@ class StockFaClassRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return true; // allow all for now
+        return true;
     }
 
     public function rules(): array
     {
-        return [
-            'fa_class_id' => 'required|string|max:255',
-            'parent_id' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
-            'long_description' => 'required|string',
-            'depreciation_rate' => 'required|numeric|min:0',
-            'inactive' => 'required|boolean',
-        ];
+        // CREATE
+        if ($this->isMethod('post')) {
+            return [
+                'fa_class_id'        => 'required|string|max:255',
+                'parent_id'          => 'required|string|max:255',
+                'description'        => 'required|string|max:255',
+                'long_description'   => 'required|string',
+                'depreciation_rate'  => 'required|numeric|min:0',
+                'inactive'           => 'boolean',
+            ];
+        }
+
+        // UPDATE
+        if ($this->isMethod('put') || $this->isMethod('patch')) {
+            return [
+                'parent_id'          => 'string|max:255',
+                'description'        => 'string|max:255',
+                'long_description'   => 'string',
+                'depreciation_rate'  => 'numeric|min:0',
+                'inactive'           => 'boolean',
+            ];
+        }
+
+        return [];
     }
 }
