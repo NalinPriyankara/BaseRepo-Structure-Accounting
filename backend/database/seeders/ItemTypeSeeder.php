@@ -29,6 +29,11 @@ class ItemTypeSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'name' => 'Fixed Asset',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }
