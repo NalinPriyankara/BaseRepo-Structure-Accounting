@@ -34,7 +34,7 @@ class SuppTransRequest extends FormRequest
             'ov_gst' => 'nullable|numeric',
             'rate' => 'nullable|numeric',
             'alloc' => 'nullable|numeric',
-            'tax_include' => 'nullable|boolean'
+            'tax_included' => 'nullable|boolean'
         ];
     }
 }
