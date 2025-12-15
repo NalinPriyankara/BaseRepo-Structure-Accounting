@@ -24,7 +24,7 @@ class SuppTrans extends Model
         'ov_gst',
         'rate',
         'alloc',
-        'tax_include'
+        'tax_included'
     ];
 
     public function transType()
