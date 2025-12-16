@@ -48,6 +48,8 @@ use App\Repositories\All\DebtorTrans\DebtorTransInterface;
 use App\Repositories\All\DebtorTrans\DebtorTransRepository;
 use App\Repositories\All\DebtorTransDetails\DebtorTransDetailsInterface;
 use App\Repositories\All\DebtorTransDetails\DebtorTransDetailsRepository;
+use App\Repositories\All\DepreciationMethod\DepreciationMethodInterface;
+use App\Repositories\All\DepreciationMethod\DepreciationMethodRepository;
 use App\Repositories\All\DepreciationPeriod\DepreciationPeriodInterface;
 use App\Repositories\All\DepreciationPeriod\DepreciationPeriodRepository;
 use App\Repositories\All\DimensionTag\DimensionTagInterface;
@@ -234,6 +236,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(DepreciationPeriodInterface::class, DepreciationPeriodRepository::class);
         $this->app->bind(SysPrefsInterface::class, SysPrefsRepository::class);
         $this->app->bind(SuppInvoiceItemsInterface::class, SuppInvoiceItemsRepository::class);
+        $this->app->bind(DepreciationMethodInterface::class, DepreciationMethodRepository::class);
     }
 
     /**
