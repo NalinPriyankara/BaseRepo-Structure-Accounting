@@ -56,6 +56,7 @@ use App\Http\Controllers\WorkCentreController;
 use App\Http\Controllers\ItemTaxTypeExceptionController;
 use App\Http\Controllers\ItemTypeController;
 use App\Http\Controllers\BackupController;
+use App\Http\Controllers\DepreciationMethodController;
 use App\Http\Controllers\JournalController;
 use App\Http\Controllers\LocStockController;
 use App\Http\Controllers\PurchasingPricingController;
@@ -251,3 +252,6 @@ Route::apiResource('gl-types', GlTypeController::class);
 Route::apiResource('tax-algorithms', TaxAlgorithmController::class);
 Route::apiResource('invoice-identifications', InvoiceIdentificationController::class);
 Route::apiResource('depreciation-periods', DepreciationPeriodController::class);
+
+Route::apiResource('depreciation-methods', DepreciationMethodController::class);
+
