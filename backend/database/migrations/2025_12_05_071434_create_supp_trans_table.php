@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('trans_type')->default(0);
             $table->unsignedBigInteger('supplier_id');
             $table->string('reference')->default('');
-            $table->string('supp_reference')->default('');
+            $table->string('supp_reference')->nullable();
             $table->date('trans_date')->nullable();
             $table->date('due_date')->nullable();
             $table->double('ov_amount')->default(0);
