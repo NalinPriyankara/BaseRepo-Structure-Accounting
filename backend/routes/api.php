@@ -56,6 +56,7 @@ use App\Http\Controllers\WorkCentreController;
 use App\Http\Controllers\ItemTaxTypeExceptionController;
 use App\Http\Controllers\ItemTypeController;
 use App\Http\Controllers\BackupController;
+use App\Http\Controllers\CustAllocationController;
 use App\Http\Controllers\DepreciationMethodController;
 use App\Http\Controllers\JournalController;
 use App\Http\Controllers\LocStockController;
@@ -254,4 +255,6 @@ Route::apiResource('invoice-identifications', InvoiceIdentificationController::c
 Route::apiResource('depreciation-periods', DepreciationPeriodController::class);
 
 Route::apiResource('depreciation-methods', DepreciationMethodController::class);
+Route::apiResource('cust-allocations', CustAllocationController::class);
+
 
