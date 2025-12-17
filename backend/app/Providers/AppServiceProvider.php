@@ -38,6 +38,8 @@ use App\Repositories\All\CrmPersons\CrmPersonsInterface;
 use App\Repositories\All\CrmPersons\CrmPersonsRepository;
 use App\Repositories\All\Currency\CurrencyInterface;
 use App\Repositories\All\Currency\CurrencyRepository;
+use App\Repositories\All\CustAllocation\CustAllocationInterface;
+use App\Repositories\All\CustAllocation\CustAllocationRepository;
 use App\Repositories\All\Customer\CustomerInterface;
 use App\Repositories\All\Customer\CustomerRepository;
 use App\Repositories\All\CustomerBranch\CustomerBranchInterface;
@@ -237,6 +239,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SysPrefsInterface::class, SysPrefsRepository::class);
         $this->app->bind(SuppInvoiceItemsInterface::class, SuppInvoiceItemsRepository::class);
         $this->app->bind(DepreciationMethodInterface::class, DepreciationMethodRepository::class);
+        $this->app->bind(CustAllocationInterface::class, CustAllocationRepository::class);
     }
 
     /**
