@@ -71,6 +71,7 @@ use App\Http\Controllers\SalesPosController;
 use App\Http\Controllers\StockFaClassController;
 use App\Http\Controllers\StockMasterController;
 use App\Http\Controllers\StockMovesController;
+use App\Http\Controllers\SuppAllocationsController;
 use App\Http\Controllers\SuppInvoiceItemsController;
 use App\Http\Controllers\SuppTransController;
 use App\Http\Controllers\TaxAlgorithmController;
@@ -219,6 +220,7 @@ Route::apiResource('supp-trans', SuppTransController::class);
 Route::apiResource('grn-batch', GrnBatchController::class);
 Route::apiResource('grn-items', GrnItemsController::class);
 Route::apiResource('supp-invoice-items', SuppInvoiceItemsController::class);
+Route::apiResource('supp-allocations', SuppAllocationsController::class);
 
 Route::prefix('backups')->group(function () {
     Route::get('/', [BackupController::class, 'index']);

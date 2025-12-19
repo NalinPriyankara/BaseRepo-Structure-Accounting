@@ -25,4 +25,14 @@ class TransType extends Model
     {
         return $this->hasMany(SalesOrderDetail::class, 'trans_type', 'trans_type');
     }
+
+    public function allocationsFrom()
+    {
+        return $this->hasMany(SuppAllocation::class, 'trans_type_from', 'trans_type');
+    }
+
+    public function allocationsTo()
+    {
+        return $this->hasMany(SuppAllocation::class, 'trans_type_to', 'trans_type');
+    }
 }
