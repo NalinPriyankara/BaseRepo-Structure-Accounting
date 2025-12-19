@@ -132,6 +132,8 @@ use App\Repositories\All\StockMaster\StockMasterInterface;
 use App\Repositories\All\StockMaster\StockMasterRepository;
 use App\Repositories\All\StockMoves\StockMovesInterface;
 use App\Repositories\All\StockMoves\StockMovesRepository;
+use App\Repositories\All\SuppAllocations\SuppAllocationsInterface;
+use App\Repositories\All\SuppAllocations\SuppAllocationsRepository;
 use App\Repositories\All\SuppInvoiceItems\SuppInvoiceItemsInterface;
 use App\Repositories\All\SuppInvoiceItems\SuppInvoiceItemsRepository;
 use App\Repositories\All\Supplier\SupplierInterface;
@@ -240,6 +242,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SuppInvoiceItemsInterface::class, SuppInvoiceItemsRepository::class);
         $this->app->bind(DepreciationMethodInterface::class, DepreciationMethodRepository::class);
         $this->app->bind(CustAllocationInterface::class, CustAllocationRepository::class);
+        $this->app->bind(SuppAllocationsInterface::class, SuppAllocationsRepository::class);
     }
 
     /**

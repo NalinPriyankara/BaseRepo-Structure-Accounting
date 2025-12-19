@@ -82,4 +82,9 @@ class Supplier extends Model
     {
         return $this->hasMany(GrnBatch::class, 'supplier_id', 'supplier_id');
     }
+
+    public function suppAllocations()
+    {
+        return $this->hasMany(SuppAllocation::class, 'person_id', 'supplier_id');
+    }
 }
