@@ -161,6 +161,14 @@ use App\Repositories\All\WorkCentre\WorkCentreInterface;
 use App\Repositories\All\WorkCentre\WorkCentreRepository;
 use App\Repositories\All\UserProfile\UserProfileInterface;
 use App\Repositories\All\UserProfile\UserProfileRepository;
+use App\Repositories\All\WOIssues\WOIssuesInterface;
+use App\Repositories\All\WOIssues\WOIssuesRepository;
+use App\Repositories\All\WOManufacture\WOManufactureInterface;
+use App\Repositories\All\WOManufacture\WOManufactureRepository;
+use App\Repositories\All\WORequirements\WORequirementsInterface;
+use App\Repositories\All\WORequirements\WORequirementsRepository;
+use App\Repositories\All\WorkOrders\WorkOrdersInterface;
+use App\Repositories\All\WorkOrders\WorkOrdersRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -246,6 +254,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(CustAllocationInterface::class, CustAllocationRepository::class);
         $this->app->bind(SuppAllocationsInterface::class, SuppAllocationsRepository::class);
         $this->app->bind(BomInterface::class, BomRepository::class);
+        $this->app->bind(WorkOrdersInterface::class, WorkOrdersRepository::class);
+        $this->app->bind(WORequirementsInterface::class, WORequirementsRepository::class);
+        $this->app->bind(WOManufactureInterface::class, WOManufactureRepository::class);
+        $this->app->bind(WOIssuesInterface::class, WOIssuesRepository::class);
     }
 
     /**

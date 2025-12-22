@@ -57,4 +57,19 @@ class InventoryLocation extends Model
     {
         return $this->hasMany(Bom::class, 'loc_code', 'loc_code');
     }
+
+    public function workOrders()
+    {
+        return $this->hasMany(WorkOrder::class, 'loc_code', 'loc_code');
+    }
+
+    public function woRequirements()
+    {
+        return $this->hasMany(WoRequirement::class, 'loc_code', 'loc_code');
+    }
+
+    public function woIssues()
+    {
+        return $this->hasMany(WoIssue::class, 'loc_code', 'loc_code');
+    }
 }

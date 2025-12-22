@@ -135,4 +135,14 @@ class StockMaster extends Model
     {
         return $this->hasMany(Bom::class, 'component', 'stock_id');
     }
+
+    public function workOrders()
+    {
+        return $this->hasMany(WorkOrder::class, 'stock_id', 'stock_id');
+    }
+
+    public function woRequirements()
+    {
+        return $this->hasMany(WoRequirement::class, 'stock_id', 'stock_id');
+    }
 }
