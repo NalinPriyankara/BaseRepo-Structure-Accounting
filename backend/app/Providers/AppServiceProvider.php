@@ -16,6 +16,8 @@ use App\Repositories\All\BankAccount\BankAccountInterface;
 use App\Repositories\All\BankAccount\BankAccountRepository as BankAccountBankAccountRepository;
 use App\Repositories\All\BankTrans\BankTransInterface;
 use App\Repositories\All\BankTrans\BankTransRepository;
+use App\Repositories\All\Bom\BomInterface;
+use App\Repositories\All\Bom\BomRepository;
 use App\Repositories\All\ChartClass\ChartClassInterface;
 use App\Repositories\All\ChartClass\ChartClassRepository;
 use App\Repositories\All\ChartMaster\ChartMasterInterface;
@@ -243,6 +245,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(DepreciationMethodInterface::class, DepreciationMethodRepository::class);
         $this->app->bind(CustAllocationInterface::class, CustAllocationRepository::class);
         $this->app->bind(SuppAllocationsInterface::class, SuppAllocationsRepository::class);
+        $this->app->bind(BomInterface::class, BomRepository::class);
     }
 
     /**
