@@ -77,6 +77,10 @@ use App\Http\Controllers\SuppInvoiceItemsController;
 use App\Http\Controllers\SuppTransController;
 use App\Http\Controllers\TaxAlgorithmController;
 use App\Http\Controllers\TransTypesController;
+use App\Http\Controllers\WOIssuesController;
+use App\Http\Controllers\WOManufactureController;
+use App\Http\Controllers\WORequirementsController;
+use App\Http\Controllers\WorkOrdersController;
 use App\Models\Backup;
 use App\Models\ItemCode;
 use App\Models\UserProfile;
@@ -261,3 +265,7 @@ Route::apiResource('depreciation-methods', DepreciationMethodController::class);
 Route::apiResource('cust-allocations', CustAllocationController::class);
 
 Route::apiResource('bom', BomController::class);
+Route::apiResource('work-orders', WorkOrdersController::class);
+Route::apiResource('wo-requirements', WORequirementsController::class);
+Route::apiResource('wo-manufactures', WOManufactureController::class);
+Route::apiResource('wo-issues', WOIssuesController::class);

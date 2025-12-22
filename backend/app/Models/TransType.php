@@ -35,4 +35,9 @@ class TransType extends Model
     {
         return $this->hasMany(SuppAllocation::class, 'trans_type_to', 'trans_type');
     }
+
+    public function workOrders()
+    {
+        return $this->hasMany(WorkOrder::class, 'type', 'trans_type');
+    }
 }

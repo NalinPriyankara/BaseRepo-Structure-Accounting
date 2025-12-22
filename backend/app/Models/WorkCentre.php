@@ -21,4 +21,14 @@ class WorkCentre extends Model
     {
         return $this->hasMany(Bom::class, 'work_centre');
     }
+
+    public function woRequirements()
+    {
+        return $this->hasMany(WoRequirement::class, 'work_centre');
+    }
+
+    public function woIssues()
+    {
+        return $this->hasMany(WoIssue::class, 'work_centre');
+    }
 }
