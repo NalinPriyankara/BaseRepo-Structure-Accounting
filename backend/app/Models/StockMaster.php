@@ -46,37 +46,31 @@ class StockMaster extends Model
         'image',
     ];
 
-    // Each stock belongs to a category
     public function category()
     {
         return $this->belongsTo(ItemCategory::class, 'category_id', 'category_id');
     }
 
-    // Each stock belongs to a tax type
     public function taxType()
     {
         return $this->belongsTo(ItemTaxTypes::class, 'tax_type_id', 'id');
     }
 
-    // Each stock belongs to an item type
     public function itemType()
     {
         return $this->belongsTo(ItemType::class, 'mb_flag', 'id');
     }
 
-    // Each stock belongs to an item unit
     public function unit()
     {
         return $this->belongsTo(ItemUnit::class, 'units', 'id');
     }
 
-    // Each stock belongs to a fixed asset class
     public function faClass()
     {
         return $this->belongsTo(StockFaClass::class, 'fa_class_id', 'fa_class_id');
     }
 
-    // Chart master account relations
     public function salesAccount()
     {
         return $this->belongsTo(ChartMaster::class, 'sales_account', 'account_code');
@@ -130,5 +124,15 @@ class StockMaster extends Model
     public function suppInvoiceItems()
     {
         return $this->hasMany(SuppInvoiceItem::class, 'stock_id', 'stock_id');
+    }
+
+    public function bomParents()
+    {
+        return $this->hasMany(Bom::class, 'parent', 'stock_id');
+    }
+
+    public function bomComponents()
+    {
+        return $this->hasMany(Bom::class, 'component', 'stock_id');
     }
 }

@@ -16,4 +16,9 @@ class WorkCentre extends Model
         'description',
         'inactive',
     ];
+
+    public function boms()
+    {
+        return $this->hasMany(Bom::class, 'work_centre');
+    }
 }

@@ -52,4 +52,9 @@ class InventoryLocation extends Model
     {
         return $this->hasMany(GrnBatch::class, 'loc_code', 'loc_code');
     }
+
+    public function boms()
+    {
+        return $this->hasMany(Bom::class, 'loc_code', 'loc_code');
+    }
 }
