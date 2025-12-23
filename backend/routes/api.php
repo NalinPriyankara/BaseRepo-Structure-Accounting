@@ -77,6 +77,8 @@ use App\Http\Controllers\SuppInvoiceItemsController;
 use App\Http\Controllers\SuppTransController;
 use App\Http\Controllers\TaxAlgorithmController;
 use App\Http\Controllers\TransTypesController;
+use App\Http\Controllers\WOCostingController;
+use App\Http\Controllers\WOIssueItemsController;
 use App\Http\Controllers\WOIssuesController;
 use App\Http\Controllers\WOManufactureController;
 use App\Http\Controllers\WORequirementsController;
@@ -269,3 +271,9 @@ Route::apiResource('work-orders', WorkOrdersController::class);
 Route::apiResource('wo-requirements', WORequirementsController::class);
 Route::apiResource('wo-manufactures', WOManufactureController::class);
 Route::apiResource('wo-issues', WOIssuesController::class);
+Route::apiResource('wo-issue-items', WOIssueItemsController::class);
+Route::apiResource('wo-costing', WOCostingController::class);
+Route::get(
+    'wo-costing/workorder/{workorderId}',
+    [WOCostingController::class, 'byWorkorder']
+);

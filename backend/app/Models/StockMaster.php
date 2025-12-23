@@ -143,6 +143,11 @@ class StockMaster extends Model
 
     public function woRequirements()
     {
-        return $this->hasMany(WoRequirement::class, 'stock_id', 'stock_id');
+        return $this->hasMany(WORequirement::class, 'stock_id', 'stock_id');
+    }
+
+    public function woIssueItems()
+    {
+        return $this->hasMany(WOIssueItem::class, 'stock_id', 'stock_id');
     }
 }

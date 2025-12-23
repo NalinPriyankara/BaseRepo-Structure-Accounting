@@ -29,6 +29,6 @@ class WorkCentre extends Model
 
     public function woIssues()
     {
-        return $this->hasMany(WoIssue::class, 'work_centre');
+        return $this->hasMany(WOIssue::class, 'work_centre');
     }
 }

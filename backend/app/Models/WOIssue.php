@@ -37,4 +37,9 @@ class WOIssue extends Model
     {
         return $this->belongsTo(WorkCentre::class, 'work_centre');
     }
+
+    public function items()
+    {
+        return $this->hasMany(WOIssueItem::class, 'issue_id', 'issue_no');
+    }
 }

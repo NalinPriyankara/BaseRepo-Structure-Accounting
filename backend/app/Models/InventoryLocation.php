@@ -65,11 +65,11 @@ class InventoryLocation extends Model
 
     public function woRequirements()
     {
-        return $this->hasMany(WoRequirement::class, 'loc_code', 'loc_code');
+        return $this->hasMany(WORequirement::class, 'loc_code', 'loc_code');
     }
 
     public function woIssues()
     {
-        return $this->hasMany(WoIssue::class, 'loc_code', 'loc_code');
+        return $this->hasMany(WOIssue::class, 'loc_code', 'loc_code');
     }
 }

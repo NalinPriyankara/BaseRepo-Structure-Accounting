@@ -43,7 +43,7 @@ class WorkOrder extends Model
 
     public function requirements()
     {
-        return $this->hasMany(WoRequirement::class, 'workorder_id');
+        return $this->hasMany(WORequirement::class, 'workorder_id');
     }
 
     public function manufactures()
@@ -53,6 +53,11 @@ class WorkOrder extends Model
 
     public function issues()
     {
-        return $this->hasMany(WoIssue::class, 'workorder_id');
+        return $this->hasMany(WOIssue::class, 'workorder_id');
+    }
+
+    public function costings()
+    {
+        return $this->hasMany(WOCosting::class, 'workorder_id');
     }
 }
