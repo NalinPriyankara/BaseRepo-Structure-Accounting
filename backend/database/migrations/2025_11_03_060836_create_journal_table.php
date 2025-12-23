@@ -16,15 +16,16 @@ return new class extends Migration
             $table->integer('trans_no')->default(0);
             $table->date('tran_date')->nullable();
             $table->string('reference', 60)->default('');
-            $table->string('source_ref', 60)->default('');
+            $table->string('source_ref', 60)->nullable();
             $table->date('event_date')->nullable();
             $table->date('doc_date')->default(now());
-            $table->char('currency', 10)->default('');
+            $table->char('currency', 10);
             $table->double('amount')->default(0);
             $table->double('rate')->default(1);
             $table->timestamps();
 
             $table->foreign('type')->references('trans_type')->on('reflines')->onDelete('cascade');
+            $table->foreign('currency')->references('currency_abbreviation')->on('currencies');
         });
     }
 

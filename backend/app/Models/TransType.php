@@ -40,4 +40,9 @@ class TransType extends Model
     {
         return $this->hasMany(WorkOrder::class, 'type', 'trans_type');
     }
+
+    public function woCostings()
+    {
+        return $this->hasMany(WOCosting::class, 'trans_type', 'trans_type');
+    }
 }
