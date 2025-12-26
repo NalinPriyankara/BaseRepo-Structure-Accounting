@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('loc_code', 5);
             $table->date('tran_date')->nullable();
             $table->double('price')->default(0);
-            $table->string('reference', 40)->default('');
+            $table->string('reference', 40)->nullable();
             $table->double('qty')->default(1);
             $table->double('standard_cost')->default(0);
             $table->timestamps();
