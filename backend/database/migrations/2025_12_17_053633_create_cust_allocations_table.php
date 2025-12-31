@@ -46,18 +46,6 @@ return new class extends Migration
                   ->on('debtors_master')
                   ->onDelete('set null');
 
-            // debtor_trans (composite reference logic)
-            $table->foreign('trans_no_from')
-                  ->references('trans_no')
-                  ->on('debtor_trans')
-                  ->onDelete('set null');
-
-            // sales_orders
-            $table->foreign('trans_no_to')
-                  ->references('order_no')
-                  ->on('sales_orders')
-                  ->onDelete('set null');
-
             $table->timestamps();
         });
     }

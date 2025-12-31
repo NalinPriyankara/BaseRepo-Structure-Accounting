@@ -26,29 +26,29 @@ class CustAllocation extends Model
         );
     }
 
-    // From transaction (debtor_trans)
-    public function fromTransaction()
-    {
-        return $this->belongsTo(
-            DebtorTrans::class,
-            'trans_no_from',
-            'trans_no'
-        )->whereColumn(
-            'cust_allocations.trans_type_from',
-            'debtor_trans.trans_type'
-        );
-    }
+    // // From transaction (debtor_trans)
+    // public function fromTransaction()
+    // {
+    //     return $this->belongsTo(
+    //         DebtorTrans::class,
+    //         'trans_no_from',
+    //         'trans_no'
+    //     )->whereColumn(
+    //         'cust_allocations.trans_type_from',
+    //         'debtor_trans.trans_type'
+    //     );
+    // }
 
-    // To transaction (sales_orders)
-    public function toSalesOrder()
-    {
-        return $this->belongsTo(
-            SalesOrder::class,
-            'trans_no_to',
-            'order_no'
-        )->whereColumn(
-            'cust_allocations.trans_type_to',
-            'sales_orders.trans_type'
-        );
-    }
+    // // To transaction (sales_orders)
+    // public function toSalesOrder()
+    // {
+    //     return $this->belongsTo(
+    //         SalesOrder::class,
+    //         'trans_no_to',
+    //         'order_no'
+    //     )->whereColumn(
+    //         'cust_allocations.trans_type_to',
+    //         'sales_orders.trans_type'
+    //     );
+    // }
 }
