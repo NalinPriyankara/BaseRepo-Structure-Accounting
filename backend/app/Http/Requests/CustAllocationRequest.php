@@ -34,25 +34,21 @@ class CustAllocationRequest extends FormRequest
             'trans_no_from' => [
                 'nullable',
                 'integer',
-                'exists:debtor_trans,trans_no',
             ],
 
             'trans_type_from' => [
                 'nullable',
                 'integer',
-                'exists:debtor_trans,trans_type',
             ],
 
             'trans_no_to' => [
                 'nullable',
                 'integer',
-                'exists:sales_orders,order_no',
             ],
 
             'trans_type_to' => [
                 'nullable',
                 'integer',
-                'exists:sales_orders,trans_type',
             ],
         ];
     }

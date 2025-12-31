@@ -21,18 +21,38 @@ class DebtorTransDetailsRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'debtor_trans_no' => 'required|integer|exists:debtor_trans,trans_no',
-            'debtor_trans_type' => 'required|integer|exists:debtor_trans,trans_type',
-            'stock_id' => 'required|string|exists:stock_master,stock_id',
-            'description' => 'nullable|string',
-            'unit_price' => 'required|numeric',
-            'unit_tax' => 'required|numeric',
-            'quantity' => 'required|numeric',
-            'discount_percent' => 'required|numeric',
-            'standard_cost' => 'required|numeric',
-            'qty_done' => 'required|numeric',
-            'src_id' => 'required|integer|exists:sales_order_details,id'
-        ];
+        if ($this->isMethod('post')) {
+            return [
+                'debtor_trans_no' => 'required|integer|exists:debtor_trans,trans_no',
+                'debtor_trans_type' => 'required|integer|exists:debtor_trans,trans_type',
+                'stock_id' => 'required|string|exists:stock_master,stock_id',
+                'description' => 'nullable|string',
+                'unit_price' => 'required|numeric',
+                'unit_tax' => 'required|numeric',
+                'quantity' => 'required|numeric',
+                'discount_percent' => 'required|numeric',
+                'standard_cost' => 'required|numeric',
+                'qty_done' => 'required|numeric',
+                'src_id' => 'required|integer'
+            ];
+        }
+
+        if ($this->isMethod('put') || $this->isMethod('patch')) {
+            return [
+                'debtor_trans_no' => 'integer|exists:debtor_trans,trans_no',
+                'debtor_trans_type' => 'integer|exists:debtor_trans,trans_type',
+                'stock_id' => 'string|exists:stock_master,stock_id',
+                'description' => 'nullable|string',
+                'unit_price' => 'numeric',
+                'unit_tax' => 'numeric',
+                'quantity' => 'numeric',
+                'discount_percent' => 'numeric',
+                'standard_cost' => 'numeric',
+                'qty_done' => 'numeric',
+                'src_id' => 'integer'
+            ];
+        }
+
+        return [];
     }
 }

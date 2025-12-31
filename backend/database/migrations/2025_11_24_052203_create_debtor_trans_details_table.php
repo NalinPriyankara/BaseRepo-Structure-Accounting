@@ -29,7 +29,7 @@ return new class extends Migration
             $table->foreign('debtor_trans_no')->references('trans_no')->on('debtor_trans')->onDelete('cascade');
             $table->foreign('debtor_trans_type')->references('trans_type')->on('debtor_trans')->onDelete('cascade');
             $table->foreign('stock_id')->references('stock_id')->on('stock_master')->onDelete('restrict');
-            $table->foreign('src_id')->references('id')->on('sales_order_details')->onDelete('cascade');
+           // $table->foreign('src_id')->references('id')->on('sales_order_details')->onDelete('cascade');
         });
     }
 
