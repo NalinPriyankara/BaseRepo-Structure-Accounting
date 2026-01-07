@@ -98,6 +98,8 @@ use App\Repositories\All\PaymentType\PaymentTypeInterface;
 use App\Repositories\All\PaymentType\PaymentTypeRepository;
 use App\Repositories\All\PurchasingPricing\PurchasingPricingInterface;
 use App\Repositories\All\PurchasingPricing\PurchasingPricingRepository;
+use App\Repositories\All\PurchData\PurchDataInterface;
+use App\Repositories\All\PurchData\PurchDataRepository;
 use App\Repositories\All\PurchOrderDetails\PurchOrderDetailsInterface;
 use App\Repositories\All\PurchOrderDetails\PurchOrderDetailsRepository;
 use App\Repositories\All\PurchOrders\PurchOrdersInterface;
@@ -264,6 +266,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(WOIssuesInterface::class, WOIssuesRepository::class);
         $this->app->bind(WOIssueItemsInterface::class, WOIssueItemsRepository::class);
         $this->app->bind(WOCostingInterface::class, WOCostingRepository::class);
+        $this->app->bind(PurchDataInterface::class, PurchDataRepository::class);
     }
 
     /**
