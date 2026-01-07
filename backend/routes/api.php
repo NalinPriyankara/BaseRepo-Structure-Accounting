@@ -62,6 +62,7 @@ use App\Http\Controllers\DepreciationMethodController;
 use App\Http\Controllers\JournalController;
 use App\Http\Controllers\LocStockController;
 use App\Http\Controllers\PurchasingPricingController;
+use App\Http\Controllers\PurchDataController;
 use App\Http\Controllers\PurchOrderDetailsController;
 use App\Http\Controllers\PurchOrdersController;
 use App\Http\Controllers\RefLinesController;
@@ -229,6 +230,7 @@ Route::apiResource('grn-batch', GrnBatchController::class);
 Route::apiResource('grn-items', GrnItemsController::class);
 Route::apiResource('supp-invoice-items', SuppInvoiceItemsController::class);
 Route::apiResource('supp-allocations', SuppAllocationsController::class);
+Route::apiResource('purch-data', PurchDataController::class);
 
 Route::prefix('backups')->group(function () {
     Route::get('/', [BackupController::class, 'index']);

@@ -150,4 +150,9 @@ class StockMaster extends Model
     {
         return $this->hasMany(WOIssueItem::class, 'stock_id', 'stock_id');
     }
+
+    public function purchData()
+    {
+        return $this->hasMany(PurchData::class, 'stock_id', 'stock_id');
+    }
 }

@@ -87,4 +87,9 @@ class Supplier extends Model
     {
         return $this->hasMany(SuppAllocation::class, 'person_id', 'supplier_id');
     }
+
+    public function purchData()
+    {
+        return $this->hasMany(PurchData::class, 'supplier_id', 'supplier_id');
+    }
 }
