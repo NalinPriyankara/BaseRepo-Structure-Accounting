@@ -77,6 +77,7 @@ use App\Http\Controllers\SuppAllocationsController;
 use App\Http\Controllers\SuppInvoiceItemsController;
 use App\Http\Controllers\SuppTransController;
 use App\Http\Controllers\TaxAlgorithmController;
+use App\Http\Controllers\TransTaxDetailController;
 use App\Http\Controllers\TransTypesController;
 use App\Http\Controllers\WOCostingController;
 use App\Http\Controllers\WOIssueItemsController;
@@ -280,3 +281,5 @@ Route::get(
     'wo-costing/workorder/{workorderId}',
     [WOCostingController::class, 'byWorkorder']
 );
+
+Route::apiResource('trans-tax-details', TransTaxDetailController::class);
