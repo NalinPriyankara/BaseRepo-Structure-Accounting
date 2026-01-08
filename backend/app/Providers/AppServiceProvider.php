@@ -154,6 +154,8 @@ use App\Repositories\All\TaxGroupItem\TaxGroupItemInterface;
 use App\Repositories\All\TaxGroupItem\TaxGroupItemRepository;
 use App\Repositories\All\TaxType\TaxTypeInterface;
 use App\Repositories\All\TaxType\TaxTypeRepository;
+use App\Repositories\All\TransTaxDetail\TransTaxDetailInterface;
+use App\Repositories\All\TransTaxDetail\TransTaxDetailRepository;
 use App\Repositories\All\TransTypes\TransTypesInterface;
 use App\Repositories\All\TransTypes\TransTypesRepository;
 use Illuminate\Support\ServiceProvider;
@@ -267,6 +269,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(WOIssueItemsInterface::class, WOIssueItemsRepository::class);
         $this->app->bind(WOCostingInterface::class, WOCostingRepository::class);
         $this->app->bind(PurchDataInterface::class, PurchDataRepository::class);
+        $this->app->bind(TransTaxDetailInterface::class, TransTaxDetailRepository::class);
     }
 
     /**
