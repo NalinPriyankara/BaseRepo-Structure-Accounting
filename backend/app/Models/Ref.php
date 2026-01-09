@@ -10,11 +10,12 @@ class Ref extends Model
     use HasFactory;
 
     protected $table = 'refs';
-    protected $primaryKey = 'id';
-    public $incrementing = true;
+    protected $primaryKey = null;
+    public $incrementing = false;
     protected $keyType = 'int';
 
     protected $fillable = [
+        'id',
         'type',
         'reference',
     ];
