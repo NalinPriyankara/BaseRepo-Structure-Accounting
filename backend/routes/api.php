@@ -65,6 +65,7 @@ use App\Http\Controllers\PurchasingPricingController;
 use App\Http\Controllers\PurchDataController;
 use App\Http\Controllers\PurchOrderDetailsController;
 use App\Http\Controllers\PurchOrdersController;
+use App\Http\Controllers\RecurrentInvoiceController;
 use App\Http\Controllers\RefLinesController;
 use App\Http\Controllers\RefsController;
 use App\Http\Controllers\SalesOrderDetailsController;
@@ -283,3 +284,4 @@ Route::get(
 );
 
 Route::apiResource('trans-tax-details', TransTaxDetailController::class);
+Route::apiResource('recurrent-invoices', RecurrentInvoiceController::class);

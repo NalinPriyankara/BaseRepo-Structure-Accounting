@@ -104,6 +104,8 @@ use App\Repositories\All\PurchOrderDetails\PurchOrderDetailsInterface;
 use App\Repositories\All\PurchOrderDetails\PurchOrderDetailsRepository;
 use App\Repositories\All\PurchOrders\PurchOrdersInterface;
 use App\Repositories\All\PurchOrders\PurchOrdersRepository;
+use App\Repositories\All\RecurrentInvoice\RecurrentInvoiceInterface;
+use App\Repositories\All\RecurrentInvoice\RecurrentInvoiceRepository;
 use App\Repositories\All\Reflines\ReflinesInterface;
 use App\Repositories\All\Reflines\ReflinesRepository;
 use App\Repositories\All\Refs\RefsInterface;
@@ -270,6 +272,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(WOCostingInterface::class, WOCostingRepository::class);
         $this->app->bind(PurchDataInterface::class, PurchDataRepository::class);
         $this->app->bind(TransTaxDetailInterface::class, TransTaxDetailRepository::class);
+        $this->app->bind(RecurrentInvoiceInterface::class, RecurrentInvoiceRepository::class);
     }
 
     /**

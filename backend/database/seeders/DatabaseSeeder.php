@@ -43,6 +43,7 @@ class DatabaseSeeder extends Seeder
             InvoiceIdentificationsSeeder::class,
             DepreciationPeriodsSeeder::class,
             DepreciationMethodSeeder::class,
+            SalesGroupSeeder::class,
           //  SysPrefsSeeder::class,
         ]);
     }
