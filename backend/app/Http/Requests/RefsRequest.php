@@ -22,8 +22,9 @@ class RefsRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'id' => 'required|integer|min:0',
             'type' => 'required|integer|min:0',
-            'reference' => 'required|string|max:100',
+            'reference' => 'required|string',
         ];
     }
 }
